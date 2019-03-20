@@ -12,9 +12,12 @@ export default class Form extends Component {
       forms: {
         ME0: { // === event.target.dataSet.modelName
           name: '',
-          properties: [
-            {name: 'propname', type: 'string'},
-          ]
+          properties: {
+            PE0: {
+              name: 'property',
+              type: 'string'
+            }
+          }
         }
       }
     };
