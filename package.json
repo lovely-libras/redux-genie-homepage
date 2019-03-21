@@ -24,6 +24,7 @@
     "file-saver": "^2.0.1",
     "nodemon": "^1.18.10",
     "react": "^16.8.4",
+    "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.4.0",

@@ -2,25 +2,22 @@ import React, { Component } from "react";
 import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
-import FileSaver from "file-saver";
 import SubmitPage from "./SubmitPage";
 
-const dummyProps = {
-  fields: [
-    {
-      crud: true,
-      extraActions: "flyFurther, flyHigher",
-      name: "Ducks",
-      properties: [{ Feathers: "string" }, { Quacks: "boolean" }]
-    },
-    {
-      crud: true,
-      extraActions: "oneLiners, mutate",
-      name: "Terminator",
-      properties: [{Model: "number"}, {isBack: "boolean"}]
-    }
-  ]
-};
+const dummyProps = [
+  {
+    crud: true,
+    extraActions: "flyFurther, flyHigher",
+    name: "Ducks",
+    properties: [{ Feathers: "string" }, { Quacks: "boolean" }]
+  },
+  {
+    crud: false,
+    extraActions: "oneLiners, mutate",
+    name: "Terminator",
+    properties: [{ Model: "number" }, { isBack: "boolean" }]
+  }
+];
 
 export default class FormContainer extends Component {
   constructor() {
@@ -34,12 +31,11 @@ export default class FormContainer extends Component {
         crud: false,
         extraActions: ""
       },
-      readyToSubmit: true
+      readyToSubmit: true,
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
     this.handleAddCurrentModel = this.handleAddCurrentModel.bind(this);
-    this.handleCreateFile = this.handleCreateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStage = this.handleStage.bind(this);
   }
@@ -99,23 +95,6 @@ export default class FormContainer extends Component {
     });
   }
 
-  handleCreateFile() {
-    event.preventDefault();
-    console.log(this.state);
-    let file = new File(
-      [
-        [`Structure: ${this.state.file_structure}\n`],
-        ["\n"],
-        ["Models:\n"],
-        [`  - ${this.state.model}:\n`],
-        [`    - ${this.state.property_name}: ${this.state.property}`]
-      ],
-      "lamp.config.yml",
-      { type: "text/plain;charset=utf-8" }
-    );
-    FileSaver.saveAs(file);
-  }
-
   render() {
     let toRender = [
       <StageOne handleStage={this.handleStage} handleName={this.handleName} />,
@@ -130,11 +109,13 @@ export default class FormContainer extends Component {
     ];
     let { stage } = this.state;
     return (
-      <div>
+      <div className="form-container">
         {this.state.readyToSubmit ? (
           <SubmitPage data={dummyProps} />
         ) : (
-          <form>{toRender[stage - 1]}</form>
+          <form className="staged-form" autoComplete="off">
+            {toRender[stage - 1]}
+          </form>
         )}
       </div>
     );

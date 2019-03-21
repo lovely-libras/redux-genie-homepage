@@ -4,7 +4,7 @@ import FormContainer from './components/FormContainer';
 
 const App = () => {
   return (
-    <div className="yml_form_container">
+    <div className="app-container">
       <Navbar />
       <FormContainer />
     </div>
