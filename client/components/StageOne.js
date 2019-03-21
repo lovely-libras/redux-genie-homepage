@@ -29,7 +29,7 @@ export default class FormContainer extends Component {
           onChange={(event) => this.handleChange(event)}
           type="text"
           name="name"
-          placeholder="User, Product, etc"
+          placeholder="Ducks, Geese, etc"
         />
         <button onClick={() => this.handleNext(event)}>Next</button>
       </div>
