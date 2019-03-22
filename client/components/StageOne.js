@@ -23,7 +23,7 @@ export default class FormContainer extends Component {
 
   render() {
     return (
-      <div id="stage-one-container">
+      <div id="stage-one-container" className="form-style">
         <h1 id="stage-one-header">Model Name</h1>
         <span id="stage-one-underline">
         </span>
@@ -35,7 +35,7 @@ export default class FormContainer extends Component {
             placeholder="Ducks, Geese, etc"
             required
           />
-        <button onClick={() => this.handleNext(event)}>Next</button>
+        <button className="btn" onClick={() => this.handleNext(event)}>Next</button>
       </div>
     );
   }

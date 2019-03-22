@@ -21,10 +21,7 @@ export default class StageTwo extends Component {
     event.preventDefault();
     const { handleProperties, handleStage } = this.props;
     const { property_name, property_value } = this.state;
-
-    let obj = {};
-    obj[property_name] = property_value;
-    handleProperties(obj);
+    handleProperties(property_name, property_value);
     handleStage();
   }
 
@@ -32,17 +29,14 @@ export default class StageTwo extends Component {
     event.preventDefault();
     const { handleProperties, handleStage } = this.props;
     const { property_name, property_value } = this.state;
-
-    let obj = {};
-    obj[property_name] = property_value;
-    handleProperties(obj);
+    handleProperties(property_name, property_value);
     handleStage(0);
     this.setState({ property_name: "", property_value: "" });
   }
 
   render() {
     return (
-      <div id="stage-two-container">
+      <div id="stage-two-container" className="form-style">
         <h1>Properties</h1>
         <div id="stage-two-input">
           <input
@@ -67,10 +61,10 @@ export default class StageTwo extends Component {
           </select>
         </div>
         <div id="stage-two-buttons">
-          <button onClick={() => this.handleAdd(event)}>
+          <button onClick={() => this.handleAdd(event)} className="btn">
             Add Another Property
           </button>
-          <button onClick={() => this.handleNext(event)}>Next</button>
+          <button className="btn" onClick={() => this.handleNext(event)}>Next</button>
         </div>
       </div>
     );

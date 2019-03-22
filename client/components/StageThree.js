@@ -21,12 +21,14 @@ export default class StageThree extends Component {
 
   render() {
     return (
-      <div onChange={() => this.handleChange(event)} id="stage-three-container">
+      <div
+        onChange={() => this.handleChange(event)}
+        id="stage-three-container"
+        className="form-style"
+      >
         <h1>Extras</h1>
         <div id="stage-three-crud">
-          <label name="crud">
-            CRUD for Actions?
-          </label>
+          <label name="crud">CRUD for Actions?</label>
           <input name="crud" type="checkbox" />
         </div>
         <div id="stage-three-actions">
@@ -37,14 +39,11 @@ export default class StageThree extends Component {
             </span>
           </label>
           <span />
-          <input
-            type="text"
-            name="extraActions"
-            placeholder="flyTogether"
-          />
+          <input type="text" name="extraActions" placeholder="flyTogether" />
         </div>
         <div id="stage-three-buttons">
           <button
+            className="btn"
             onClick={() =>
               this.props.addModel(
                 event,
@@ -56,6 +55,7 @@ export default class StageThree extends Component {
             Add another model!
           </button>
           <button
+            className="btn"
             onClick={() =>
               this.props.handleSubmit(
                 event,

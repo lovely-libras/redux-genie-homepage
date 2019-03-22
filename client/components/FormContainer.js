@@ -3,6 +3,11 @@ import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
 import SubmitPage from "./SubmitPage";
+import brace from "brace";
+import AceEditor from "react-ace";
+
+import "brace/mode/yaml";
+import "brace/theme/solarized_light";
 
 const dummyProps = [
   {
@@ -23,14 +28,9 @@ export default class FormContainer extends Component {
   constructor() {
     super();
     this.state = {
-      fields: [],
+      fields: [`Models: \n \n`],
       stage: 1,
-      currentModel: {
-        name: "",
-        properties: [],
-        crud: false,
-        extraActions: ""
-      },
+      text: "",
       readyToSubmit: false,
     };
     this.handleName = this.handleName.bind(this);
@@ -38,61 +38,85 @@ export default class FormContainer extends Component {
     this.handleAddCurrentModel = this.handleAddCurrentModel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStage = this.handleStage.bind(this);
+    this.handleStructure = this.handleStructure.bind(this);
+    this.handleText = this.handleText.bind(this);
   }
 
   handleStage(num = 1) {
     this.setState({ stage: this.state.stage + num });
   }
 
-  handleName(ele) {
-    this.setState(
-      { currentModel: { ...this.state.currentModel, name: ele } },
-      () => console.log(this.state)
-    );
+  handleName(name) {
+    const newModel = ` - ${name}:\n\n`;
+    this.setState({
+      fields: [...this.state.fields, newModel]
+    });
   }
 
-  handleProperties(property) {
-    let { properties } = this.state.currentModel;
-    this.setState(
-      {
-        currentModel: {
-          ...this.state.currentModel,
-          properties: properties.concat(property)
-        }
-      },
-      () => console.log(this.state)
-    );
+  handleText() {
+    this.setState({ text: this.state.fields.join("") });
+  }
+
+  handleProperties(name, value) {
+    const newProperty = `      - ${name}: ${value}\n`;
+    this.setState({
+      fields: [...this.state.fields, newProperty]
+    });
   }
 
   handleAddCurrentModel(event, crud, extraActions) {
     event.preventDefault();
-    let addToFields = this.state.currentModel;
-    addToFields.crud = crud;
-    addToFields.extraActions = extraActions;
-    this.setState(
-      {
-        stage: 1,
-        fields: this.state.fields.concat(addToFields),
-        currentModel: {
-          name: "",
-          properties: [],
-          crud: false,
-          extraActions: ""
-        }
-      },
-      () => console.log(this.state)
-    );
+
+    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
+
+    let actions = `\n     Actions:\n`;
+
+    if (extraActions.length) {
+      let actions = extraActions.split(" ").map(action => {
+        return `      - ${action}\n`;
+      });
+      actions = actions.concat(actions);
+    }
+
+    this.setState({
+      stage: 1,
+      fields: [...this.state.fields, crud, actions, '\n']
+    });
   }
 
   handleSubmit(event, crud, extraActions) {
     event.preventDefault();
-    let addToFields = this.state.currentModel;
-    addToFields.crud = crud;
-    addToFields.extraActions = extraActions;
+
+    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
+
+    let header = `\n    Actions:\n`;
+
+    if (extraActions.length) {
+      let actions = extraActions.split(" ").map(action => {
+        return `      - ${action}\n`;
+      });
+
+      header = header.concat(actions);
+    }
+
     this.setState({
       readyToSubmit: true,
-      fields: this.state.fields.concat(addToFields)
+      fields: [...this.state.fields, crud, header]
     });
+  }
+
+  handleStructure(event) {
+    event.preventDefault();
+    if(this.state.fields[0].startsWith('Structure:')){
+      let splice = this.state.fields.splice(0)
+      splice[0] = `Structure: ${event.target.value}\n\n`
+      this.setState({ fields: splice })
+    } else {
+      let header = `Structure: ${event.target.value}\n\n`;
+      this.setState({
+        fields: [header, ...this.state.fields]
+      });
+    }
   }
 
   render() {
@@ -107,16 +131,34 @@ export default class FormContainer extends Component {
         handleSubmit={this.handleSubmit}
       />
     ];
+
     let { stage } = this.state;
+
+    const text = this.state.fields.join("");
+
     return (
       <div className="form-container">
         {this.state.readyToSubmit ? (
-          <SubmitPage data={this.state.fields} />
+          <SubmitPage
+            data={this.state.fields}
+            handleStructure={this.handleStructure}
+          />
         ) : (
           <form className="staged-form" autoComplete="off">
             {toRender[stage - 1]}
           </form>
         )}
+        <AceEditor
+          mode="yaml"
+          theme="solarized_light"
+          id="submit-page-right"
+          value={text}
+          width={'25%'}
+          height={'75%'}
+          editorProps={{ $blockScrolling: true }}
+          readOnly={true}
+          fontSize={18}
+        />
       </div>
     );
   }
