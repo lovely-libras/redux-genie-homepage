@@ -31,7 +31,7 @@ export default class FormContainer extends Component {
         crud: false,
         extraActions: ""
       },
-      readyToSubmit: true,
+      readyToSubmit: false,
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
@@ -111,7 +111,7 @@ export default class FormContainer extends Component {
     return (
       <div className="form-container">
         {this.state.readyToSubmit ? (
-          <SubmitPage data={dummyProps} />
+          <SubmitPage data={this.state.fields} />
         ) : (
           <form className="staged-form" autoComplete="off">
             {toRender[stage - 1]}
