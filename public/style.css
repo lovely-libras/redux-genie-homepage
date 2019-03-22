@@ -4,6 +4,8 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
+
+
 .tooltip {
   position: relative
 }
@@ -26,6 +28,11 @@ body {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.code-background {
+  background-color: rgb(248, 242, 255);
+  padding: 1em;
 }
 
 input {
@@ -65,6 +72,11 @@ input:valid {
   font-weight: 100;
 }
 
+.nav-link{
+  color: white;
+  margin-right: 1.5em;
+}
+
 #nav-left{
   display: flex;
   align-items: center;
@@ -82,7 +94,7 @@ input:valid {
 }
 
 #npm-logo{
-  padding-top: 2vh;
+  padding-top: 2.5vh;
   height: 6vh;
   margin-right: 1.5vw;
 }
@@ -97,7 +109,18 @@ input:valid {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#documenation-container{
+  width: 40%;
+  padding: 2em;
+  border-radius: 5px;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-container{
