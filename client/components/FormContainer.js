@@ -34,7 +34,7 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 3,
+      stage: 1,
       text: "",
       readyToSubmit: false
     };
