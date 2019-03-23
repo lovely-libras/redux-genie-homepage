@@ -1,20 +1,256 @@
 body {
-  background-color: purple;
+  background-color: rgb(224, 213, 228);
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+
+.tooltip {
+  position: relative
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(224, 213, 228);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 1px solid rgb(128, 39, 128);
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: rgb(243, 238, 245);
+  text-align: center;
+}
+
+input:focus{
+  outline: none;
+  background-color: rgb(202, 164, 202);
+  color: rgb(128, 39, 128);
+  border: none;
+}
+
+input:valid {
+  color: rgb(128, 39, 128);
+  /* border-bottom: 2px solid rgb(128, 39, 128); */
 }
 
 .nav {
-  background-color: yellow;
+  background-color: rgb(128, 39, 128);
   color: white;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 3px rgb(85, 85, 85);
 }
 
-.yml_form_container {
-
+.nav h1 {
+  margin-left: 10px;
 }
 
-.yml_form {
+.app-container{
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
-  height: 20vh;
-  width: 20vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
+
+.form-container{
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.staged-form{
+  text-align: center;
+  width: 30%;
+  height: 75%;
+  margin-top: 4em;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 1%;;
+  background-color: rgb(243, 238, 245);
+  box-shadow: 0px 2px 2px  rgb(175, 175, 175);
+}
+
+#stage-one-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 50%;
+  width: 100%;
+}
+
+#stage-one-header {
+  width: 60%;
+  margin-bottom: 0px;
+  font-weight: 100;
+}
+
+#stage-one-underline{
+  width: 30%;
+}
+
+#stage-one-input {
+  font-size: 1.33em;
+  width: 60%;
+}
+
+#stage-one-container button{
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(75, 75, 75);
+}
+
+#stage-two-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75%;
+  width: 100%;
+}
+
+#stage-two-input{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5%;
+  margin-bottom: 15%;
+}
+
+#stage-two-container h1{
+  font-weight: 100;
+}
+
+#stage-two-input input {
+  width: 30%;
+  font-size: 1.33em;
+}
+
+#stage-two-input select{
+  border: 0;
+  background-color: rgb(202, 164, 202);
+}
+
+#stage-two-inputselect:focus {
+  outline: none;
+
+}
+
+#stage-two-buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#stage-two-buttons button{
+  border: none;
+  padding: 6px;
+  font-weight: bold;
+  color: rgb(75, 75, 75);
+}
+
+#stage-three-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75%;
+  width: 100%;
+}
+
+#stage-three-container h1{
+  font-weight: 100;
+}
+
+#stage-three-crud{
+  margin-top: 10%;
+}
+
+#stage-three-crud label{
+  margin-right: 25px;
+}
+
+#stage-three-actions{
+  margin-top: 15%;
+}
+
+#stage-three-actions input{
+  margin-top: 5%;
+  width: 30%;
+  font-size: 1.33em;
+}
+
+#stage-three-buttons{
+  margin-top: 15%;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#stage-three-buttons button{
+  border: none;
+  padding: 6px;
+  font-weight: bold;
+  color: rgb(75, 75, 75);
+}
+
+#submit-page-container{
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#submit-left-inputs-container{
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 1%;;
+  background-color: rgb(243, 238, 245);
+  box-shadow: 0px 2px 2px  rgb(175, 175, 175);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+}
+
+#submit-page-left{
+  width: 30%;
+}
+
+#submit-left-inputs-container h3{
+  font-weight: 100;
+  margin: 0;
+}
+
+#submit-left-inputs{
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+}
+/* 
+#submit-left-buttons{
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 1%;;
+  background-color: rgb(243, 238, 245);
+  box-shadow: 0px 2px 2px  rgb(175, 175, 175);
+  margin-top: 25%;
+} */

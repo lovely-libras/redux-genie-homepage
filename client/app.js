@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Form from './components/Form';
+import FormContainer from './components/FormContainer';
 
 const App = () => {
   return (
-    <div className="yml_form_container">
+    <div className="app-container">
       <Navbar />
-      <Form />
+      <FormContainer />
     </div>
   );
 };
