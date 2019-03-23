@@ -4,6 +4,9 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
+a:-webkit-any-link{
+  color: white;
+}
 
 
 .tooltip {
@@ -35,12 +38,18 @@ body {
   padding: 1em;
 }
 
+code{
+  word-wrap: break-word;
+}
+
 input {
   border-top: none;
   border-left: none;
   border-right: none;
   background-color: rgb(243, 238, 245);
+  border-radius: 2px;
   text-align: center;
+  transition: background-color 1s ease-in-out;
 }
 
 input:focus{
@@ -50,11 +59,21 @@ input:focus{
   /* color: rgb(128, 39, 128); */
   color: rgb(73, 45, 139);
   border: none;
+  transition: background-color 1s ease-in-out;
 }
 
 input:valid {
   color: rgb(73, 45, 139);
   /* border-bottom: 2px solid rgb(128, 39, 128); */
+}
+
+.invalid-input{
+  visibility: visible;
+  color: rgb(255, 91, 91);
+}
+
+.valid-input{
+  visibility: hidden;
 }
 
 .nav {
@@ -121,6 +140,7 @@ input:valid {
   margin-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
+  animation: fadein 2s;
 }
 
 .form-container{
@@ -144,13 +164,18 @@ input:valid {
   height: 75%;
 }
 
+#configure-editor{
+  animation: fadein 2s;
+}
+
 #stage-one-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 50%;
+  height: 45%;
   width: 100%;
+  animation: fadein 1s ease-in;
 }
 
 #stage-one-header {
@@ -172,8 +197,9 @@ input:valid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 75%;
+  height: 50%;
   width: 100%;
+  animation: fadein 1s ease-in;
 }
 
 #stage-two-input{
@@ -182,7 +208,7 @@ input:valid {
   flex-direction: row;
   justify-content: space-around;
   margin-top: 5%;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
 }
 
 #stage-two-container h1{
@@ -209,6 +235,7 @@ input:valid {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 5%;
 }
 
 #stage-three-container{
@@ -217,6 +244,7 @@ input:valid {
   align-items: center;
   height: 75%;
   width: 100%;
+  animation: fadein 2s;
 }
 
 #stage-three-container h1{
@@ -242,7 +270,8 @@ input:valid {
 }
 
 #stage-three-buttons{
-  margin-top: 15%;
+  margin-top: 5%;
+  margin-bottom: 10%;
   width: 80%;
   display: flex;
   justify-content: space-around;
@@ -263,6 +292,7 @@ input:valid {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  animation: fadein 1s;
 }
 
 #submit-left-inputs-container h3{
@@ -305,8 +335,69 @@ input:valid {
 .btn {
   cursor: pointer;
   border: none;
-  padding: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
   font-weight: bold;
   color: rgb(241, 239, 245);
   background-color: rgb(177, 164, 202);
+  border-radius: 2px;
+  box-shadow: 0px 1px 2px  rgb(175, 175, 175);
+  transition: background-color 1s ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgb(135, 115, 172);
+  transition: background-color 1s ease-in-out;
+}
+
+
+@media (max-width: 12450px) {
+
+  #genie-logo{
+    padding-left: 0;
+  }
+
+  #documenation-container{
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
+  .staged-form{
+    width: 30%;
+  }
+
+  #brace-editor{
+    width: 100%;
+  }
+
+  .form-container{
+    margin-left: 0;
+  }
+
+  #stage-one-container{
+    height: 50%;
+  }
+
+  #stage-two-container{
+    height: 60%;
+  }
+
+  #stage-three-container{
+    height: 100%;
+  }
+
+  #submit-left-button{
+    height: 40%;
+  }
+
+  #submit-left-inputs-container{
+    height: 40%;
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

@@ -24,14 +24,19 @@ const dummyProps = [
   }
 ];
 
+const style = {
+  animation: "fadein 1s",
+  boxShadow: "0px 2px 2px  rgb(175, 175, 175)"
+};
+
 export default class FormContainer extends Component {
   constructor() {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 1,
+      stage: 3,
       text: "",
-      readyToSubmit: false,
+      readyToSubmit: false
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
@@ -64,53 +69,47 @@ export default class FormContainer extends Component {
     });
   }
 
-  handleAddCurrentModel(event, crud, extraActions) {
-    event.preventDefault();
-
+  handleAddCurrentModel(crud, extraActions) {
     !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
 
-    let actions = `\n     Actions:\n`;
-
+    let header = `\n     Actions:\n`;
+    let actions = ``;
     if (extraActions.length) {
-      let actions = extraActions.split(" ").map(action => {
+      let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });
-      actions = actions.concat(actions);
+      actions = fields.join("");
     }
 
     this.setState({
       stage: 1,
-      fields: [...this.state.fields, crud, actions, '\n']
+      fields: [...this.state.fields, crud, header, actions, "\n"]
     });
   }
 
-  handleSubmit(event, crud, extraActions) {
-    event.preventDefault();
-
+  handleSubmit(crud, extraActions) {
     !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
 
-    let header = `\n    Actions:\n`;
-
+    let header = `\n     Actions:\n`;
+    let actions = ``;
     if (extraActions.length) {
-      let actions = extraActions.split(" ").map(action => {
+      let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });
-
-      header = header.concat(actions);
+      actions = fields.join("");
     }
 
     this.setState({
       readyToSubmit: true,
-      fields: [...this.state.fields, crud, header]
+      fields: [...this.state.fields, crud, header, actions, "\n"]
     });
   }
 
   handleStructure(event) {
-    event.preventDefault();
-    if(this.state.fields[0].startsWith('Structure:')){
-      let splice = this.state.fields.splice(0)
-      splice[0] = `Structure: ${event.target.value}\n\n`
-      this.setState({ fields: splice })
+    if (this.state.fields[0].startsWith("Structure:")) {
+      let splice = this.state.fields.splice(0);
+      splice[0] = `Structure: ${event.target.value}\n\n`;
+      this.setState({ fields: splice });
     } else {
       let header = `Structure: ${event.target.value}\n\n`;
       this.setState({
@@ -151,13 +150,13 @@ export default class FormContainer extends Component {
         <AceEditor
           mode="yaml"
           theme="solarized_light"
-          id="submit-page-right"
+          style={style}
           value={text}
-          width={'25%'}
-          height={'75%'}
+          width={"25%"}
+          height={"75%"}
           editorProps={{ $blockScrolling: true }}
           readOnly={true}
-          fontSize={18}
+          fontSize={17}
         />
       </div>
     );

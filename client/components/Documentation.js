@@ -126,7 +126,7 @@ Models:
         specific slice of state for an existing project.
       </p>
 
-      <h2 id="storedeclarationatthebeginningofaproject">
+      <h2>
         Store Declaration at the beginning of a project
       </h2>
 
@@ -153,7 +153,7 @@ Models:
         <code>File Structure: Rails || Ducks</code>
       </pre>
 
-      <h3 id="railsstyle">Rails-Style</h3>
+      <h3>Rails-Style</h3>
 
       <blockquote>
         <p>
@@ -186,7 +186,7 @@ Models:
       </p>
 
       <pre>
-        <code class="bash language-bash">genie generate store</code>
+        <code>genie generate store</code>
       </pre>
 
       <p>Output file structure:</p>
@@ -210,17 +210,17 @@ Models:
         </div>
       </pre>
 
-      <h3 id="ducksstyle">Ducks-Style</h3>
+      <h3>Ducks-Style</h3>
 
       <blockquote>
         <p>“Ducks”: separate folders per feature or domain</p>
       </blockquote>
 
-      <h3 id="options">Options</h3>
+      <h3>Options</h3>
 
       <p>Options to customize the generate call.</p>
 
-      <h4 id="crudfalse">CRUD = false</h4>
+      <h4>CRUD = false</h4>
 
       <p>
         Each model is automatically generated with CRUD methods. These can be
@@ -239,7 +239,7 @@ Models:
         fontSize={16}
       />
 
-      <h4 id="thunks">Thunks</h4>
+      <h4>Thunks</h4>
 
       <p>Thunks can optionally be included in the same file as the actions: </p>
       <br />
@@ -253,7 +253,7 @@ Models:
         below).
       </p>
 
-      <h4 id="logging">Logging</h4>
+      <h4>Logging</h4>
 
       <p>
         Redux logger is wired into the store by default, but can be excluded.
@@ -263,7 +263,7 @@ Models:
         <code>Logging: false</code>
       </pre>
 
-      <h4 id="normalizr">Normalizr</h4>
+      <h4>Normalizr</h4>
 
       <p>
         While this will obviously be specific to your use case, the genie can
@@ -274,7 +274,7 @@ Models:
         <code>Normalize: Associate:</code>
       </pre>
 
-      <h4 id="exampleoffullconfigurationfile">
+      <h4>
         Example of Full Configuration File:
       </h4>
 
@@ -290,9 +290,9 @@ Models:
         fontSize={16}
       />
 
-      <h2 id="cliinterface">CLI interface</h2>
+      <h2>CLI interface</h2>
 
-      <h4 id="geniegenerate">genie generate</h4>
+      <h4>genie generate</h4>
 
       <p>
         To initialize a project, write the yaml configuration file and call:
@@ -300,12 +300,12 @@ Models:
 
       <pre>
         <br />
-        <code class="bash language-bash" className="code-background">genie generate</code>
+        <code className="code-background">genie generate</code>
         <br />
         <br />
       </pre>
 
-      <h4 id="genieupdate">genie update</h4>
+      <h4>genie update</h4>
 
       <p>
         After the store is initialized, the genie can add to the store in two
@@ -317,7 +317,7 @@ Models:
 
       <pre>
         <br />
-        <code class="bash language-bash" className="code-background">genie update store</code>
+        <code className="code-background">genie update store</code>
         <br />
         <br />
       </pre>
@@ -332,7 +332,7 @@ Models:
         after initial generate.
       </p>
 
-      <h4 id="genieadd">genie add</h4>
+      <h4>genie add</h4>
 
       <p>Add directly from the command line, declaring the same information:</p>
 
@@ -348,7 +348,7 @@ Note: will prompt if the root combiner isn't defined in the yaml file.
 
 options: 
 
---crudless // creates all the connection code without defining any crud methods
+--crudless // create store code without defining any crud methods
 
         eg: genie generate model Dux --crudless
 
@@ -356,7 +356,7 @@ genie generate model <model name> action <action name>
 
         eg: genie generate model Terminator action getIsBack
 
-genie generate thunk <thunk name> <thunk endpoints> (generates additional named thunk) 
+genie generate thunk <thunk name> <thunk endpoints>
 
         eg: genie generate model Lolz
 
@@ -371,7 +371,7 @@ genie generate action <action name> <model assignment> `}
         </div>
       </pre>
 
-      <h4 id="genielistgeniels">genie list ( genie ls )</h4>
+      <h4>genie list ( genie ls )</h4>
 
       <p>genie list store</p>
 
@@ -379,7 +379,7 @@ genie generate action <action name> <model assignment> `}
 
       <pre>
         <div className="code-background">
-          <code class="bash language-bash">
+          <code>
 {`e.g. (Rails-Style)
 
 ├─┬ store
@@ -419,17 +419,17 @@ genie locate <domain name> <file type>
         </div>
       </pre>
 
-      <h4 id="genielamp">genie lamp</h4>
+      <h4>genie lamp</h4>
 
       <p>Prints a sample lamp.config.yml file. </p>
 
-      <h4 id="genieedit">genie edit</h4>
+      <h4>genie edit</h4>
 
       <p>Edit the template files.</p>
 
       <pre>
         <div className="code-background">
-          <code class="bash language-bash">
+          <code>
 {`
 genie edit <File Structure> <file type>
 

@@ -5,10 +5,27 @@ export default class StageThree extends Component {
     super();
     this.state = {
       crud: false,
-      extraActions: ""
+      extraActions: "",
+      errors: false,
+      errorMessage: true
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.checkValidity = this.checkValidity.bind(this);
+  }
+
+  checkValidity(event, button) {
+    event.preventDefault();
+    let {crud, extraActions} = this.state
+    if(extraActions.replace(/\s/g, "").match(/[^a-zA-Z]/g) !== null){
+      this.setState({ errors: true, errorMessage: "Check your format. No special characters or numbers."})
+    } else {
+      button === "submit"
+      ?
+      this.props.handleSubmit(crud, extraActions)
+      :
+      this.props.addModel(crud, extraActions)
+    }
   }
 
   handleChange(event) {
@@ -20,6 +37,7 @@ export default class StageThree extends Component {
   }
 
   render() {
+    const { errors, errorMessage } = this.state;
     return (
       <div
         onChange={() => this.handleChange(event)}
@@ -33,7 +51,7 @@ export default class StageThree extends Component {
         </div>
         <div id="stage-three-actions">
           <label name="extraActions" className="tooltip">
-            List any additional actions, separated by a comma:
+            List any additional actions, separated by a space:
             <span className="tooltiptext">
               The genie grants you three wishes!
             </span>
@@ -41,30 +59,25 @@ export default class StageThree extends Component {
           <span />
           <input type="text" name="extraActions" placeholder="flyTogether" />
         </div>
+          <span className={errors ? "invalid-input" : "valid-input"}>
+            {errorMessage}
+          </span>
         <div id="stage-three-buttons">
           <button
             className="btn"
             onClick={() =>
-              this.props.addModel(
-                event,
-                this.state.crud,
-                this.state.extraActions
-              )
+              this.checkValidity(event, "add")
             }
           >
-            Add another model!
+            ADD ANOTHER MODEL
           </button>
           <button
             className="btn"
             onClick={() =>
-              this.props.handleSubmit(
-                event,
-                this.state.crud,
-                this.state.extraActions
-              )
+              this.checkValidity(event, "submit")
             }
           >
-            Submit
+            SUBMIT
           </button>
         </div>
       </div>
