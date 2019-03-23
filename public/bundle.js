@@ -326,7 +326,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormContainer).call(this));
     _this.state = {
       fields: ["Models: \n \n"],
-      stage: 3,
+      stage: 1,
       text: "",
       readyToSubmit: false
     };
