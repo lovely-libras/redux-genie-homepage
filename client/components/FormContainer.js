@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StageZero from "./StageZero"
 import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
@@ -34,9 +35,9 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 1,
+      stage: 0,
       text: "",
-      readyToSubmit: false
+      readyToSubmit: true
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
@@ -48,7 +49,7 @@ export default class FormContainer extends Component {
   }
 
   handleStage(num = 1) {
-    this.setState({ stage: this.state.stage + num });
+    this.setState({ stage: this.state.stage + num }, () => console.log(this.state.stage));
   }
 
   handleName(name) {
@@ -120,6 +121,7 @@ export default class FormContainer extends Component {
 
   render() {
     let toRender = [
+      <StageZero handleStage={this.handleStage} />,
       <StageOne handleStage={this.handleStage} handleName={this.handleName} />,
       <StageTwo
         handleStage={this.handleStage}
@@ -144,7 +146,7 @@ export default class FormContainer extends Component {
           />
         ) : (
           <form className="staged-form" autoComplete="off">
-            {toRender[stage - 1]}
+            {toRender[stage]}
           </form>
         )}
         <AceEditor

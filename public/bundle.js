@@ -242,18 +242,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormContainer; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _StageOne__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StageOne */ "./client/components/StageOne.js");
-/* harmony import */ var _StageTwo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StageTwo */ "./client/components/StageTwo.js");
-/* harmony import */ var _StageThree__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StageThree */ "./client/components/StageThree.js");
-/* harmony import */ var _SubmitPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubmitPage */ "./client/components/SubmitPage.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _StageZero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StageZero */ "./client/components/StageZero.js");
+/* harmony import */ var _StageOne__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StageOne */ "./client/components/StageOne.js");
+/* harmony import */ var _StageTwo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StageTwo */ "./client/components/StageTwo.js");
+/* harmony import */ var _StageThree__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StageThree */ "./client/components/StageThree.js");
+/* harmony import */ var _SubmitPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SubmitPage */ "./client/components/SubmitPage.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -279,6 +280,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -326,9 +328,9 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormContainer).call(this));
     _this.state = {
       fields: ["Models: \n \n"],
-      stage: 1,
+      stage: 0,
       text: "",
-      readyToSubmit: false
+      readyToSubmit: true
     };
     _this.handleName = _this.handleName.bind(_assertThisInitialized(_this));
     _this.handleProperties = _this.handleProperties.bind(_assertThisInitialized(_this));
@@ -343,9 +345,13 @@ function (_Component) {
   _createClass(FormContainer, [{
     key: "handleStage",
     value: function handleStage() {
+      var _this2 = this;
+
       var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.setState({
         stage: this.state.stage + num
+      }, function () {
+        return console.log(_this2.state.stage);
       });
     }
   }, {
@@ -428,13 +434,15 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var toRender = [react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageOne__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      var toRender = [react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageZero__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        handleStage: this.handleStage
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageOne__WEBPACK_IMPORTED_MODULE_2__["default"], {
         handleStage: this.handleStage,
         handleName: this.handleName
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageTwo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageTwo__WEBPACK_IMPORTED_MODULE_3__["default"], {
         handleStage: this.handleStage,
         handleProperties: this.handleProperties
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageThree__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageThree__WEBPACK_IMPORTED_MODULE_4__["default"], {
         addModel: this.handleAddCurrentModel,
         handleSubmit: this.handleSubmit
       })];
@@ -442,13 +450,13 @@ function (_Component) {
       var text = this.state.fields.join("");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-container"
-      }, this.state.readyToSubmit ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, this.state.readyToSubmit ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
         data: this.state.fields,
         handleStructure: this.handleStructure
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "staged-form",
         autoComplete: "off"
-      }, toRender[stage - 1]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      }, toRender[stage]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_7___default.a, {
         mode: "yaml",
         theme: "solarized_light",
         style: style,
@@ -1043,6 +1051,41 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./client/components/StageZero.js":
+/*!****************************************!*\
+  !*** ./client/components/StageZero.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var StageZero = function StageZero(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-style",
+    id: "stage-zero-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "The Magic Lamp"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "stage-zero-text"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This editor will guide you through creating a configuration file for Redux Genie."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "One model at a time, enter in your models' name and properties. You'll also be asked about CRUD actions types and creators, file structure, and additional middleware."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Make a mistake? Don't worry, you can always edit the file after it's created, just follow the syntax specifications in the comments.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn",
+    id: "lamp-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "lamp-button-image",
+    onClick: function onClick() {
+      return props.handleStage();
+    },
+    src: "https://flaticons.net/gd/makefg.php?i=icons/Miscellaneous/Genie-Lamp.png&r=255&g=255&b=255"
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (StageZero);
+
+/***/ }),
+
 /***/ "./client/components/SubmitPage.js":
 /*!*****************************************!*\
   !*** ./client/components/SubmitPage.js ***!
@@ -1077,6 +1120,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var yamlComments = "\n# Want to edit this file?\n# Be careful! Make sure that models and properties always have a\n# space between the dash and the name. Major fields\n# (Models, Actions, Thunks, CRUD) should all have a colon after them.\n#\n# This is how your file should look:\n#\n# Structure: Ducks\n#\n# Models: \n# \n# - Ducks:\n#\n#      - feathers: number\n#\n#    CRUD: false\n#\n#     Actions:\n#      - migrateSouth\n#      - flyTogether\n#\n";
 
 var SubmitPage =
 /*#__PURE__*/
@@ -1090,21 +1134,39 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SubmitPage).call(this, props));
     _this.state = {
-      file_structure: "Ducks",
-      text: ""
+      file_structure: "",
+      text: "",
+      errors: false,
+      errorMessage: ""
     };
     _this.handleCreateFile = _this.handleCreateFile.bind(_assertThisInitialized(_this));
+    _this.checkValidity = _this.checkValidity.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SubmitPage, [{
+    key: "checkValidity",
+    value: function checkValidity() {
+      if (this.state.file_structure.length === 0) {
+        console.log("first condition");
+        this.setState({
+          errors: true,
+          errorMessage: "Please select a folder structure."
+        });
+      } else {
+        console.log("second condition");
+        this.handleCreateFile();
+      }
+    }
+  }, {
     key: "handleCreateFile",
     value: function handleCreateFile() {
       event.preventDefault();
-      console.log(this.props.data);
+      console.log('trying to create the file');
       var modelFields = this.props.data.map(function (ele) {
         return [ele];
       });
+      modelFields.push([yamlComments]);
       var file = new File(modelFields, "lamp.config.yml", {
         type: "text/plain;charset=utf-8"
       });
@@ -1115,6 +1177,9 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var _this$state = this.state,
+          errors = _this$state.errors,
+          errorMessage = _this$state.errorMessage;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "submit-page-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1141,13 +1206,15 @@ function (_Component) {
         name: "file_structure",
         value: "Rails",
         required: true
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: errors ? "invalid-input" : "valid-input"
+      }, errorMessage)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "submit-left-button",
         className: "form-style"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "I wish for a config file!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
         onClick: function onClick() {
-          return _this2.handleCreateFile(event);
+          return _this2.checkValidity(event);
         },
         id: "lamp-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -52931,7 +52998,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
