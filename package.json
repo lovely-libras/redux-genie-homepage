@@ -22,6 +22,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "file-saver": "^2.0.1",
+    "local-storage": "^1.4.2",
     "nodemon": "^1.18.10",
     "react": "^16.8.4",
     "react-ace": "^6.4.0",
