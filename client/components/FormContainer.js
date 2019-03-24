@@ -6,6 +6,7 @@ import StageThree from "./StageThree";
 import SubmitPage from "./SubmitPage";
 import brace from "brace";
 import AceEditor from "react-ace";
+import ls from 'local-storage'
 
 import "brace/mode/yaml";
 import "brace/theme/solarized_light";
@@ -37,7 +38,7 @@ export default class FormContainer extends Component {
       fields: [`Models: \n \n`],
       stage: 0,
       text: "",
-      readyToSubmit: true
+      readyToSubmit: false
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
@@ -46,28 +47,29 @@ export default class FormContainer extends Component {
     this.handleStage = this.handleStage.bind(this);
     this.handleStructure = this.handleStructure.bind(this);
     this.handleText = this.handleText.bind(this);
+    this.handeLocalStorage = this.handleLocalStorage.bind(this)
   }
 
   handleStage(num = 1) {
-    this.setState({ stage: this.state.stage + num }, () => console.log(this.state.stage));
+    this.setState({ stage: this.state.stage + num });
   }
 
   handleName(name) {
     const newModel = ` - ${name}:\n\n`;
     this.setState({
       fields: [...this.state.fields, newModel]
-    });
+    }, () => ls.set('form', [this.state.stage, this.state.fields]));
   }
 
   handleText() {
-    this.setState({ text: this.state.fields.join("") });
+    this.setState({ text: this.state.fields.join("") }, () => ls.set('form', [this.state.stage, this.state.fields]));
   }
 
   handleProperties(name, value) {
     const newProperty = `      - ${name}: ${value}\n`;
     this.setState({
       fields: [...this.state.fields, newProperty]
-    });
+    }, () => ls.set('form', [this.state.stage, this.state.fields]));
   }
 
   handleAddCurrentModel(crud, extraActions) {
@@ -85,7 +87,7 @@ export default class FormContainer extends Component {
     this.setState({
       stage: 1,
       fields: [...this.state.fields, crud, header, actions, "\n"]
-    });
+    }, () => ls.set('form', [this.state.stage, this.state.fields]));
   }
 
   handleSubmit(crud, extraActions) {
@@ -101,21 +103,37 @@ export default class FormContainer extends Component {
     }
 
     this.setState({
-      readyToSubmit: true,
+      stage: 4,
       fields: [...this.state.fields, crud, header, actions, "\n"]
-    });
+    }, () => ls.set('form', [this.state.stage, this.state.fields]));
   }
 
   handleStructure(event) {
     if (this.state.fields[0].startsWith("Structure:")) {
       let splice = this.state.fields.splice(0);
       splice[0] = `Structure: ${event.target.value}\n\n`;
-      this.setState({ fields: splice });
+      this.setState({ fields: splice, readyToSubmit: true });
     } else {
       let header = `Structure: ${event.target.value}\n\n`;
       this.setState({
+        readyToSubmit: true,
         fields: [header, ...this.state.fields]
-      });
+      }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    }
+  }
+
+  handleLocalStorage(){
+    const [stage, fields] = ls.get('form')
+    if(stage > this.state.stage){
+      this.setState({ stage, fields })
+    }
+  }
+
+
+  componentDidMount() {
+    const data = ls.get("form");
+    if (data !== null) {
+      this.handleLocalStorage();
     }
   }
 
@@ -124,6 +142,7 @@ export default class FormContainer extends Component {
       <StageZero handleStage={this.handleStage} />,
       <StageOne handleStage={this.handleStage} handleName={this.handleName} />,
       <StageTwo
+        handleLocalStorage={this.handeLocalStorage}
         handleStage={this.handleStage}
         handleProperties={this.handleProperties}
       />,
@@ -139,8 +158,9 @@ export default class FormContainer extends Component {
 
     return (
       <div className="form-container">
-        {this.state.readyToSubmit ? (
+        {stage > 3 ? (
           <SubmitPage
+            ready={this.state.readyToSubmit}
             data={this.state.fields}
             handleStructure={this.handleStructure}
           />

@@ -251,11 +251,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -280,6 +290,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -330,7 +341,7 @@ function (_Component) {
       fields: ["Models: \n \n"],
       stage: 0,
       text: "",
-      readyToSubmit: true
+      readyToSubmit: false
     };
     _this.handleName = _this.handleName.bind(_assertThisInitialized(_this));
     _this.handleProperties = _this.handleProperties.bind(_assertThisInitialized(_this));
@@ -339,47 +350,58 @@ function (_Component) {
     _this.handleStage = _this.handleStage.bind(_assertThisInitialized(_this));
     _this.handleStructure = _this.handleStructure.bind(_assertThisInitialized(_this));
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
+    _this.handeLocalStorage = _this.handleLocalStorage.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(FormContainer, [{
     key: "handleStage",
     value: function handleStage() {
-      var _this2 = this;
-
       var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.setState({
         stage: this.state.stage + num
-      }, function () {
-        return console.log(_this2.state.stage);
       });
     }
   }, {
     key: "handleName",
     value: function handleName(name) {
+      var _this2 = this;
+
       var newModel = " - ".concat(name, ":\n\n");
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newModel])
+      }, function () {
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this2.state.stage, _this2.state.fields]);
       });
     }
   }, {
     key: "handleText",
     value: function handleText() {
+      var _this3 = this;
+
       this.setState({
         text: this.state.fields.join("")
+      }, function () {
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this3.state.stage, _this3.state.fields]);
       });
     }
   }, {
     key: "handleProperties",
     value: function handleProperties(name, value) {
+      var _this4 = this;
+
       var newProperty = "      - ".concat(name, ": ").concat(value, "\n");
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newProperty])
+      }, function () {
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this4.state.stage, _this4.state.fields]);
       });
     }
   }, {
     key: "handleAddCurrentModel",
     value: function handleAddCurrentModel(crud, extraActions) {
+      var _this5 = this;
+
       !crud ? crud = "\n    CRUD: false\n" : crud = "";
       var header = "\n     Actions:\n";
       var actions = "";
@@ -394,11 +416,15 @@ function (_Component) {
       this.setState({
         stage: 1,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
+      }, function () {
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this5.state.stage, _this5.state.fields]);
       });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(crud, extraActions) {
+      var _this6 = this;
+
       !crud ? crud = "\n    CRUD: false\n" : crud = "";
       var header = "\n     Actions:\n";
       var actions = "";
@@ -411,24 +437,56 @@ function (_Component) {
       }
 
       this.setState({
-        readyToSubmit: true,
+        stage: 4,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
+      }, function () {
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this6.state.stage, _this6.state.fields]);
       });
     }
   }, {
     key: "handleStructure",
     value: function handleStructure(event) {
+      var _this7 = this;
+
       if (this.state.fields[0].startsWith("Structure:")) {
         var splice = this.state.fields.splice(0);
         splice[0] = "Structure: ".concat(event.target.value, "\n\n");
         this.setState({
-          fields: splice
+          fields: splice,
+          readyToSubmit: true
         });
       } else {
         var header = "Structure: ".concat(event.target.value, "\n\n");
         this.setState({
+          readyToSubmit: true,
           fields: [header].concat(_toConsumableArray(this.state.fields))
+        }, function () {
+          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this7.state.stage, _this7.state.fields]);
         });
+      }
+    }
+  }, {
+    key: "handleLocalStorage",
+    value: function handleLocalStorage() {
+      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get('form'),
+          _ls$get2 = _slicedToArray(_ls$get, 2),
+          stage = _ls$get2[0],
+          fields = _ls$get2[1];
+
+      if (stage > this.state.stage) {
+        this.setState({
+          stage: stage,
+          fields: fields
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var data = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form");
+
+      if (data !== null) {
+        this.handleLocalStorage();
       }
     }
   }, {
@@ -440,6 +498,7 @@ function (_Component) {
         handleStage: this.handleStage,
         handleName: this.handleName
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageTwo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        handleLocalStorage: this.handeLocalStorage,
         handleStage: this.handleStage,
         handleProperties: this.handleProperties
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageThree__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -450,7 +509,8 @@ function (_Component) {
       var text = this.state.fields.join("");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-container"
-      }, this.state.readyToSubmit ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, stage > 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        ready: this.state.readyToSubmit,
         data: this.state.fields,
         handleStructure: this.handleStructure
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -876,6 +936,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StageTwo; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -898,6 +960,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var StageTwo =
 /*#__PURE__*/
 function (_Component) {
@@ -913,7 +976,7 @@ function (_Component) {
       property_name: "",
       property_value: "",
       errors: false,
-      errorMessage: ''
+      errorMessage: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleNext = _this.handleNext.bind(_assertThisInitialized(_this));
@@ -958,7 +1021,7 @@ function (_Component) {
           errorMessage: "Please select a property data type."
         });
       } else {
-        button === 'add' ? this.handleAdd(event) : this.handleNext(event);
+        button === "add" ? this.handleAdd(event) : this.handleNext(event);
       }
     }
   }, {
@@ -990,6 +1053,15 @@ function (_Component) {
         property_name: "",
         property_value: ""
       });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var data = local_storage__WEBPACK_IMPORTED_MODULE_1___default.a.get("form");
+
+      if (data !== null) {
+        this.props.handleLocalStorage();
+      }
     }
   }, {
     key: "render",
@@ -1027,18 +1099,18 @@ function (_Component) {
       }, "Array"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "object"
       }, "Object"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: errors ? 'invalid-input' : 'valid-input'
+        className: errors ? "invalid-input" : "valid-input"
       }, errorMessage), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "stage-two-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return _this2.checkValidity(event, 'add');
+          return _this2.checkValidity(event, "add");
         },
         className: "btn"
       }, "ADD ANOTHER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
         onClick: function onClick() {
-          return _this2.checkValidity(event, 'next');
+          return _this2.checkValidity(event, "next");
         }
       }, "NEXT")));
     }
@@ -1100,6 +1172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1117,6 +1191,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1147,7 +1222,7 @@ function (_Component) {
   _createClass(SubmitPage, [{
     key: "checkValidity",
     value: function checkValidity() {
-      if (this.state.file_structure.length === 0) {
+      if (!this.props.ready) {
         console.log("first condition");
         this.setState({
           errors: true,
@@ -1156,6 +1231,7 @@ function (_Component) {
       } else {
         console.log("second condition");
         this.handleCreateFile();
+        local_storage__WEBPACK_IMPORTED_MODULE_2___default.a.remove('form');
       }
     }
   }, {
@@ -25905,6 +25981,171 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 
 module.exports = hoistNonReactStatics;
 
+
+/***/ }),
+
+/***/ "./node_modules/local-storage/local-storage.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/local-storage/local-storage.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var stub = __webpack_require__(/*! ./stub */ "./node_modules/local-storage/stub.js");
+var tracking = __webpack_require__(/*! ./tracking */ "./node_modules/local-storage/tracking.js");
+var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
+
+function accessor (key, value) {
+  if (arguments.length === 1) {
+    return get(key);
+  }
+  return set(key, value);
+}
+
+function get (key) {
+  return JSON.parse(ls.getItem(key));
+}
+
+function set (key, value) {
+  try {
+    ls.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function remove (key) {
+  return ls.removeItem(key);
+}
+
+function clear () {
+  return ls.clear();
+}
+
+accessor.set = set;
+accessor.get = get;
+accessor.remove = remove;
+accessor.clear = clear;
+accessor.on = tracking.on;
+accessor.off = tracking.off;
+
+module.exports = accessor;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/local-storage/stub.js":
+/*!********************************************!*\
+  !*** ./node_modules/local-storage/stub.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ms = {};
+
+function getItem (key) {
+  return key in ms ? ms[key] : null;
+}
+
+function setItem (key, value) {
+  ms[key] = value;
+  return true;
+}
+
+function removeItem (key) {
+  var found = key in ms;
+  if (found) {
+    return delete ms[key];
+  }
+  return false;
+}
+
+function clear () {
+  ms = {};
+  return true;
+}
+
+module.exports = {
+  getItem: getItem,
+  setItem: setItem,
+  removeItem: removeItem,
+  clear: clear
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/local-storage/tracking.js":
+/*!************************************************!*\
+  !*** ./node_modules/local-storage/tracking.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var listeners = {};
+var listening = false;
+
+function listen () {
+  if (global.addEventListener) {
+    global.addEventListener('storage', change, false);
+  } else if (global.attachEvent) {
+    global.attachEvent('onstorage', change);
+  } else {
+    global.onstorage = change;
+  }
+}
+
+function change (e) {
+  if (!e) {
+    e = global.event;
+  }
+  var all = listeners[e.key];
+  if (all) {
+    all.forEach(fire);
+  }
+
+  function fire (listener) {
+    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+  }
+}
+
+function on (key, fn) {
+  if (listeners[key]) {
+    listeners[key].push(fn);
+  } else {
+    listeners[key] = [fn];
+  }
+  if (listening === false) {
+    listen();
+  }
+}
+
+function off (key, fn) {
+  var ns = listeners[key];
+  if (ns.length > 1) {
+    ns.splice(ns.indexOf(fn), 1);
+  } else {
+    listeners[key] = [];
+  }
+}
+
+module.exports = {
+  on: on,
+  off: off
+};
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 

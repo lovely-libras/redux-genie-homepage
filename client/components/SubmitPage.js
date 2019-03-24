@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FileSaver from "file-saver";
+import ls from 'local-storage'
 
 const yamlComments = `
 # Want to edit this file?
@@ -40,7 +41,7 @@ export default class SubmitPage extends Component {
   }
 
   checkValidity() {
-    if (this.state.file_structure.length === 0) {
+    if (!this.props.ready) {
       console.log("first condition")
       this.setState({
         errors: true,
@@ -49,6 +50,7 @@ export default class SubmitPage extends Component {
     } else {
       console.log("second condition")
       this.handleCreateFile();
+      ls.remove('form')
     }
   }
 
