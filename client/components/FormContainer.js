@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import StageZero from "./StageZero"
+import StageZero from "./StageZero";
 import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
 import SubmitPage from "./SubmitPage";
 import brace from "brace";
 import AceEditor from "react-ace";
-import ls from 'local-storage'
+import ls from "local-storage";
 
 import "brace/mode/yaml";
 import "brace/theme/solarized_light";
@@ -47,7 +47,18 @@ export default class FormContainer extends Component {
     this.handleStage = this.handleStage.bind(this);
     this.handleStructure = this.handleStructure.bind(this);
     this.handleText = this.handleText.bind(this);
-    this.handeLocalStorage = this.handleLocalStorage.bind(this)
+    this.handeLocalStorage = this.handleLocalStorage.bind(this);
+    this.startOver = this.startOver.bind(this)
+  }
+
+  startOver() {
+    ls.remove("form");
+    this.setState({
+      fields: [`Models: \n \n`],
+      stage: 0,
+      text: "",
+      readyToSubmit: false
+    });
   }
 
   handleStage(num = 1) {
@@ -56,20 +67,28 @@ export default class FormContainer extends Component {
 
   handleName(name) {
     const newModel = ` - ${name}:\n\n`;
-    this.setState({
-      fields: [...this.state.fields, newModel]
-    }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    this.setState(
+      {
+        fields: [...this.state.fields, newModel]
+      },
+      () => ls.set("form", [this.state.stage, this.state.fields])
+    );
   }
 
   handleText() {
-    this.setState({ text: this.state.fields.join("") }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    this.setState({ text: this.state.fields.join("") }, () =>
+      ls.set("form", [this.state.stage, this.state.fields])
+    );
   }
 
   handleProperties(name, value) {
     const newProperty = `      - ${name}: ${value}\n`;
-    this.setState({
-      fields: [...this.state.fields, newProperty]
-    }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    this.setState(
+      {
+        fields: [...this.state.fields, newProperty]
+      },
+      () => ls.set("form", [this.state.stage, this.state.fields])
+    );
   }
 
   handleAddCurrentModel(crud, extraActions) {
@@ -84,10 +103,13 @@ export default class FormContainer extends Component {
       actions = fields.join("");
     }
 
-    this.setState({
-      stage: 1,
-      fields: [...this.state.fields, crud, header, actions, "\n"]
-    }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    this.setState(
+      {
+        stage: 1,
+        fields: [...this.state.fields, crud, header, actions, "\n"]
+      },
+      () => ls.set("form", [this.state.stage, this.state.fields])
+    );
   }
 
   handleSubmit(crud, extraActions) {
@@ -102,10 +124,13 @@ export default class FormContainer extends Component {
       actions = fields.join("");
     }
 
-    this.setState({
-      stage: 4,
-      fields: [...this.state.fields, crud, header, actions, "\n"]
-    }, () => ls.set('form', [this.state.stage, this.state.fields]));
+    this.setState(
+      {
+        stage: 4,
+        fields: [...this.state.fields, crud, header, actions, "\n"]
+      },
+      () => ls.set("form", [this.state.stage, this.state.fields])
+    );
   }
 
   handleStructure(event) {
@@ -115,24 +140,33 @@ export default class FormContainer extends Component {
       this.setState({ fields: splice, readyToSubmit: true });
     } else {
       let header = `Structure: ${event.target.value}\n\n`;
-      this.setState({
-        readyToSubmit: true,
-        fields: [header, ...this.state.fields]
-      }, () => ls.set('form', [this.state.stage, this.state.fields]));
+      this.setState(
+        {
+          readyToSubmit: true,
+          fields: [header, ...this.state.fields]
+        },
+        () => ls.set("form", [this.state.stage, this.state.fields])
+      );
     }
   }
 
-  handleLocalStorage(){
-    const [stage, fields] = ls.get('form')
-    if(stage > this.state.stage){
-      this.setState({ stage, fields })
+  handleLocalStorage() {
+    const [stage, fields] = ls.get("form");
+    console.log("this is before setState", [stage, fields]);
+    if (stage > this.state.stage) {
+      this.setState({ stage, fields }, () =>
+        console.log("This is after setState", [
+          this.state.stage,
+          this.state.fields
+        ])
+      );
     }
   }
-
 
   componentDidMount() {
     const data = ls.get("form");
     if (data !== null) {
+      console.log("heading to handleLocalStorage");
       this.handleLocalStorage();
     }
   }
@@ -158,28 +192,35 @@ export default class FormContainer extends Component {
 
     return (
       <div className="form-container">
-        {stage > 3 ? (
-          <SubmitPage
-            ready={this.state.readyToSubmit}
-            data={this.state.fields}
-            handleStructure={this.handleStructure}
+        <div id="form-and-editor-container">
+          {stage > 3 ? (
+            <SubmitPage
+              ready={this.state.readyToSubmit}
+              data={this.state.fields}
+              handleStructure={this.handleStructure}
+            />
+          ) : (
+            <form className="staged-form" autoComplete="off">
+              {toRender[stage]}
+            </form>
+          )}
+          <AceEditor
+            mode="yaml"
+            theme="solarized_light"
+            style={style}
+            value={text}
+            width={"25%"}
+            height={"100%"}
+            editorProps={{ $blockScrolling: true }}
+            readOnly={true}
+            fontSize={17}
           />
-        ) : (
-          <form className="staged-form" autoComplete="off">
-            {toRender[stage]}
-          </form>
-        )}
-        <AceEditor
-          mode="yaml"
-          theme="solarized_light"
-          style={style}
-          value={text}
-          width={"25%"}
-          height={"75%"}
-          editorProps={{ $blockScrolling: true }}
-          readOnly={true}
-          fontSize={17}
-        />
+        </div>
+        <button className="btn" id="start-over-btn"
+          onClick={this.startOver}
+        >
+          START OVER
+        </button>
       </div>
     );
   }

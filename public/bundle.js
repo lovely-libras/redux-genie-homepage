@@ -145,6 +145,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _DocumentationText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DocumentationText */ "./client/components/DocumentationText.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+var Documentation = function Documentation() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocumentationText__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Documentation);
+
+/***/ }),
+
+/***/ "./client/components/DocumentationText.js":
+/*!************************************************!*\
+  !*** ./client/components/DocumentationText.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
 /* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
@@ -156,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Documentation = function Documentation() {
+var DocumentationText = function DocumentationText() {
   var text1 = "Structure: Ducks # Two options: Rails || Ducks \n\n        Models: \n          - Dux: \n\n            Slice:\n              - Name: string \n              - Quacking: Boolean \n              - Ducklings: Object \n              - Fly2Gether: Boolean \n\n            CRUD: false \n\n            Actions: \n              - countDux \n              - migrateDux \n              - quackOne\n\n            Thunks: \n              - getAll: \"/api/Dux\" \n              - getOne: \"/api/Dux/:dux\" \n              - Terminator:\n\n            Slice: \n              - WillBeBack: Boolean \n              - OneLiners: Array \n              - Sequels: Number\n\n            Actions: \n              - killJohnConnor \n              - backInTime \n            Thunks: \n              - getAll: \"api/terminator\" \n              - getOne: \"api/terminator/:terminator\"";
   var text2 = "\n// lamp.config.yml \n\n... \n\nModels: \n  \n  - Dux: \n    \n    Slice: \n\n      - Name: string \n      - Quacking: Boolean \n      - Ducklings: Object \n      - Fly2Gether: Boolean \n    CRUD: false \n  \n...\n  ";
   var text3 = "\n  Structure: Ducks # Rails || Ducks \n  Thunks: included # thunks in the same file as the actions \n  Logging: false # configures logging middleware \n  \n  Models: \n  \n    - Dux: \n  \n      Slice: \n  \n        - Name: string \n        - Quacking: Boolean \n        - Ducklings: Object \n        - Fly2Gether: Boolean \n        \n      CRUD: false \n  \n      Actions:\n        - countDux \n        - migrateDux \n        - quackOne \n        \n      Thunks: \n        - getAll: \"/api/Dux\" \n        - getOne: \"/api/Dux/:dux\"\n  \n    - Terminator: \n    \n      Slice: \n  \n        - WillBeBack: Boolean \n        - OneLiners: Array \n        - Sequels: Number \n        \n      Actions: \n        - killJohnConnor \n        -backInTime \n        \n      Thunks: \n        - getAll: \"api/terminator\" \n        - getOne: \"api/terminator/:terminator\"";
@@ -226,7 +263,7 @@ var Documentation = function Documentation() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "\ngenie edit <File Structure> <file type>\n\ngenie edit ducks actions\n"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Documentation);
+/* harmony default export */ __webpack_exports__["default"] = (DocumentationText);
 
 /***/ }),
 
@@ -351,10 +388,22 @@ function (_Component) {
     _this.handleStructure = _this.handleStructure.bind(_assertThisInitialized(_this));
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
     _this.handeLocalStorage = _this.handleLocalStorage.bind(_assertThisInitialized(_this));
+    _this.startOver = _this.startOver.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(FormContainer, [{
+    key: "startOver",
+    value: function startOver() {
+      local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.remove("form");
+      this.setState({
+        fields: ["Models: \n \n"],
+        stage: 0,
+        text: "",
+        readyToSubmit: false
+      });
+    }
+  }, {
     key: "handleStage",
     value: function handleStage() {
       var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
@@ -371,7 +420,7 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newModel])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this2.state.stage, _this2.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this2.state.stage, _this2.state.fields]);
       });
     }
   }, {
@@ -382,7 +431,7 @@ function (_Component) {
       this.setState({
         text: this.state.fields.join("")
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this3.state.stage, _this3.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this3.state.stage, _this3.state.fields]);
       });
     }
   }, {
@@ -394,7 +443,7 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newProperty])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this4.state.stage, _this4.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this4.state.stage, _this4.state.fields]);
       });
     }
   }, {
@@ -417,7 +466,7 @@ function (_Component) {
         stage: 1,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this5.state.stage, _this5.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
       });
     }
   }, {
@@ -440,7 +489,7 @@ function (_Component) {
         stage: 4,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this6.state.stage, _this6.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
       });
     }
   }, {
@@ -461,22 +510,28 @@ function (_Component) {
           readyToSubmit: true,
           fields: [header].concat(_toConsumableArray(this.state.fields))
         }, function () {
-          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this7.state.stage, _this7.state.fields]);
+          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this7.state.stage, _this7.state.fields]);
         });
       }
     }
   }, {
     key: "handleLocalStorage",
     value: function handleLocalStorage() {
-      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get('form'),
+      var _this8 = this;
+
+      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form"),
           _ls$get2 = _slicedToArray(_ls$get, 2),
           stage = _ls$get2[0],
           fields = _ls$get2[1];
+
+      console.log("this is before setState", [stage, fields]);
 
       if (stage > this.state.stage) {
         this.setState({
           stage: stage,
           fields: fields
+        }, function () {
+          return console.log("This is after setState", [_this8.state.stage, _this8.state.fields]);
         });
       }
     }
@@ -486,6 +541,7 @@ function (_Component) {
       var data = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form");
 
       if (data !== null) {
+        console.log("heading to handleLocalStorage");
         this.handleLocalStorage();
       }
     }
@@ -509,6 +565,8 @@ function (_Component) {
       var text = this.state.fields.join("");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "form-and-editor-container"
       }, stage > 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
         ready: this.state.readyToSubmit,
         data: this.state.fields,
@@ -522,13 +580,17 @@ function (_Component) {
         style: style,
         value: text,
         width: "25%",
-        height: "75%",
+        height: "100%",
         editorProps: {
           $blockScrolling: true
         },
         readOnly: true,
         fontSize: 17
-      }));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        id: "start-over-btn",
+        onClick: this.startOver
+      }, "START OVER"));
     }
   }]);
 
@@ -53239,7 +53301,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

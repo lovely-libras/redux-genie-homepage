@@ -148,7 +148,20 @@ input:valid {
   width: 100%;
   margin: 4em;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+}
+
+#form-and-editor-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#start-over-btn{
+  width: 10%;
 }
 
 .form-style {
@@ -383,6 +396,7 @@ input:valid {
   }
 
   .staged-form{
+    height: 440px;
     width: 30%;
   }
 
