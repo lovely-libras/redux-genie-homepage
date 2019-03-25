@@ -145,6 +145,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
 /* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _DocumentationText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DocumentationText */ "./client/components/DocumentationText.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+var Documentation = function Documentation() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "docs-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sidenav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#documenation-container"
+  }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#store-declaration"
+  }, "Store Declaration"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sidenav-indent"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#rails-style"
+  }, "Rails Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#ducks-style"
+  }, "Ducks Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#thunks"
+  }, "Thunks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#logging"
+  }, "Logging")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#cli-interface"
+  }, "CLI Interface"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sidenav-indent"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#generate"
+  }, "Generate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#update"
+  }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#add"
+  }, "Add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#list"
+  }, "List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#locate"
+  }, "Locate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#edit"
+  }, "Edit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocumentationText__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Documentation);
+
+/***/ }),
+
+/***/ "./client/components/DocumentationText.js":
+/*!************************************************!*\
+  !*** ./client/components/DocumentationText.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
 /* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
@@ -156,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Documentation = function Documentation() {
+var DocumentationText = function DocumentationText() {
   var text1 = "Structure: Ducks # Two options: Rails || Ducks \n\n        Models: \n          - Dux: \n\n            Slice:\n              - Name: string \n              - Quacking: Boolean \n              - Ducklings: Object \n              - Fly2Gether: Boolean \n\n            CRUD: false \n\n            Actions: \n              - countDux \n              - migrateDux \n              - quackOne\n\n            Thunks: \n              - getAll: \"/api/Dux\" \n              - getOne: \"/api/Dux/:dux\" \n              - Terminator:\n\n            Slice: \n              - WillBeBack: Boolean \n              - OneLiners: Array \n              - Sequels: Number\n\n            Actions: \n              - killJohnConnor \n              - backInTime \n            Thunks: \n              - getAll: \"api/terminator\" \n              - getOne: \"api/terminator/:terminator\"";
   var text2 = "\n// lamp.config.yml \n\n... \n\nModels: \n  \n  - Dux: \n    \n    Slice: \n\n      - Name: string \n      - Quacking: Boolean \n      - Ducklings: Object \n      - Fly2Gether: Boolean \n    CRUD: false \n  \n...\n  ";
   var text3 = "\n  Structure: Ducks # Rails || Ducks \n  Thunks: included # thunks in the same file as the actions \n  Logging: false # configures logging middleware \n  \n  Models: \n  \n    - Dux: \n  \n      Slice: \n  \n        - Name: string \n        - Quacking: Boolean \n        - Ducklings: Object \n        - Fly2Gether: Boolean \n        \n      CRUD: false \n  \n      Actions:\n        - countDux \n        - migrateDux \n        - quackOne \n        \n      Thunks: \n        - getAll: \"/api/Dux\" \n        - getOne: \"/api/Dux/:dux\"\n  \n    - Terminator: \n    \n      Slice: \n  \n        - WillBeBack: Boolean \n        - OneLiners: Array \n        - Sequels: Number \n        \n      Actions: \n        - killJohnConnor \n        -backInTime \n        \n      Thunks: \n        - getAll: \"api/terminator\" \n        - getOne: \"api/terminator/:terminator\"";
@@ -167,7 +238,11 @@ var Documentation = function Documentation() {
     id: "reduxgenie"
   }, "Redux Genie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "cheatcodesforredux"
-  }, "cheat codes for redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Redux Genie isn't a \"starter kit\" or a library of helper methods. It actually writes your Redux boilerplate code, either creating new files or injecting code into existing store files. This makes the writing process easier to start, easier to manage as you progress, and less error-prone, without abstracting over any functionality of Redux itself."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The genie can be comprehensive- generating the whole Redux store from the outset of a project- or granular- creating or operating on a specific slice of state for an existing project."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Store Declaration at the beginning of a project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To generate a store, Redux Genie's configuration file- lamp.config.yml - will need define the total store structure.", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Define your slices of state. We refer to them as \"Models\", but they can correspond to database models, domains (\"landing page\"), features (\"checkout\"), or any other way you want to slice your state. The genie automatically generates and configures all CRUD methods with separate subreducers for each Model, with Thunks linked to the Redux-Thunk middleware calling your defined API endpoints."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Choose from the two of the file structures outlined in the Redux FAQs: https://redux.js.org/faq/code-structure"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "File Structure: Rails || Ducks")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rails-Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("blockquote", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Rails-style: separate folders for \u201Cactions\u201D, \u201Cconstants\u201D, \u201Creducers\u201D, \u201Ccontainers\u201D, and \u201Ccomponents\u201D", " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Define the models for the store. In Rails-style, each model will each receive its own sub-reducer, and the genie will assign your defined types to each sub-reducer."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Full Rails-style lamp.config.yml file: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "cheat codes for redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Redux Genie isn't a \"starter kit\" or a library of helper methods. It actually writes your Redux boilerplate code, either creating new files or injecting code into existing store files. This makes the writing process easier to start, easier to manage as you progress, and less error-prone, without abstracting over any functionality of Redux itself."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The genie can be comprehensive- generating the whole Redux store from the outset of a project- or granular- creating or operating on a specific slice of state for an existing project."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    id: "store-declaration"
+  }, "Store Declaration at the beginning of a project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To generate a store, Redux Genie's configuration file- lamp.config.yml - will need define the total store structure.", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Define your slices of state. We refer to them as \"Models\", but they can correspond to database models, domains (\"landing page\"), features (\"checkout\"), or any other way you want to slice your state. The genie automatically generates and configures all CRUD methods with separate subreducers for each Model, with Thunks linked to the Redux-Thunk middleware calling your defined API endpoints."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Choose from the two of the file structures outlined in the Redux FAQs: https://redux.js.org/faq/code-structure"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "File Structure: Rails || Ducks")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    id: "rails-style"
+  }, "Rails Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("blockquote", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Rails-style: separate folders for \u201Cactions\u201D, \u201Cconstants\u201D, \u201Creducers\u201D, \u201Ccontainers\u201D, and \u201Ccomponents\u201D", " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Define the models for the store. In Rails-style, each model will each receive its own sub-reducer, and the genie will assign your defined types to each sub-reducer."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Full Rails-style lamp.config.yml file: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
     mode: "yaml",
     theme: "solarized_light",
     id: "submit-page-right",
@@ -181,7 +256,9 @@ var Documentation = function Documentation() {
     fontSize: 16
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Place the lamp.config.yml file in the project root directory, navigate there, then run:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "genie generate store")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Output file structure:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-background"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, " \u2514\u2500\u252C store \n   \u251C\u2500store.js \n   \u251C\u2500\u252C actions\n   \u2502 \u251C\u2500\u2500 action_types_for_Terminator.js\n   \u2502 \u2514\u2500\u2500 action_types_for_Dux.js \n   \u251C\u2500\u252C constants \n   \u2502 \u2514\u2500\u2500 action_constants.js\n   \u2514\u2500\u252C reducers \n     \u251C\u2500\u2500 combine_reducers.js \n     \u251C\u2500\u2500 Dux_reducer.js \n     \u2514\u2500\u2500Terminator_reducer.js"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Ducks-Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("blockquote", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u201CDucks\u201D: separate folders per feature or domain")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Options"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Options to customize the generate call."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "CRUD = false"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Each model is automatically generated with CRUD methods. These can be excluded from the generate call as follows:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, " \u2514\u2500\u252C store \n   \u251C\u2500store.js \n   \u251C\u2500\u252C actions\n   \u2502 \u251C\u2500\u2500 action_types_for_Terminator.js\n   \u2502 \u2514\u2500\u2500 action_types_for_Dux.js \n   \u251C\u2500\u252C constants \n   \u2502 \u2514\u2500\u2500 action_constants.js\n   \u2514\u2500\u252C reducers \n     \u251C\u2500\u2500 combine_reducers.js \n     \u251C\u2500\u2500 Dux_reducer.js \n     \u2514\u2500\u2500Terminator_reducer.js"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    id: "ducks-style"
+  }, "Ducks Style"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("blockquote", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u201CDucks\u201D: separate folders per feature or domain")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Options"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Options to customize the generate call."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "CRUD = false"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Each model is automatically generated with CRUD methods. These can be excluded from the generate call as follows:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
     mode: "yaml",
     theme: "solarized_light",
     id: "submit-page-right",
@@ -193,9 +270,13 @@ var Documentation = function Documentation() {
     },
     readOnly: true,
     fontSize: 16
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Thunks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Thunks can optionally be included in the same file as the actions: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    id: "thunks"
+  }, "Thunks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Thunks can optionally be included in the same file as the actions: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
     className: "code-background"
-  }, "Thunks: included")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If \"Thunks\" are excluded in the model definition, they will be omitted from the generate call. These can be added later via \"genie update\" (see below)."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Logging"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Redux logger is wired into the store by default, but can be excluded."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "Logging: false")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Normalizr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "While this will obviously be specific to your use case, the genie can begin the wiring for normalizr inside the appropriate store files."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "Normalize: Associate:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Example of Full Configuration File:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "Thunks: included")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If \"Thunks\" are excluded in the model definition, they will be omitted from the generate call. These can be added later via \"genie update\" (see below)."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    id: "logging"
+  }, "Logging"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Redux logger is wired into the store by default, but can be excluded."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "Logging: false")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Example of Full Configuration File:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_3___default.a, {
     mode: "yaml",
     theme: "solarized_light",
     id: "submit-page-right",
@@ -207,26 +288,34 @@ var Documentation = function Documentation() {
     },
     readOnly: true,
     fontSize: 16
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "CLI interface"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie generate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To initialize a project, write the yaml configuration file and call:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    id: "cli-interface"
+  }, "CLI interface"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie generate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To initialize a project, write the yaml configuration file and call:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
     className: "code-background"
-  }, "genie generate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "After the store is initialized, the genie can add to the store in two ways: from the yml configuration file via \"genie update,\" or from the command line via \"genie add\"."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To perform a yml update, add or alter the yaml file and then call: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
+  }, "genie generate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    id: "generate"
+  }, "genie update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "After the store is initialized, the genie can add to the store in two ways: from the yml configuration file via \"genie update,\" or from the command line via \"genie add\"."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To perform a yml update, add or alter the yaml file and then call: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
     className: "code-background"
-  }, "genie update store"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The genie will diff the new yml config to previous version and generate any required updates."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Note: Logging, CRUD, and thunk separation choices cannot be changed after initial generate."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Add directly from the command line, declaring the same information:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "genie update store"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The genie will diff the new yml config to previous version and generate any required updates."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Note: Logging, CRUD, and thunk separation choices cannot be changed after initial generate."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    id: "add"
+  }, "genie add"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Add directly from the command line, declaring the same information:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-background"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "genie generate model <model name> // generates a model with crud methods \n\n        eg: genie generate model Terminator // one model\n        eg: genie generate model Terminator Dux // two models\n\nNote: will prompt if the root combiner isn't defined in the yaml file.\n\noptions: \n\n--crudless // create store code without defining any crud methods\n\n        eg: genie generate model Dux --crudless\n\ngenie generate model <model name> action <action name> \n\n        eg: genie generate model Terminator action getIsBack\n\ngenie generate thunk <thunk name> <thunk endpoints>\n\n        eg: genie generate model Lolz\n\ngenie generate domain <feature name>\n\n        eg: genie generate domain \n\ngenie generate thunk <thunk name> <thunk endpoint>\n\ngenie generate action <action name> <model assignment> "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie list ( genie ls )"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "genie list store"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Returns the total file structure of the store:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "genie generate model <model name> // generates a model with crud methods \n\n        eg: genie generate model Terminator // one model\n        eg: genie generate model Terminator Dux // two models\n\nNote: will prompt if the root combiner isn't defined in the yaml file.\n\noptions: \n\n--crudless // create store code without defining any crud methods\n\n        eg: genie generate model Dux --crudless\n\ngenie generate model <model name> action <action name> \n\n        eg: genie generate model Terminator action getIsBack\n\ngenie generate thunk <thunk name> <thunk endpoints>\n\n        eg: genie generate model Lolz\n\ngenie generate domain <feature name>\n\n        eg: genie generate domain \n\ngenie generate thunk <thunk name> <thunk endpoint>\n\ngenie generate action <action name> <model assignment> "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    id: "list"
+  }, "genie list ( genie ls )"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "genie list store"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Returns the total file structure of the store:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-background"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "e.g. (Rails-Style)\n\n\u251C\u2500\u252C store\n\u2502 \u251C\u2500\u252C actions\n\u2502 \u2502 \u251C\u2500\u2500 action_types_for_Terminator.js\n\u2502 \u2502 \u2514\u2500\u2500 action_types_for_Dux.js\n\u2502 \u251C\u2500\u252C constants\n\u2502 \u2502 \u2514\u2500\u2500 action_constants.js\n\u2502 \u2514\u2500\u252C reducers\n\u2502   \u251C\u2500\u2500 combine_reducers.js\n\u2502   \u251C\u2500\u2500 Dux_reducer.js\n\u2502   \u2514\u2500\u2500 Terminator_reducer.js\n\u2514\u2500\u2500 store.js"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "genie list models genie list actions mine genie list thunks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     id: "genielocategenieloc"
   }, "genie locate ( genie loc )"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Returns the file path of a store sub-directory to the command line."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-background"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
-    class: "bash language-bash"
-  }, "\ngenie locate <model name> <file type>\n\n        eg: genie locate Dux action types // $ ./store/actions\n\ngenie locate <domain name> <file type>\n\n        eg: genie locate navbar reducer // $ ./store/navbar/reducers\n"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie lamp"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Prints a sample lamp.config.yml file. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "genie edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit the template files."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "\ngenie locate <model name> <file type>\n\n        eg: genie locate Dux action types // $ ./store/actions\n\ngenie locate <domain name> <file type>\n\n        eg: genie locate navbar reducer // $ ./store/navbar/reducers\n"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    id: "edit"
+  }, "genie edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Edit the template files."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-background"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", null, "\ngenie edit <File Structure> <file type>\n\ngenie edit ducks actions\n"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Documentation);
+/* harmony default export */ __webpack_exports__["default"] = (DocumentationText);
 
 /***/ }),
 
@@ -351,10 +440,22 @@ function (_Component) {
     _this.handleStructure = _this.handleStructure.bind(_assertThisInitialized(_this));
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
     _this.handeLocalStorage = _this.handleLocalStorage.bind(_assertThisInitialized(_this));
+    _this.startOver = _this.startOver.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(FormContainer, [{
+    key: "startOver",
+    value: function startOver() {
+      local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.remove("form");
+      this.setState({
+        fields: ["Models: \n \n"],
+        stage: 0,
+        text: "",
+        readyToSubmit: false
+      });
+    }
+  }, {
     key: "handleStage",
     value: function handleStage() {
       var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
@@ -371,7 +472,7 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newModel])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this2.state.stage, _this2.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this2.state.stage, _this2.state.fields]);
       });
     }
   }, {
@@ -382,7 +483,7 @@ function (_Component) {
       this.setState({
         text: this.state.fields.join("")
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this3.state.stage, _this3.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this3.state.stage, _this3.state.fields]);
       });
     }
   }, {
@@ -394,7 +495,7 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newProperty])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this4.state.stage, _this4.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this4.state.stage, _this4.state.fields]);
       });
     }
   }, {
@@ -417,7 +518,7 @@ function (_Component) {
         stage: 1,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this5.state.stage, _this5.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
       });
     }
   }, {
@@ -440,7 +541,7 @@ function (_Component) {
         stage: 4,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this6.state.stage, _this6.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
       });
     }
   }, {
@@ -461,22 +562,28 @@ function (_Component) {
           readyToSubmit: true,
           fields: [header].concat(_toConsumableArray(this.state.fields))
         }, function () {
-          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set('form', [_this7.state.stage, _this7.state.fields]);
+          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this7.state.stage, _this7.state.fields]);
         });
       }
     }
   }, {
     key: "handleLocalStorage",
     value: function handleLocalStorage() {
-      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get('form'),
+      var _this8 = this;
+
+      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form"),
           _ls$get2 = _slicedToArray(_ls$get, 2),
           stage = _ls$get2[0],
           fields = _ls$get2[1];
+
+      console.log("this is before setState", [stage, fields]);
 
       if (stage > this.state.stage) {
         this.setState({
           stage: stage,
           fields: fields
+        }, function () {
+          return console.log("This is after setState", [_this8.state.stage, _this8.state.fields]);
         });
       }
     }
@@ -486,6 +593,7 @@ function (_Component) {
       var data = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form");
 
       if (data !== null) {
+        console.log("heading to handleLocalStorage");
         this.handleLocalStorage();
       }
     }
@@ -509,6 +617,8 @@ function (_Component) {
       var text = this.state.fields.join("");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "form-and-editor-container"
       }, stage > 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
         ready: this.state.readyToSubmit,
         data: this.state.fields,
@@ -522,13 +632,17 @@ function (_Component) {
         style: style,
         value: text,
         width: "25%",
-        height: "75%",
+        height: "100%",
         editorProps: {
           $blockScrolling: true
         },
         readOnly: true,
         fontSize: 17
-      }));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        id: "start-over-btn",
+        onClick: this.startOver
+      }, "START OVER"));
     }
   }]);
 
@@ -553,7 +667,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Landing = function Landing() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome!");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "landing-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "landing-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Redux Genie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "genie-logo",
+    src: "https://flaticons.net/gd/makefg.php?i=icons/Miscellaneous/Genie-Lamp.png&r=255&g=255&b=255"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "A CLI tool for generating and modifying Redux applications."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "btn",
+    id: "landing-btn",
+    href: "/wish"
+  }, "GET STARTED"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Landing);
