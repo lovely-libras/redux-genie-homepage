@@ -1047,11 +1047,8 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "stage-three-actions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        name: "extraActions",
-        className: "tooltip"
-      }, "List any additional actions, separated by a space:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "tooltiptext"
-      }, "The genie grants you three wishes!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "extraActions"
+      }, "List any additional actions, separated by a space:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "step-two",
         name: "extraActions",
@@ -60169,7 +60166,7 @@ Object.defineProperty(exports,'__esModule',{value:!0});var VALIDATOR_ARG_ERROR_M
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

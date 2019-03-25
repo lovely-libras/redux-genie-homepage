@@ -76,11 +76,8 @@ export default class StageThree extends Component {
           <input name="crud" type="checkbox" />
         </div>
         <div id="stage-three-actions">
-          <label name="extraActions" className="tooltip">
+          <label name="extraActions">
             List any additional actions, separated by a space:
-            <span className="tooltiptext">
-              The genie grants you three wishes!
-            </span>
           </label>
           <span />
           <input type="text" id="step-two" name="extraActions" placeholder="flyTogether" />
