@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import FileSaver from "file-saver";
-import ls from 'local-storage'
+import ls from 'local-storage';
+import Joyride from "react-joyride";
 
 const yamlComments = `
 # Want to edit this file?
 # Be careful! Make sure that models and properties always have a
 # space between the dash and the name. Major fields
 # (Models, Actions, Thunks, CRUD) should all have a colon after them.
+# Also, the name of this file **must** be lamp.config.yaml or the code will not run.
 #
 # This is how your file should look:
 #
@@ -33,7 +35,22 @@ export default class SubmitPage extends Component {
       file_structure: "",
       text: "",
       errors: false,
-      errorMessage: ""
+      errorMessage: "",
+      steps: [
+        {
+          target: "#submit-left-inputs",
+          content:
+            "There are two main folder structure options: Ducks and Rails. Ducks will create folders for each model; Rails will create folders based on functionality. If you're unsure, choose Ducks!",
+          disableBeacon: true
+        },
+        {
+          target: "#lamp-button",
+          content:
+            "Click here to get your yaml file.",
+          disableBeacon: true,
+          placement: 'top'
+        },
+      ]
     };
 
     this.handleCreateFile = this.handleCreateFile.bind(this);
@@ -66,7 +83,7 @@ export default class SubmitPage extends Component {
   }
 
   render() {
-    const { errors, errorMessage } = this.state;
+    const { errors, errorMessage, steps } = this.state;
 
     return (
       <div id="submit-page-left">
@@ -116,6 +133,7 @@ export default class SubmitPage extends Component {
             />
           </button>
         </div>
+        <Joyride steps={steps} showProgress={true} continuous={true} showSkipButton={true} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ls from "local-storage";
+import Joyride from "react-joyride";
 
 export default class StageTwo extends Component {
   constructor(props) {
@@ -8,7 +9,33 @@ export default class StageTwo extends Component {
       property_name: "",
       property_value: "",
       errors: false,
-      errorMessage: ""
+      errorMessage: "",
+      steps: [
+        {
+          target: "#step-one",
+          content:
+            "What's a property on your model? If it's a user do will they have an email address? First name? Favorite CLI tools? Name it here.",
+          disableBeacon: true
+        },
+        {
+          target: "#step-two",
+          content:
+            "What kind of data type will this property be? Let us know so state can be initialized for that type",
+          disableBeacon: true
+        },
+        {
+          target: "#step-three",
+          content:
+            "Click here if you want to add another property, or...",
+          disableBeacon: true
+        },
+        {
+          target: "#step-four",
+          content:
+            "Click here to proceed on.",
+          disableBeacon: true
+        }
+      ]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -76,7 +103,7 @@ export default class StageTwo extends Component {
   }
 
   render() {
-    const { errors, errorMessage } = this.state;
+    const { errors, errorMessage, steps } = this.state;
     return (
       <div id="stage-two-container" className="form-style">
         <h1>Properties</h1>
@@ -87,12 +114,14 @@ export default class StageTwo extends Component {
             type="text"
             name="property_name"
             placeholder="Feathers, etc"
+            id="step-one"
             value={this.state.property_name}
           />
           <select
             onChange={this.handleChange}
             name="property_value"
             value={this.state.property_value}
+            id="step-two"
           >
             <option value="">----</option>
             <option value="string">String</option>
@@ -109,16 +138,19 @@ export default class StageTwo extends Component {
           <button
             onClick={() => this.checkValidity(event, "add")}
             className="btn"
+            id="step-three"
           >
             ADD ANOTHER
           </button>
           <button
             className="btn"
+            id="step-four"
             onClick={() => this.checkValidity(event, "next")}
           >
             NEXT
           </button>
         </div>
+        <Joyride steps={steps} showProgress={true} continuous={true} showSkipButton={true} />
       </div>
     );
   }

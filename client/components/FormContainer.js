@@ -48,7 +48,7 @@ export default class FormContainer extends Component {
     this.handleStructure = this.handleStructure.bind(this);
     this.handleText = this.handleText.bind(this);
     this.handeLocalStorage = this.handleLocalStorage.bind(this);
-    this.startOver = this.startOver.bind(this)
+    this.startOver = this.startOver.bind(this);
   }
 
   startOver() {
@@ -216,9 +216,7 @@ export default class FormContainer extends Component {
             fontSize={17}
           />
         </div>
-        <button className="btn" id="start-over-btn"
-          onClick={this.startOver}
-        >
+        <button className="btn" id="start-over-btn" onClick={this.startOver}>
           START OVER
         </button>
       </div>
