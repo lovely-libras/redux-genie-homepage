@@ -1,16 +1,29 @@
 body {
   background-color: rgb(200, 195, 211);
   margin: 0;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
 }
 
-a:-webkit-any-link{
+#docs-container::-webkit-scrollbar {
+  margin-top: 8vh;
+  width: 1em;
+}
+
+#docs-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#docs-container::-webkit-scrollbar-thumb {
+  background-color: rgb(73, 45, 139);
+  outline: 1px solid slategrey;
+}
+
+a:-webkit-any-link {
   color: white;
 }
 
-
 .tooltip {
-  position: relative
+  position: relative;
 }
 
 .tooltip .tooltiptext {
@@ -26,7 +39,7 @@ a:-webkit-any-link{
   position: absolute;
   z-index: 1;
   top: -5px;
-  right: 105%; 
+  right: 105%;
 }
 
 .tooltip:hover .tooltiptext {
@@ -38,7 +51,7 @@ a:-webkit-any-link{
   padding: 1em;
 }
 
-code{
+code {
   word-wrap: break-word;
 }
 
@@ -52,7 +65,7 @@ input {
   transition: background-color 1s ease-in-out;
 }
 
-input:focus{
+input:focus {
   outline: none;
   /* background-color: rgb(202, 164, 202); */
   background-color: rgb(177, 164, 202);
@@ -67,23 +80,27 @@ input:valid {
   /* border-bottom: 2px solid rgb(128, 39, 128); */
 }
 
-.invalid-input{
+.invalid-input {
   visibility: visible;
   color: rgb(255, 91, 91);
 }
 
-.valid-input{
+.valid-input {
   visibility: hidden;
 }
 
 .nav {
   background-color: rgb(73, 45, 139);
+  width: 100%;
   color: white;
   height: 8vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 2px 3px rgb(85, 85, 85);
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .nav h1 {
@@ -91,59 +108,132 @@ input:valid {
   font-weight: 100;
 }
 
-.nav-link{
+.nav-link {
   color: white;
   margin-right: 1.5em;
 }
 
-#nav-left{
+#nav-left {
   display: flex;
   align-items: center;
 }
 
-#nav-right{
+#nav-right {
   display: flex;
   align-items: center;
 }
 
-#github-logo{
+#github-logo {
   padding-top: 2vh;
   height: 6vh;
   margin-right: 3vw;
 }
 
-#npm-logo{
+#npm-logo {
   padding-top: 2.5vh;
   height: 6vh;
   margin-right: 1.5vw;
 }
 
-#genie-logo{
+#genie-logo {
   padding-left: 1em;
   height: 6vh;
 }
 
-.app-container{
+.app-container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+}
+
+#landing-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadein 2s ease;
+}
+
+#landing-header{
+  display: flex;
+  width: 35%;
+  height: 15%;
+  font-size: 2em;
+  align-items: center;
+}
+
+#landing-header h1{
+  font-weight: 100;
+}
+
+#landing-container h3{
+  font-weight: 100;
+}
+
+#landing-header img{
+  height: 4em;
+  margin-left: auto;
+}
+
+#landing-btn{
+  margin-top: 3vh;
+  text-decoration: none;
+}
+
+#docs-container{
+  margin-top: 8vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-#documenation-container{
+#documenation-container {
+  position: relative;
   width: 40%;
+  left: 0;
   padding: 2em;
   border-radius: 5px;
-  margin-top: 5em;
   margin-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
+  z-index: 0;
   animation: fadein 2s;
 }
 
-.form-container{
+.sidenav {
+  width: 175px;
+  height: 50vh;
+  position: fixed;
+  z-index: 1;
+  top: 15vh;
+  left: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  line-height: 1.65;
+  background-color: rgb(200, 195, 211);
+  animation: fadein 2s;
+}
+
+.sidenav-indent {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}
+
+.sidenav-indent > a {
+  color: rgb(142, 131, 170);
+}
+
+.sidenav a {
+  color: rgb(73, 45, 139);
+  text-decoration: none;
+}
+
+.form-container {
   height: 90%;
   width: 100%;
   margin: 4em;
@@ -153,31 +243,31 @@ input:valid {
   align-items: center;
 }
 
-#form-and-editor-container{
+#form-and-editor-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
 
-#start-over-btn{
+#start-over-btn {
   width: 10%;
 }
 
 .form-style {
   border: 1px solid rgb(202, 202, 202);
-  border-radius: 1%;;
+  border-radius: 1%;
   background-color: rgb(241, 239, 245);
-  box-shadow: 0px 2px 2px  rgb(175, 175, 175);
+  box-shadow: 0px 2px 2px rgb(175, 175, 175);
 }
 
-.staged-form{
+.staged-form {
   text-align: center;
   width: 25%;
   height: 75%;
 }
 
-#configure-editor{
+#configure-editor {
   animation: fadein 2s;
 }
 
@@ -187,7 +277,7 @@ input:valid {
   padding: 1.5em;
 }
 
-#stage-zero-container h1{
+#stage-zero-container h1 {
   font-weight: 100;
   margin: 0;
 }
@@ -214,7 +304,7 @@ input:valid {
   font-weight: 100;
 }
 
-#stage-one-underline{
+#stage-one-underline {
   width: 30%;
 }
 
@@ -232,16 +322,16 @@ input:valid {
   animation: fadein 1s ease-in;
 }
 
-#stage-two-input{
+#stage-two-input {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
-#stage-two-container h1{
+#stage-two-container h1 {
   font-weight: 100;
 }
 
@@ -250,14 +340,13 @@ input:valid {
   font-size: 1.33em;
 }
 
-#stage-two-input select{
+#stage-two-input select {
   border: 0;
   background-color: rgb(177, 164, 202);
 }
 
 #stage-two-inputselect:focus {
   outline: none;
-
 }
 
 #stage-two-buttons {
@@ -268,7 +357,7 @@ input:valid {
   margin-top: 5%;
 }
 
-#stage-three-container{
+#stage-three-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -277,29 +366,29 @@ input:valid {
   animation: fadein 2s;
 }
 
-#stage-three-container h1{
+#stage-three-container h1 {
   font-weight: 100;
 }
 
-#stage-three-crud{
+#stage-three-crud {
   margin-top: 10%;
 }
 
-#stage-three-crud label{
+#stage-three-crud label {
   margin-right: 25px;
 }
 
-#stage-three-actions{
+#stage-three-actions {
   margin-top: 15%;
 }
 
-#stage-three-actions input{
+#stage-three-actions input {
   margin-top: 5%;
   width: 30%;
   font-size: 1.33em;
 }
 
-#stage-three-buttons{
+#stage-three-buttons {
   margin-top: 5%;
   margin-bottom: 10%;
   width: 80%;
@@ -307,8 +396,7 @@ input:valid {
   justify-content: space-around;
 }
 
-#submit-left-inputs-container{
-
+#submit-left-inputs-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -316,7 +404,7 @@ input:valid {
   height: 30%;
 }
 
-#submit-page-left{
+#submit-page-left {
   width: 25%;
   height: 59%;
   display: flex;
@@ -325,18 +413,18 @@ input:valid {
   animation: fadein 1s;
 }
 
-#submit-left-inputs-container h3{
+#submit-left-inputs-container h3 {
   font-weight: 100;
   margin: 0;
 }
 
-#submit-left-inputs{
+#submit-left-inputs {
   display: flex;
   justify-content: space-around;
   width: 75%;
 }
 
-#submit-left-button{
+#submit-left-button {
   margin-top: 25%;
   display: flex;
   flex-direction: column;
@@ -349,7 +437,7 @@ input:valid {
   font-weight: 100;
 }
 
-#lamp-button{
+#lamp-button {
   height: 3em;
   width: 5em;
   padding-right: 0;
@@ -357,7 +445,7 @@ input:valid {
   padding-bottom: 0;
 }
 
-#lamp-button-image{
+#lamp-button-image {
   max-width: 100%;
   max-height: 100%;
 }
@@ -373,7 +461,7 @@ input:valid {
   color: rgb(241, 239, 245);
   background-color: rgb(177, 164, 202);
   border-radius: 2px;
-  box-shadow: 0px 1px 2px  rgb(175, 175, 175);
+  box-shadow: 0px 1px 2px rgb(175, 175, 175);
   transition: background-color 1s ease-in-out;
   outline: none;
 }
@@ -383,57 +471,59 @@ input:valid {
   transition: background-color 1s ease-in-out;
 }
 
-
 @media (max-width: 12450px) {
-
-  #genie-logo{
+  #genie-logo {
     padding-left: 0;
   }
 
-  #documenation-container{
+  #documenation-container {
     margin-top: 3em;
     margin-bottom: 3em;
   }
 
-  .staged-form{
+  .staged-form {
     height: 440px;
     width: 30%;
   }
 
-  #brace-editor{
+  #brace-editor {
     width: 100%;
   }
 
-  .form-container{
+  .form-container {
     margin-left: 0;
   }
 
-  #stage-one-container{
+  #stage-one-container {
     height: 50%;
   }
 
-  #stage-two-container{
+  #stage-two-container {
     height: 60%;
   }
 
-  #stage-three-container{
+  #stage-three-container {
     height: 100%;
   }
 
-  #submit-page-left{
+  #submit-page-left {
     height: 68%;
   }
 
-  #submit-left-button{
+  #submit-left-button {
     height: 40%;
   }
 
-  #submit-left-inputs-container{
+  #submit-left-inputs-container {
     height: 40%;
   }
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

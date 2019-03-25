@@ -126,7 +126,7 @@ Models:
         specific slice of state for an existing project.
       </p>
 
-      <h2>
+      <h2 id="store-declaration">
         Store Declaration at the beginning of a project
       </h2>
 
@@ -153,7 +153,7 @@ Models:
         <code>File Structure: Rails || Ducks</code>
       </pre>
 
-      <h3>Rails-Style</h3>
+      <h3 id="rails-style">Rails Style</h3>
 
       <blockquote>
         <p>
@@ -210,7 +210,7 @@ Models:
         </div>
       </pre>
 
-      <h3>Ducks-Style</h3>
+      <h3 id="ducks-style">Ducks Style</h3>
 
       <blockquote>
         <p>“Ducks”: separate folders per feature or domain</p>
@@ -239,7 +239,7 @@ Models:
         fontSize={16}
       />
 
-      <h4>Thunks</h4>
+      <h3 id="thunks">Thunks</h3>
 
       <p>Thunks can optionally be included in the same file as the actions: </p>
       <br />
@@ -253,7 +253,7 @@ Models:
         below).
       </p>
 
-      <h4>Logging</h4>
+      <h3 id="logging">Logging</h3>
 
       <p>
         Redux logger is wired into the store by default, but can be excluded.
@@ -261,17 +261,6 @@ Models:
 
       <pre>
         <code>Logging: false</code>
-      </pre>
-
-      <h4>Normalizr</h4>
-
-      <p>
-        While this will obviously be specific to your use case, the genie can
-        begin the wiring for normalizr inside the appropriate store files.
-      </p>
-
-      <pre>
-        <code>Normalize: Associate:</code>
       </pre>
 
       <h4>
@@ -290,7 +279,7 @@ Models:
         fontSize={16}
       />
 
-      <h2>CLI interface</h2>
+      <h2 id="cli-interface">CLI interface</h2>
 
       <h4>genie generate</h4>
 
@@ -305,7 +294,7 @@ Models:
         <br />
       </pre>
 
-      <h4>genie update</h4>
+      <h4 id="generate">genie update</h4>
 
       <p>
         After the store is initialized, the genie can add to the store in two
@@ -332,7 +321,7 @@ Models:
         after initial generate.
       </p>
 
-      <h4>genie add</h4>
+      <h4 id="add">genie add</h4>
 
       <p>Add directly from the command line, declaring the same information:</p>
 
@@ -371,7 +360,7 @@ genie generate action <action name> <model assignment> `}
         </div>
       </pre>
 
-      <h4>genie list ( genie ls )</h4>
+      <h4 id="list">genie list ( genie ls )</h4>
 
       <p>genie list store</p>
 
@@ -405,7 +394,7 @@ genie generate action <action name> <model assignment> `}
 
       <pre>
         <div className="code-background">
-          <code class="bash language-bash">
+          <code>
 {`
 genie locate <model name> <file type>
 
@@ -419,11 +408,7 @@ genie locate <domain name> <file type>
         </div>
       </pre>
 
-      <h4>genie lamp</h4>
-
-      <p>Prints a sample lamp.config.yml file. </p>
-
-      <h4>genie edit</h4>
+      <h4 id="edit">genie edit</h4>
 
       <p>Edit the template files.</p>
 
