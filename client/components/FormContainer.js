@@ -22,7 +22,7 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 0,
+      stage: 4,
       text: "",
       readyToSubmit: false
     };
@@ -53,7 +53,7 @@ export default class FormContainer extends Component {
   }
 
   handleName(name) {
-    const newModel = ` - ${name}:\n\n`;
+    const newModel = `  - ${name}:\n\n`;
     this.setState(
       {
         fields: [...this.state.fields, newModel]
@@ -84,10 +84,10 @@ export default class FormContainer extends Component {
     console.log("includes", includes)
     if(!includes.length){
       let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] })
+      this.setState({ fields: [...this.state.fields, thunk] }, () => ls.set("form", [this.state.stage, this.state.fields]))
     } else {
       let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] })
+      this.setState({ fields: [...this.state.fields, thunk] }, () => ls.set("form", [this.state.stage, this.state.fields]))
     }
   }
 
@@ -189,17 +189,19 @@ export default class FormContainer extends Component {
               {toRender[stage]}
             </form>
           )}
+          <div id="editor-container">
           <AceEditor
             mode="yaml"
             theme="solarized_light"
             style={style}
             value={text}
-            width={"25%"}
+            width={"100%"}
             height={"100%"}
             editorProps={{ $blockScrolling: true }}
             readOnly={true}
             fontSize={17}
           />
+          </div>
         </div>
         <button className="btn" id="start-over-btn" onClick={this.startOver}>
           START OVER

@@ -169,17 +169,19 @@ Models:
       </p>
 
       <p>Full Rails-style lamp.config.yml file: </p>
-      <AceEditor
-        mode="yaml"
-        theme="solarized_light"
-        id="submit-page-right"
-        value={text1}
-        height={"550px"}
-        width={"550px"}
-        editorProps={{ $blockScrolling: true }}
-        readOnly={true}
-        fontSize={16}
-      />
+      <div id="d-editor-one">
+        <AceEditor
+          mode="yaml"
+          theme="solarized_light"
+          id="submit-page-right"
+          value={text1}
+          height={"100%"}
+          width={"100"}
+          editorProps={{ $blockScrolling: true }}
+          readOnly={true}
+          fontSize={16}
+        />
+      </div>
       <p>
         Place the lamp.config.yml file in the project root directory, navigate
         there, then run:
@@ -226,19 +228,19 @@ Models:
         Each model is automatically generated with CRUD methods. These can be
         excluded from the generate call as follows:
       </p>
-      
+      <div id="d-editor-two">
       <AceEditor
         mode="yaml"
         theme="solarized_light"
         id="submit-page-right"
         value={text2}
-        height={"320px"}
-        width={"550px"}
+        height={"100%"}
+        width={"100%"}
         editorProps={{ $blockScrolling: true }}
         readOnly={true}
         fontSize={16}
       />
-
+      </div>
       <h3 id="thunks">Thunks</h3>
 
       <p>Thunks can optionally be included in the same file as the actions: </p>
@@ -266,19 +268,19 @@ Models:
       <h4>
         Example of Full Configuration File:
       </h4>
-
+      <div id="d-editor-three">
       <AceEditor
         mode="yaml"
         theme="solarized_light"
         id="submit-page-right"
         value={text3}
-        height={"700px"}
-        width={"550px"}
+        height={"100%"}
+        width={"100%"}
         editorProps={{ $blockScrolling: true }}
         readOnly={true}
         fontSize={16}
       />
-
+      </div>
       <h2 id="cli-interface">CLI interface</h2>
 
       <h4>genie generate</h4>

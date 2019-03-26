@@ -123,14 +123,14 @@ input:valid {
   height: 100vh;
 }
 
-#form-and-editor-container{
+#form-and-editor-container {
   margin-top: 3em;
   margin-bottom: 2em;
   width: 100%;
   height: 100%;
 }
 
-#landing-container{
+#landing-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -140,7 +140,7 @@ input:valid {
   animation: fadein 2s ease;
 }
 
-#landing-header{
+#landing-header {
   display: flex;
   width: 35%;
   height: 15%;
@@ -148,25 +148,25 @@ input:valid {
   align-items: center;
 }
 
-#landing-header h1{
+#landing-header h1 {
   font-weight: 100;
 }
 
-#landing-container h3{
+#landing-container h3 {
   font-weight: 100;
 }
 
-#landing-header img{
+#landing-header img {
   height: 4em;
   margin-left: auto;
 }
 
-#landing-btn{
+#landing-btn {
   margin-top: 3vh;
   text-decoration: none;
 }
 
-#docs-container{
+#docs-container {
   margin-top: 8vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -183,6 +183,21 @@ input:valid {
   margin-right: auto;
   z-index: 0;
   animation: fadein 2s;
+}
+
+#d-editor-one{
+  width: 550px;
+  height: 575px;
+}
+
+#d-editor-two{
+  height: 320px;
+  width: 550px;
+}
+
+#d-editor-three{
+  height: 700px;
+  width: 550;
 }
 
 .sidenav {
@@ -214,6 +229,11 @@ input:valid {
 .sidenav a {
   color: rgb(73, 45, 139);
   text-decoration: none;
+}
+
+#editor-container {
+  width: 25%;
+  height: 100%;
 }
 
 .form-container {
@@ -388,7 +408,7 @@ input:valid {
   animation: fadein 1s ease-in;
 }
 
-#stage-four-input{
+#stage-four-input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -409,7 +429,7 @@ input:valid {
   outline: none;
 }
 
-#stage-four-buttons{
+#stage-four-buttons {
   display: flex;
   width: 80%;
   flex-wrap: wrap;
@@ -540,6 +560,178 @@ input:valid {
 
   #submit-left-inputs-container {
     height: 40%;
+  }
+}
+
+
+/* mobile */
+
+@media (max-width: 800px) {
+
+  /* landing */
+
+  #landing-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #landing-header{
+    width: 90%;
+    height: 250px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #landing-header h1{
+    margin-bottom: 0;
+  }
+
+  #landing-container h3{
+    width: 360px;
+    text-align: center;
+  }
+
+  #landing-header #genie-logo{
+    margin-left: 0;
+  }
+
+  /* nav menu */
+  .nav-link {
+    margin-right: .5em;
+    font-size: .75em;
+    font-weight: 100;
+  }
+
+  .nav-link h1 {
+    font-size: 1.5em;
+  }
+
+  #genie-logo {
+    height: 4vh;
+  }
+
+  #github-logo{
+    font-size: 1.5em;
+    margin-left: 2vw;
+  }
+
+  #npm-logo {
+    padding-top: .75em;
+    font-size: 1.5em;
+    margin-left: 2vw;
+  }
+
+  /* configure page */
+
+  .form-container {
+    height: 100%;
+    width: 100%;
+    margin-top: 6em;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .staged-form {
+    width: 80%;
+    margin-top: 28em;
+    height: 550px;
+  }
+
+  #editor-container {
+    width: 80%;
+  }
+
+  #form-and-editor-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #start-over-btn {
+    width: 25%;
+  }
+
+  #stage-one-container{
+    margin-top: -10em;
+    margin-bottom: 5em;
+    height: 350px;
+  }
+
+  #stage-two-container{
+    margin-top: -12em;
+    margin-bottom: 2.5em;
+    height: 300px;
+  }
+
+  #stage-three-container{
+    margin-top: -9em;
+    margin-bottom: 2.5em;
+    height: 350px;
+  }
+
+  #stage-three-actions {
+    padding: 1em;
+  }
+
+  #stage-three-actions input{
+    padding-left: 1em;
+    font-size: 15px;
+  }
+
+  #stage-four-container{
+    margin-top: -11em;
+    margin-bottom: 2.5em;
+    height: 350px;
+  }
+
+  /* Documentation page */
+  .sidenav{
+    visibility: hidden;
+  }
+
+  pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+   }
+
+  code #text{
+    overflow-wrap: break-word;
+  }
+
+  #docs-container{
+    width: 100%;
+    overflow-x: hidden;
+    align-items: center;
+  }
+
+  #documenation-container{
+    width: 70%;
+    overflow-wrap: break-word;
+  }
+
+  #d-editor-one{
+    height: 575px;
+    width: 285px;
+  }
+  
+  #d-editor-two{
+    height: 320px;
+    width: 285px;
+  }
+  
+  #d-editor-three{
+    height: 700px;
+    width: 285px;
   }
 }
 
