@@ -393,25 +393,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var dummyProps = [{
-  crud: true,
-  extraActions: "flyFurther, flyHigher",
-  name: "Ducks",
-  properties: [{
-    Feathers: "string"
-  }, {
-    Quacks: "boolean"
-  }]
-}, {
-  crud: false,
-  extraActions: "oneLiners, mutate",
-  name: "Terminator",
-  properties: [{
-    Model: "number"
-  }, {
-    isBack: "boolean"
-  }]
-}];
 var style = {
   animation: "fadein 1s",
   boxShadow: "0px 2px 2px  rgb(175, 175, 175)"
@@ -436,14 +417,14 @@ function (_Component) {
     };
     _this.handleName = _this.handleName.bind(_assertThisInitialized(_this));
     _this.handleProperties = _this.handleProperties.bind(_assertThisInitialized(_this));
-    _this.handleAddCurrentModel = _this.handleAddCurrentModel.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleExtras = _this.handleExtras.bind(_assertThisInitialized(_this));
     _this.handleStage = _this.handleStage.bind(_assertThisInitialized(_this));
     _this.handleStructure = _this.handleStructure.bind(_assertThisInitialized(_this));
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
     _this.handeLocalStorage = _this.handleLocalStorage.bind(_assertThisInitialized(_this));
     _this.startOver = _this.startOver.bind(_assertThisInitialized(_this));
     _this.handleThunks = _this.handleThunks.bind(_assertThisInitialized(_this));
+    _this.handleNewModel = _this.handleNewModel.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -504,58 +485,51 @@ function (_Component) {
   }, {
     key: "handleThunks",
     value: function handleThunks(name, route, action) {
-      var _this5 = this;
-
+      console.log("fields", this.state.fields);
       var includes = this.state.fields.filter(function (index) {
-        return index.startsWith("\n    Thunks:\n");
+        return index.startsWith("\n   - Thunks:\n");
       });
-      console.log(includes);
+      console.log("includes", includes);
 
       if (!includes.length) {
         var thunk = "\n   - Thunks:\n      - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
         this.setState({
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
-        }, function () {
-          return console.log(_this5.state.fields);
         });
       } else {
         var _thunk = "       - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
 
         this.setState({
           fields: [].concat(_toConsumableArray(this.state.fields), [_thunk])
-        }, function () {
-          return console.log(_this5.state.fields);
         });
       }
     }
   }, {
-    key: "handleAddCurrentModel",
-    value: function handleAddCurrentModel(crud, extraActions) {
-      var _this6 = this;
-
-      !crud ? crud = "\n   - CRUD: false\n" : crud = "";
-      var actions = "";
-
-      if (extraActions.length) {
-        var header = "\n    - Actions:\n";
-        var fields = extraActions.split(" ").map(function (action) {
-          return "      - ".concat(action, "\n");
-        });
-        fields.unshift(header);
-        actions = fields.join("");
-      }
-
-      this.setState({
-        stage: 1,
-        fields: [].concat(_toConsumableArray(this.state.fields), [crud, actions, "\n"])
-      }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
+    key: "handleNewModel",
+    value: function handleNewModel(name, route, action) {
+      var includes = this.state.fields.filter(function (index) {
+        return index.startsWith("\n    Thunks:\n");
       });
+
+      if (!includes.length) {
+        var thunk = "\n   - Thunks:\n      - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        this.setState({
+          stage: 1,
+          fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
+        });
+      } else {
+        var _thunk2 = "       - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+
+        this.setState({
+          stage: 1,
+          fields: [].concat(_toConsumableArray(this.state.fields), [_thunk2])
+        });
+      }
     }
   }, {
-    key: "handleSubmit",
-    value: function handleSubmit(crud, extraActions) {
-      var _this7 = this;
+    key: "handleExtras",
+    value: function handleExtras(crud, extraActions) {
+      var _this5 = this;
 
       !crud ? crud = "\n   - CRUD: false\n" : crud = "";
       var actions = "";
@@ -573,13 +547,13 @@ function (_Component) {
         stage: 4,
         fields: [].concat(_toConsumableArray(this.state.fields), [crud, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this7.state.stage, _this7.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
       });
     }
   }, {
     key: "handleStructure",
     value: function handleStructure(event) {
-      var _this8 = this;
+      var _this6 = this;
 
       if (this.state.fields[0].startsWith("Structure:")) {
         var splice = this.state.fields.splice(0);
@@ -594,28 +568,22 @@ function (_Component) {
           readyToSubmit: true,
           fields: [header].concat(_toConsumableArray(this.state.fields))
         }, function () {
-          return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this8.state.stage, _this8.state.fields]);
+          return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
         });
       }
     }
   }, {
     key: "handleLocalStorage",
     value: function handleLocalStorage() {
-      var _this9 = this;
-
       var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.get("form"),
           _ls$get2 = _slicedToArray(_ls$get, 2),
           stage = _ls$get2[0],
           fields = _ls$get2[1];
 
-      console.log("this is before setState", [stage, fields]);
-
       if (stage > this.state.stage) {
         this.setState({
           stage: stage,
           fields: fields
-        }, function () {
-          return console.log("This is after setState", [_this9.state.stage, _this9.state.fields]);
         });
       }
     }
@@ -625,7 +593,6 @@ function (_Component) {
       var data = local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.get("form");
 
       if (data !== null) {
-        console.log("heading to handleLocalStorage");
         this.handleLocalStorage();
       }
     }
@@ -642,11 +609,11 @@ function (_Component) {
         handleStage: this.handleStage,
         handleProperties: this.handleProperties
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageThree__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        addModel: this.handleAddCurrentModel,
-        handleSubmit: this.handleSubmit
+        handleExtras: this.handleExtras
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageFour__WEBPACK_IMPORTED_MODULE_5__["default"], {
         handleThunks: this.handleThunks,
-        handleStage: this.handleStage
+        handleStage: this.handleStage,
+        handleNewModel: this.handleNewModel
       })];
       var stage = this.state.stage;
       var text = this.state.fields.join("");
@@ -944,7 +911,8 @@ function (_Component) {
     value: function checkValidity(name, route, action, button) {
       var _this$props = this.props,
           handleThunks = _this$props.handleThunks,
-          handleStage = _this$props.handleStage;
+          handleStage = _this$props.handleStage,
+          handleNewModel = _this$props.handleNewModel;
       var _this$state = this.state,
           thunk_name = _this$state.thunk_name,
           thunk_route = _this$state.thunk_route,
@@ -952,6 +920,8 @@ function (_Component) {
 
       if (thunk_name.length + thunk_route.length + thunk_action.length === 0 && button === "next") {
         handleStage();
+      } else if (thunk_name.length + thunk_route.length + thunk_action.length === 0 && button === "newModel") {
+        handleStage(-3);
       } else {
         if (this.checkNameValidity(thunk_name, "Thunk") && this.checkNameValidity(thunk_action, "Action") && this.checkRouteValidity(thunk_route)) {
           if (button === "new") {
@@ -962,7 +932,10 @@ function (_Component) {
               thunk_route: '',
               thunk_action: ''
             });
+          } else if (button === "newModel") {
+            handleNewModel(name, route, action);
           } else {
+            // "next case"
             handleThunks(name, route, action);
             handleStage();
           }
@@ -1019,7 +992,7 @@ function (_Component) {
         },
         className: "btn",
         id: "step-three"
-      }, "ADD ANOTHER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "ADD ANOTHER THUNK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
         id: "step-four",
         onClick: function onClick() {
@@ -1027,7 +1000,13 @@ function (_Component) {
 
           _this2.checkValidity(thunk_name, thunk_route, thunk_action, "next");
         }
-      }, "NEXT")));
+      }, "NEXT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this2.checkValidity(thunk_name, thunk_route, thunk_action, "newModel");
+        },
+        className: "btn",
+        id: "step-three"
+      }, "ADD ANOTHER MODEL")));
     }
   }]);
 
@@ -1267,7 +1246,7 @@ function (_Component) {
           errorMessage: "Check your format. No special characters or numbers."
         });
       } else {
-        button === "submit" ? this.props.handleSubmit(crud, extraActions) : this.props.addModel(crud, extraActions);
+        this.props.handleExtras(crud, extraActions);
       }
     }
   }, {
@@ -1318,17 +1297,11 @@ function (_Component) {
         id: "stage-three-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
-        id: "step-three",
-        onClick: function onClick() {
-          return _this2.checkValidity(event, "add");
-        }
-      }, "ADD ANOTHER MODEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn",
         id: "step-four",
         onClick: function onClick() {
           return _this2.checkValidity(event, "submit");
         }
-      }, "SUBMIT")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_joyride__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, "Next")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_joyride__WEBPACK_IMPORTED_MODULE_1__["default"], {
         steps: steps,
         showProgress: true,
         continuous: true,

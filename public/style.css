@@ -383,7 +383,7 @@ input:valid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 75%;
+  height: 90%;
   width: 100%;
   animation: fadein 1s ease-in;
 }
@@ -412,8 +412,12 @@ input:valid {
 #stage-four-buttons{
   display: flex;
   width: 80%;
-  margin-top: 5%;
+  flex-wrap: wrap;
   justify-content: space-around;
+}
+
+#stage-four-buttons .btn {
+  margin-top: 7%;
 }
 
 #submit-left-inputs-container {

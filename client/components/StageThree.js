@@ -48,9 +48,7 @@ export default class StageThree extends Component {
         errorMessage: "Check your format. No special characters or numbers."
       });
     } else {
-      button === "submit"
-        ? this.props.handleSubmit(crud, extraActions)
-        : this.props.addModel(crud, extraActions);
+      this.props.handleExtras(crud, extraActions)
     }
   }
 
@@ -88,17 +86,10 @@ export default class StageThree extends Component {
         <div id="stage-three-buttons">
           <button
             className="btn"
-            id="step-three"
-            onClick={() => this.checkValidity(event, "add")}
-          >
-            ADD ANOTHER MODEL
-          </button>
-          <button
-            className="btn"
             id="step-four"
             onClick={() => this.checkValidity(event, "submit")}
           >
-            SUBMIT
+            Next
           </button>
         </div>
         <Joyride steps={steps} showProgress={true} continuous={true} showSkipButton={true} />

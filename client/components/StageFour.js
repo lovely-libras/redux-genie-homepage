@@ -85,17 +85,22 @@ export default class StageFour extends Component {
   }
 
   checkValidity(name, route, action, button) {
-    const { handleThunks, handleStage } = this.props;
+    const { handleThunks, handleStage, handleNewModel } = this.props;
     const { thunk_name, thunk_route, thunk_action } = this.state
     if( thunk_name.length + thunk_route.length + thunk_action.length === 0 && button === "next"){
       handleStage()
-    } else {
+    } else if( thunk_name.length + thunk_route.length + thunk_action.length === 0 && button === "newModel"){
+      handleStage(-3)
+    }else {
       if(this.checkNameValidity(thunk_name, "Thunk") && this.checkNameValidity(thunk_action, "Action") && this.checkRouteValidity(thunk_route)){
         if(button === "new"){
           handleThunks(name, route, action)
           handleStage(0)
           this.setState({ thunk_name: '', thunk_route: '', thunk_action: ''})
-        } else {
+        } else if(button === "newModel"){
+          handleNewModel(name, route, action)
+        }else {
+          // "next case"
           handleThunks(name, route, action)
           handleStage()
         }
@@ -153,7 +158,7 @@ export default class StageFour extends Component {
             className="btn"
             id="step-three"
           >
-            ADD ANOTHER
+            ADD ANOTHER THUNK
           </button>
           <button
             className="btn"
@@ -164,6 +169,13 @@ export default class StageFour extends Component {
             }}
           >
             NEXT
+          </button>
+          <button
+            onClick={() => this.checkValidity(thunk_name, thunk_route, thunk_action, "newModel")}
+            className="btn"
+            id="step-three"
+          >
+            ADD ANOTHER MODEL
           </button>
         </div>
         {/* <Joyride

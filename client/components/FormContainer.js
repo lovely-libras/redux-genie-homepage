@@ -12,21 +12,6 @@ import ls from "local-storage";
 import "brace/mode/yaml";
 import "brace/theme/solarized_light";
 
-const dummyProps = [
-  {
-    crud: true,
-    extraActions: "flyFurther, flyHigher",
-    name: "Ducks",
-    properties: [{ Feathers: "string" }, { Quacks: "boolean" }]
-  },
-  {
-    crud: false,
-    extraActions: "oneLiners, mutate",
-    name: "Terminator",
-    properties: [{ Model: "number" }, { isBack: "boolean" }]
-  }
-];
-
 const style = {
   animation: "fadein 1s",
   boxShadow: "0px 2px 2px  rgb(175, 175, 175)"
@@ -43,14 +28,14 @@ export default class FormContainer extends Component {
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
-    this.handleAddCurrentModel = this.handleAddCurrentModel.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleExtras = this.handleExtras.bind(this);
     this.handleStage = this.handleStage.bind(this);
     this.handleStructure = this.handleStructure.bind(this);
     this.handleText = this.handleText.bind(this);
     this.handeLocalStorage = this.handleLocalStorage.bind(this);
     this.startOver = this.startOver.bind(this);
     this.handleThunks = this.handleThunks.bind(this)
+    this.handleNewModel = this.handleNewModel.bind(this)
   }
 
   startOver() {
@@ -94,40 +79,30 @@ export default class FormContainer extends Component {
   }
 
   handleThunks(name, route, action){
-    let includes = this.state.fields.filter(index => index.startsWith(`\n    Thunks:\n`))
-    console.log(includes)
+    console.log("fields", this.state.fields)
+    let includes = this.state.fields.filter(index => index.startsWith("\n   - Thunks:\n"))
+    console.log("includes", includes)
     if(!includes.length){
       let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] }, () => console.log(this.state.fields))
+      this.setState({ fields: [...this.state.fields, thunk] })
     } else {
       let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] }, () => console.log(this.state.fields))
+      this.setState({ fields: [...this.state.fields, thunk] })
     }
   }
 
-  handleAddCurrentModel(crud, extraActions) {
-    !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
-
-    let actions = ``;
-    if (extraActions.length) {
-      let header = `\n    - Actions:\n`;
-      let fields = extraActions.split(" ").map(action => {
-        return `      - ${action}\n`;
-      });
-      fields.unshift(header)
-      actions = fields.join("");
+  handleNewModel(name, route, action){
+    let includes = this.state.fields.filter(index => index.startsWith(`\n    Thunks:\n`))
+    if(!includes.length){
+      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
+      this.setState({ stage: 1, fields: [...this.state.fields, thunk] })
+    } else {
+      let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
+      this.setState({ stage: 1, fields: [...this.state.fields, thunk] })
     }
-
-    this.setState(
-      {
-        stage: 1,
-        fields: [...this.state.fields, crud, actions, "\n"]
-      },
-      () => ls.set("form", [this.state.stage, this.state.fields])
-    );
   }
 
-  handleSubmit(crud, extraActions) {
+  handleExtras(crud, extraActions) {
     !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
 
     let actions = ``;
@@ -168,13 +143,8 @@ export default class FormContainer extends Component {
 
   handleLocalStorage() {
     const [stage, fields] = ls.get("form");
-    console.log("this is before setState", [stage, fields]);
     if (stage > this.state.stage) {
-      this.setState({ stage, fields }, () =>
-        console.log("This is after setState", [
-          this.state.stage,
-          this.state.fields
-        ])
+      this.setState({ stage, fields }
       );
     }
   }
@@ -182,7 +152,6 @@ export default class FormContainer extends Component {
   componentDidMount() {
     const data = ls.get("form");
     if (data !== null) {
-      console.log("heading to handleLocalStorage");
       this.handleLocalStorage();
     }
   }
@@ -197,10 +166,9 @@ export default class FormContainer extends Component {
         handleProperties={this.handleProperties}
       />,
       <StageThree
-        addModel={this.handleAddCurrentModel}
-        handleSubmit={this.handleSubmit}
+        handleExtras={this.handleExtras}
       />,
-      <StageFour handleThunks={this.handleThunks} handleStage={this.handleStage} />
+      <StageFour handleThunks={this.handleThunks} handleStage={this.handleStage} handleNewModel={this.handleNewModel} />
     ];
 
     let { stage } = this.state;
