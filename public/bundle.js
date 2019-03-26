@@ -335,17 +335,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StageOne__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StageOne */ "./client/components/StageOne.js");
 /* harmony import */ var _StageTwo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StageTwo */ "./client/components/StageTwo.js");
 /* harmony import */ var _StageThree__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StageThree */ "./client/components/StageThree.js");
-/* harmony import */ var _SubmitPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SubmitPage */ "./client/components/SubmitPage.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
-/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _StageFour__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./StageFour */ "./client/components/StageFour.js");
+/* harmony import */ var _SubmitPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubmitPage */ "./client/components/SubmitPage.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
+/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
+/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
+/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
+/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_11__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -379,6 +380,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -441,13 +443,14 @@ function (_Component) {
     _this.handleText = _this.handleText.bind(_assertThisInitialized(_this));
     _this.handeLocalStorage = _this.handleLocalStorage.bind(_assertThisInitialized(_this));
     _this.startOver = _this.startOver.bind(_assertThisInitialized(_this));
+    _this.handleThunks = _this.handleThunks.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(FormContainer, [{
     key: "startOver",
     value: function startOver() {
-      local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.remove("form");
+      local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.remove("form");
       this.setState({
         fields: ["Models: \n \n"],
         stage: 0,
@@ -472,7 +475,7 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newModel])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this2.state.stage, _this2.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this2.state.stage, _this2.state.fields]);
       });
     }
   }, {
@@ -483,7 +486,7 @@ function (_Component) {
       this.setState({
         text: this.state.fields.join("")
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this3.state.stage, _this3.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this3.state.stage, _this3.state.fields]);
       });
     }
   }, {
@@ -495,59 +498,88 @@ function (_Component) {
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newProperty])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this4.state.stage, _this4.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this4.state.stage, _this4.state.fields]);
       });
+    }
+  }, {
+    key: "handleThunks",
+    value: function handleThunks(name, route, action) {
+      var _this5 = this;
+
+      var includes = this.state.fields.filter(function (index) {
+        return index.startsWith("\n    Thunks:\n");
+      });
+      console.log(includes);
+
+      if (!includes.length) {
+        var thunk = "\n   - Thunks:\n      - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        this.setState({
+          fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
+        }, function () {
+          return console.log(_this5.state.fields);
+        });
+      } else {
+        var _thunk = "       - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+
+        this.setState({
+          fields: [].concat(_toConsumableArray(this.state.fields), [_thunk])
+        }, function () {
+          return console.log(_this5.state.fields);
+        });
+      }
     }
   }, {
     key: "handleAddCurrentModel",
     value: function handleAddCurrentModel(crud, extraActions) {
-      var _this5 = this;
+      var _this6 = this;
 
-      !crud ? crud = "\n    CRUD: false\n" : crud = "";
-      var header = "\n     Actions:\n";
+      !crud ? crud = "\n   - CRUD: false\n" : crud = "";
       var actions = "";
 
       if (extraActions.length) {
+        var header = "\n    - Actions:\n";
         var fields = extraActions.split(" ").map(function (action) {
           return "      - ".concat(action, "\n");
         });
+        fields.unshift(header);
         actions = fields.join("");
       }
 
       this.setState({
         stage: 1,
-        fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
+        fields: [].concat(_toConsumableArray(this.state.fields), [crud, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
       });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(crud, extraActions) {
-      var _this6 = this;
+      var _this7 = this;
 
-      !crud ? crud = "\n    CRUD: false\n" : crud = "";
-      var header = "\n     Actions:\n";
+      !crud ? crud = "\n   - CRUD: false\n" : crud = "";
       var actions = "";
 
       if (extraActions.length) {
+        var header = "\n    - Actions:\n";
         var fields = extraActions.split(" ").map(function (action) {
           return "      - ".concat(action, "\n");
         });
+        fields.unshift(header);
         actions = fields.join("");
       }
 
       this.setState({
         stage: 4,
-        fields: [].concat(_toConsumableArray(this.state.fields), [crud, header, actions, "\n"])
+        fields: [].concat(_toConsumableArray(this.state.fields), [crud, actions, "\n"])
       }, function () {
-        return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this6.state.stage, _this6.state.fields]);
+        return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this7.state.stage, _this7.state.fields]);
       });
     }
   }, {
     key: "handleStructure",
     value: function handleStructure(event) {
-      var _this7 = this;
+      var _this8 = this;
 
       if (this.state.fields[0].startsWith("Structure:")) {
         var splice = this.state.fields.splice(0);
@@ -562,16 +594,16 @@ function (_Component) {
           readyToSubmit: true,
           fields: [header].concat(_toConsumableArray(this.state.fields))
         }, function () {
-          return local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.set("form", [_this7.state.stage, _this7.state.fields]);
+          return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this8.state.stage, _this8.state.fields]);
         });
       }
     }
   }, {
     key: "handleLocalStorage",
     value: function handleLocalStorage() {
-      var _this8 = this;
+      var _this9 = this;
 
-      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form"),
+      var _ls$get = local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.get("form"),
           _ls$get2 = _slicedToArray(_ls$get, 2),
           stage = _ls$get2[0],
           fields = _ls$get2[1];
@@ -583,14 +615,14 @@ function (_Component) {
           stage: stage,
           fields: fields
         }, function () {
-          return console.log("This is after setState", [_this8.state.stage, _this8.state.fields]);
+          return console.log("This is after setState", [_this9.state.stage, _this9.state.fields]);
         });
       }
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var data = local_storage__WEBPACK_IMPORTED_MODULE_8___default.a.get("form");
+      var data = local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.get("form");
 
       if (data !== null) {
         console.log("heading to handleLocalStorage");
@@ -612,6 +644,9 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageThree__WEBPACK_IMPORTED_MODULE_4__["default"], {
         addModel: this.handleAddCurrentModel,
         handleSubmit: this.handleSubmit
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StageFour__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        handleThunks: this.handleThunks,
+        handleStage: this.handleStage
       })];
       var stage = this.state.stage;
       var text = this.state.fields.join("");
@@ -619,14 +654,14 @@ function (_Component) {
         className: "form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "form-and-editor-container"
-      }, stage > 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, stage > 4 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
         ready: this.state.readyToSubmit,
         data: this.state.fields,
         handleStructure: this.handleStructure
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "staged-form",
         autoComplete: "off"
-      }, toRender[stage]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_7___default.a, {
+      }, toRender[stage]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_8___default.a, {
         mode: "yaml",
         theme: "solarized_light",
         style: style,
@@ -773,6 +808,230 @@ function (_Component) {
   }]);
 
   return Navbar;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./client/components/StageFour.js":
+/*!****************************************!*\
+  !*** ./client/components/StageFour.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StageFour; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! local-storage */ "./node_modules/local-storage/local-storage.js");
+/* harmony import */ var local_storage__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(local_storage__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_joyride__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-joyride */ "./node_modules/react-joyride/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var StageFour =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(StageFour, _Component);
+
+  function StageFour(props) {
+    var _this;
+
+    _classCallCheck(this, StageFour);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(StageFour).call(this));
+    _this.state = {
+      thunk_name: "",
+      thunk_route: "",
+      thunk_action: "",
+      errors: false,
+      errorMessage: "",
+      steps: [{
+        target: "#step-one",
+        content: "What's a property on your model? If it's a user do will they have an email address? First name? Favorite CLI tools? Name it here.",
+        disableBeacon: true
+      }, {
+        target: "#step-two",
+        content: "What kind of data type will this property be? Let us know so state can be initialized for that type",
+        disableBeacon: true
+      }, {
+        target: "#step-three",
+        content: "Click here if you want to add another property, or...",
+        disableBeacon: true
+      }, {
+        target: "#step-four",
+        content: "Click here to proceed on.",
+        disableBeacon: true
+      }]
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.checkValidity = _this.checkValidity.bind(_assertThisInitialized(_this));
+    _this.checkNameValidity = _this.checkNameValidity.bind(_assertThisInitialized(_this));
+    _this.checkRouteValidity = _this.checkRouteValidity.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(StageFour, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
+    }
+  }, {
+    key: "checkNameValidity",
+    value: function checkNameValidity(name, type) {
+      if (name.length === 0) {
+        this.setState({
+          errors: true,
+          errorMessage: "".concat(type, " gotta have names dude!")
+        });
+      } else if (name.match(/[^a-zA-Z]/g) !== null) {
+        this.setState({
+          errors: true,
+          errorMessage: "Names cannot have spaces, numbers, \n or special characters."
+        });
+      } else if (name.length >= 30) {
+        this.setState({
+          errors: true,
+          errorMessage: "Ok Proust. Max length is 20 chars."
+        });
+      } else {
+        return true;
+      }
+    }
+  }, {
+    key: "checkRouteValidity",
+    value: function checkRouteValidity(route) {
+      if (route.length === 0) {
+        this.setState({
+          errors: true,
+          errorMessage: "Routes gotta have names dude!"
+        });
+      } else if (route.match(/[\s]/g !== null)) {
+        this.setState({
+          errors: true,
+          errorMessage: "Routes can't have spaces"
+        });
+      } else {
+        return true;
+      }
+    }
+  }, {
+    key: "checkValidity",
+    value: function checkValidity(name, route, action, button) {
+      var _this$props = this.props,
+          handleThunks = _this$props.handleThunks,
+          handleStage = _this$props.handleStage;
+      var _this$state = this.state,
+          thunk_name = _this$state.thunk_name,
+          thunk_route = _this$state.thunk_route,
+          thunk_action = _this$state.thunk_action;
+
+      if (thunk_name.length + thunk_route.length + thunk_action.length === 0 && button === "next") {
+        handleStage();
+      } else {
+        if (this.checkNameValidity(thunk_name, "Thunk") && this.checkNameValidity(thunk_action, "Action") && this.checkRouteValidity(thunk_route)) {
+          if (button === "new") {
+            handleThunks(name, route, action);
+            handleStage(0);
+            this.setState({
+              thunk_name: '',
+              thunk_route: '',
+              thunk_action: ''
+            });
+          } else {
+            handleThunks(name, route, action);
+            handleStage();
+          }
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$state2 = this.state,
+          thunk_name = _this$state2.thunk_name,
+          thunk_route = _this$state2.thunk_route,
+          thunk_action = _this$state2.thunk_action,
+          errors = _this$state2.errors,
+          errorMessage = _this$state2.errorMessage,
+          steps = _this$state2.steps;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stage-four-container",
+        className: "form-style"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Thunks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stage-four-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "migrateSouthThunk",
+        onChange: this.handleChange,
+        type: "text",
+        name: "thunk_name",
+        id: "step-one",
+        value: thunk_name
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "/api/quackForceOne",
+        onChange: this.handleChange,
+        type: "text",
+        name: "thunk_route",
+        id: "step-one",
+        value: thunk_route
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "migrateSouth",
+        onChange: this.handleChange,
+        type: "text",
+        name: "thunk_action",
+        id: "step-one",
+        value: thunk_action
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: errors ? "invalid-input" : "valid-input"
+      }, errorMessage), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "stage-four-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          event.preventDefault();
+
+          _this2.checkValidity(thunk_name, thunk_route, thunk_action, "new");
+        },
+        className: "btn",
+        id: "step-three"
+      }, "ADD ANOTHER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        id: "step-four",
+        onClick: function onClick() {
+          event.preventDefault();
+
+          _this2.checkValidity(thunk_name, thunk_route, thunk_action, "next");
+        }
+      }, "NEXT")));
+    }
+  }]);
+
+  return StageFour;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -1233,15 +1492,6 @@ function (_Component) {
         property_name: "",
         property_value: ""
       });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var data = local_storage__WEBPACK_IMPORTED_MODULE_1___default.a.get("form");
-
-      if (data !== null) {
-        this.props.handleLocalStorage();
-      }
     }
   }, {
     key: "render",
@@ -60166,7 +60416,7 @@ Object.defineProperty(exports,'__esModule',{value:!0});var VALIDATOR_ARG_ERROR_M
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

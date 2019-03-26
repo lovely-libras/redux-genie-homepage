@@ -379,6 +379,43 @@ input:valid {
   justify-content: space-around;
 }
 
+#stage-four-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75%;
+  width: 100%;
+  animation: fadein 1s ease-in;
+}
+
+#stage-four-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 35%;
+}
+
+#stage-four-input input {
+  width: 100%;
+  font-size: 1.33em;
+}
+
+#stage-four-input select {
+  border: 0;
+  background-color: rgb(177, 164, 202);
+}
+
+#stage-four-inputselect:focus {
+  outline: none;
+}
+
+#stage-four-buttons{
+  display: flex;
+  width: 80%;
+  margin-top: 5%;
+  justify-content: space-around;
+}
+
 #submit-left-inputs-container {
   display: flex;
   flex-direction: column;
