@@ -107,7 +107,7 @@ Models:
   
                 
   return (
-    <div id="documenation-container" className="form-style">
+    <div id="documentation-container" className="form-style">
       <h1 id="reduxgenie">Redux Genie</h1>
 
       <h3 id="cheatcodesforredux">cheat codes for redux</h3>

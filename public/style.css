@@ -172,11 +172,12 @@ input:valid {
   overflow-x: hidden;
 }
 
-#documenation-container {
+#documentation-container {
   position: relative;
   width: 40%;
   left: 0;
   padding: 2em;
+  margin-top: 3em;
   border-radius: 5px;
   margin-bottom: 5em;
   margin-left: auto;
@@ -254,7 +255,16 @@ input:valid {
 }
 
 #start-over-btn {
-  width: 10%;
+  align-self: center;
+  width: 30%;
+  height: 5vh;
+}
+
+#form-start-over-btn {
+  align-self: center;
+  width: 30%;
+  height: 5vh;
+  margin-top: 12vh;
 }
 
 .form-style {
@@ -450,7 +460,7 @@ input:valid {
 
 #submit-page-left {
   width: 25%;
-  height: 59%;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -551,20 +561,30 @@ input:valid {
   }
 
   #submit-page-left {
-    height: 68%;
+    height: 100%;
   }
 
   #submit-left-button {
-    height: 40%;
+    height: 20%;
   }
 
   #submit-left-inputs-container {
-    height: 40%;
+    height: 30%;
   }
 }
 
 
 /* mobile */
+
+@media(max-width: 900px){
+  .sidenav{
+    visibility: hidden;
+  }
+
+  #documentation-container{
+    width: 80%
+  }
+}
 
 @media (max-width: 800px) {
 
@@ -621,19 +641,19 @@ input:valid {
     margin-left: 2vw;
   }
 
-  /* configure page */
+  /* configure forms */
 
   .form-container {
     height: 100%;
     width: 100%;
     margin-top: 6em;
+    margin-bottom: 3em;
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
   }
 
   .staged-form {
@@ -643,35 +663,35 @@ input:valid {
   }
 
   #editor-container {
+    max-height: 100%;
     width: 80%;
   }
 
   #form-and-editor-container {
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #start-over-btn {
-    width: 25%;
-  }
-
   #stage-one-container{
     margin-top: -10em;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
     height: 350px;
   }
 
   #stage-two-container{
     margin-top: -12em;
     margin-bottom: 2.5em;
-    height: 300px;
+    height: 275px;
+  }
+
+  #stage-two-input{
+    font-size: 12px;
   }
 
   #stage-three-container{
-    margin-top: -9em;
+    margin-top: -7.5em;
     margin-bottom: 2.5em;
     height: 350px;
   }
@@ -686,15 +706,35 @@ input:valid {
   }
 
   #stage-four-container{
-    margin-top: -11em;
+    margin-top: -6em;
     margin-bottom: 2.5em;
     height: 350px;
   }
 
-  /* Documentation page */
-  .sidenav{
-    visibility: hidden;
+  #submit-left-button{
+    margin-top: 5%;
+    height: 125px;
+    margin-left: auto;
   }
+
+  #submit-page-left{
+    margin-top: 55vh;
+    display: block;
+    height: 85%;
+    width: 80%;
+    font-weight: 100;
+  }
+
+  #start-over-btn {
+    margin-top: 10%;
+    width: 25%;
+    margin-left: 37.5%;
+    height: 8vh;
+  }
+
+
+  /* Documentation page */
+
 
   pre {
     white-space: pre-wrap;       /* css-3 */
@@ -714,7 +754,7 @@ input:valid {
     align-items: center;
   }
 
-  #documenation-container{
+  #documentation-container{
     width: 70%;
     overflow-wrap: break-word;
   }

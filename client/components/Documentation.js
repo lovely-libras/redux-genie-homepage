@@ -11,7 +11,7 @@ const Documentation = () => {
   return (
     <div id="docs-container">
       <div className="sidenav">
-        <a href="#documenation-container">About</a>
+        <a href="#top">About</a>
         <a href="#store-declaration">Store Declaration</a>
         <div className="sidenav-indent">
           <a href="#rails-style">Rails Style</a>

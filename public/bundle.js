@@ -164,7 +164,7 @@ var Documentation = function Documentation() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sidenav"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#documenation-container"
+    href: "#top"
   }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#store-declaration"
   }, "Store Declaration"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -232,7 +232,7 @@ var DocumentationText = function DocumentationText() {
   var text2 = "\n// lamp.config.yml \n\n... \n\nModels: \n  \n  - Dux: \n    \n    Slice: \n\n      - Name: string \n      - Quacking: Boolean \n      - Ducklings: Object \n      - Fly2Gether: Boolean \n    CRUD: false \n  \n...\n  ";
   var text3 = "\n  Structure: Ducks # Rails || Ducks \n  Thunks: included # thunks in the same file as the actions \n  Logging: false # configures logging middleware \n  \n  Models: \n  \n    - Dux: \n  \n      Slice: \n  \n        - Name: string \n        - Quacking: Boolean \n        - Ducklings: Object \n        - Fly2Gether: Boolean \n        \n      CRUD: false \n  \n      Actions:\n        - countDux \n        - migrateDux \n        - quackOne \n        \n      Thunks: \n        - getAll: \"/api/Dux\" \n        - getOne: \"/api/Dux/:dux\"\n  \n    - Terminator: \n    \n      Slice: \n  \n        - WillBeBack: Boolean \n        - OneLiners: Array \n        - Sequels: Number \n        \n      Actions: \n        - killJohnConnor \n        -backInTime \n        \n      Thunks: \n        - getAll: \"api/terminator\" \n        - getOne: \"api/terminator/:terminator\"";
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "documenation-container",
+    id: "documentation-container",
     className: "form-style"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "reduxgenie"
@@ -417,7 +417,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormContainer).call(this));
     _this.state = {
       fields: ["Models: \n \n"],
-      stage: 4,
+      stage: 0,
       text: "",
       readyToSubmit: false
     };
@@ -634,13 +634,18 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "form-and-editor-container"
       }, stage > 4 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubmitPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        startOver: this.startOver,
         ready: this.state.readyToSubmit,
         data: this.state.fields,
         handleStructure: this.handleStructure
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "staged-form",
         autoComplete: "off"
-      }, toRender[stage]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, toRender[stage], react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        id: "form-start-over-btn",
+        onClick: this.startOver
+      }, "START OVER")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "editor-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_ace__WEBPACK_IMPORTED_MODULE_8___default.a, {
         mode: "yaml",
@@ -654,11 +659,7 @@ function (_Component) {
         },
         readOnly: true,
         fontSize: 17
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn",
-        id: "start-over-btn",
-        onClick: this.startOver
-      }, "START OVER"));
+      }))));
     }
   }]);
 
@@ -1649,7 +1650,7 @@ function (_Component) {
         target: "#lamp-button",
         content: "Click here to get your yaml file.",
         disableBeacon: true,
-        placement: 'top'
+        placement: "top"
       }]
     };
     _this.handleCreateFile = _this.handleCreateFile.bind(_assertThisInitialized(_this));
@@ -1669,14 +1670,14 @@ function (_Component) {
       } else {
         console.log("second condition");
         this.handleCreateFile();
-        local_storage__WEBPACK_IMPORTED_MODULE_2___default.a.remove('form');
+        local_storage__WEBPACK_IMPORTED_MODULE_2___default.a.remove("form");
       }
     }
   }, {
     key: "handleCreateFile",
     value: function handleCreateFile() {
       event.preventDefault();
-      console.log('trying to create the file');
+      console.log("trying to create the file");
       var modelFields = this.props.data.map(function (ele) {
         return [ele];
       });
@@ -1740,7 +1741,11 @@ function (_Component) {
         showProgress: true,
         continuous: true,
         showSkipButton: true
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        id: "start-over-btn",
+        onClick: this.props.startOver
+      }, "START OVER"));
     }
   }]);
 
