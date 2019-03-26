@@ -3,6 +3,7 @@ import StageZero from "./StageZero";
 import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
+import StageFour from "./StageFour";
 import SubmitPage from "./SubmitPage";
 import brace from "brace";
 import AceEditor from "react-ace";
@@ -49,6 +50,7 @@ export default class FormContainer extends Component {
     this.handleText = this.handleText.bind(this);
     this.handeLocalStorage = this.handleLocalStorage.bind(this);
     this.startOver = this.startOver.bind(this);
+    this.handleThunks = this.handleThunks.bind(this)
   }
 
   startOver() {
@@ -91,43 +93,57 @@ export default class FormContainer extends Component {
     );
   }
 
-  handleAddCurrentModel(crud, extraActions) {
-    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
+  handleThunks(name, route, action){
+    let includes = this.state.fields.filter(index => index.startsWith(`\n    Thunks:\n`))
+    console.log(includes)
+    if(!includes.length){
+      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
+      this.setState({ fields: [...this.state.fields, thunk] }, () => console.log(this.state.fields))
+    } else {
+      let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
+      this.setState({ fields: [...this.state.fields, thunk] }, () => console.log(this.state.fields))
+    }
+  }
 
-    let header = `\n     Actions:\n`;
+  handleAddCurrentModel(crud, extraActions) {
+    !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
+
     let actions = ``;
     if (extraActions.length) {
+      let header = `\n    - Actions:\n`;
       let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });
+      fields.unshift(header)
       actions = fields.join("");
     }
 
     this.setState(
       {
         stage: 1,
-        fields: [...this.state.fields, crud, header, actions, "\n"]
+        fields: [...this.state.fields, crud, actions, "\n"]
       },
       () => ls.set("form", [this.state.stage, this.state.fields])
     );
   }
 
   handleSubmit(crud, extraActions) {
-    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
+    !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
 
-    let header = `\n     Actions:\n`;
     let actions = ``;
     if (extraActions.length) {
+      let header = `\n    - Actions:\n`;
       let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });
+      fields.unshift(header)
       actions = fields.join("");
     }
 
     this.setState(
       {
         stage: 4,
-        fields: [...this.state.fields, crud, header, actions, "\n"]
+        fields: [...this.state.fields, crud, actions, "\n"]
       },
       () => ls.set("form", [this.state.stage, this.state.fields])
     );
@@ -183,7 +199,8 @@ export default class FormContainer extends Component {
       <StageThree
         addModel={this.handleAddCurrentModel}
         handleSubmit={this.handleSubmit}
-      />
+      />,
+      <StageFour handleThunks={this.handleThunks} handleStage={this.handleStage} />
     ];
 
     let { stage } = this.state;
@@ -193,7 +210,7 @@ export default class FormContainer extends Component {
     return (
       <div className="form-container">
         <div id="form-and-editor-container">
-          {stage > 3 ? (
+          {stage > 4 ? (
             <SubmitPage
               ready={this.state.readyToSubmit}
               data={this.state.fields}

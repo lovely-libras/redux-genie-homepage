@@ -95,13 +95,6 @@ export default class StageTwo extends Component {
     this.setState({ property_name: "", property_value: "" });
   }
 
-  componentDidMount() {
-    const data = ls.get("form");
-    if (data !== null) {
-      this.props.handleLocalStorage();
-    }
-  }
-
   render() {
     const { errors, errorMessage, steps } = this.state;
     return (
