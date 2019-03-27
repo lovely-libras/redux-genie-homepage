@@ -119,12 +119,11 @@ Models:
       </p>
 
       <p>
-        Your wish is our command!
+        Redux Genie makes starting a new project quick and simple, allowing you to get straight to writing your own code.
       </p>
 
-
       <p>
-        Redux Genie makes starting a new project quick and simple, allowing you to get straight to writing your own code.
+        Your wish is our command!
       </p>
 
       <h2 id="store-declaration">
@@ -135,20 +134,48 @@ Models:
         To begin, go to your project's root directory in your terminal and write:
       </p>
 
-      <code>$ npm install redux-genie</code>
+      <pre>
+        <code>$ npm install redux-genie</code>
+      </pre>
 
       <p>
-        Define your slices of state. We refer to them as "Models", but they can
-        correspond to database models, domains ("landing page"), features
-        ("checkout"), or any other way you want to slice your state. The genie
-        automatically generates and configures all CRUD methods with separate
-        subreducers for each Model, with Thunks linked to the Redux-Thunk
-        middleware calling your defined API endpoints.
+        With Redux Genie now installed, all you need to get started is a YML file.
+      </p>
+
+      <div id="d-editor-one">
+        <AceEditor
+          mode="yaml"
+          theme="solarized_light"
+          id="submit-page-right"
+          value={text1}
+          height={'100%'}
+          width={'100'}
+          editorProps={{ $blockScrolling: true }}
+          readOnly={true}
+          fontSize={16}
+        />
+      </div>
+
+      <blockquote>
+        <p>A sample lamp.config.yml file.</p>
+      </blockquote>
+
+      <p>
+        "What's a YML file?", you may ask. It's a human-readable text file that allows you to define the parameters of your project's state. Redux Genie seeks out the lamp.config.yml file in your root directory, and like magic constructs the store according to the parameters it contains!
       </p>
 
       <p>
-        Choose from the two of the file structures outlined in the Redux FAQs:
-        https://redux.js.org/faq/code-structure
+        If this is your first time using a YML file, it is recommended you use our online tool to build a YML file. The YML is a very sensitive file, where one tab off or a misplaced space can prevent the program from rendering the store properly or at all. You should exercise caution when creating your own YML file from scratch. If you wish to see a sample of a fully functional YML file simply enter:
+      </p>
+
+      <pre>
+        <code>
+          $ genie sample
+        </code>
+      </pre>
+
+      <p>
+        This will generate a sample YML file that you can use as a template to write your own in your editor of choice.
       </p>
 
       <pre>
