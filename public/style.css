@@ -123,14 +123,14 @@ input:valid {
   height: 100vh;
 }
 
-#form-and-editor-container{
+#form-and-editor-container {
   margin-top: 3em;
   margin-bottom: 2em;
   width: 100%;
   height: 100%;
 }
 
-#landing-container{
+#landing-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -140,7 +140,7 @@ input:valid {
   animation: fadein 2s ease;
 }
 
-#landing-header{
+#landing-header {
   display: flex;
   width: 35%;
   height: 15%;
@@ -148,41 +148,57 @@ input:valid {
   align-items: center;
 }
 
-#landing-header h1{
+#landing-header h1 {
   font-weight: 100;
 }
 
-#landing-container h3{
+#landing-container h3 {
   font-weight: 100;
 }
 
-#landing-header img{
+#landing-header img {
   height: 4em;
   margin-left: auto;
 }
 
-#landing-btn{
+#landing-btn {
   margin-top: 3vh;
   text-decoration: none;
 }
 
-#docs-container{
+#docs-container {
   margin-top: 8vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-#documenation-container {
+#documentation-container {
   position: relative;
   width: 40%;
   left: 0;
   padding: 2em;
+  margin-top: 3em;
   border-radius: 5px;
   margin-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
   z-index: 0;
   animation: fadein 2s;
+}
+
+#d-editor-one{
+  width: 550px;
+  height: 575px;
+}
+
+#d-editor-two{
+  height: 320px;
+  width: 550px;
+}
+
+#d-editor-three{
+  height: 700px;
+  width: 550;
 }
 
 .sidenav {
@@ -216,10 +232,16 @@ input:valid {
   text-decoration: none;
 }
 
+#editor-container {
+  width: 25%;
+  height: 100%;
+}
+
 .form-container {
   height: 90%;
   width: 100%;
   margin: 4em;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -234,7 +256,15 @@ input:valid {
 }
 
 #start-over-btn {
-  width: 10%;
+  align-self: center;
+  width: 30%;
+  height: 5vh;
+}
+
+#form-start-over-btn {
+  align-self: center;
+  width: 30%;
+  margin-top: 12vh;
 }
 
 .form-style {
@@ -354,7 +384,7 @@ input:valid {
 }
 
 #stage-three-crud {
-  margin-top: 10%;
+  margin-top: 2em;
 }
 
 #stage-three-crud label {
@@ -362,7 +392,7 @@ input:valid {
 }
 
 #stage-three-actions {
-  margin-top: 15%;
+  margin-top: 2em;
 }
 
 #stage-three-actions input {
@@ -372,8 +402,8 @@ input:valid {
 }
 
 #stage-three-buttons {
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin-top: 2em;
+  margin-bottom: 4em;
   width: 80%;
   display: flex;
   justify-content: space-around;
@@ -388,7 +418,7 @@ input:valid {
   animation: fadein 1s ease-in;
 }
 
-#stage-four-input{
+#stage-four-input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -409,7 +439,7 @@ input:valid {
   outline: none;
 }
 
-#stage-four-buttons{
+#stage-four-buttons {
   display: flex;
   width: 80%;
   flex-wrap: wrap;
@@ -430,7 +460,7 @@ input:valid {
 
 #submit-page-left {
   width: 25%;
-  height: 59%;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -526,21 +556,309 @@ input:valid {
     height: 60%;
   }
 
-  #stage-three-container {
+  #submit-page-left {
     height: 100%;
   }
 
-  #submit-page-left {
-    height: 68%;
-  }
-
   #submit-left-button {
-    height: 40%;
+    height: 20%;
   }
 
   #submit-left-inputs-container {
-    height: 40%;
+    height: 30%;
   }
+
+  #start-over-btn{
+    height: 7vh;
+  }
+}
+
+@media (max-width: 1150px) {
+
+  /* landing */
+
+  #landing-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #landing-header{
+    width: 90%;
+    height: 250px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #landing-header h1{
+    margin-bottom: 0;
+  }
+
+  #landing-container h3{
+    width: 360px;
+    text-align: center;
+  }
+
+  #landing-header #genie-logo{
+    margin-left: 0;
+  }
+
+  /* nav menu */
+  .nav-link {
+    margin-right: .5em;
+    font-size: .75em;
+    font-weight: 100;
+  }
+
+  .nav-link h1 {
+    font-size: 1.5em;
+  }
+
+  #genie-logo {
+    height: 4vh;
+  }
+
+  #github-logo{
+    font-size: 1.5em;
+    margin-left: 2vw;
+  }
+
+  #npm-logo {
+    padding-top: .75em;
+    font-size: 1.5em;
+    margin-left: 2vw;
+  }
+
+  /* configure forms */
+
+  .form-container {
+    height: 100%;
+    width: 100%;
+    margin-top: 6em;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #form-start-over-btn{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 6vh;
+    width: 12vw;
+  }
+
+  .staged-form {
+    width: 80%;
+    margin-top: 28em;
+    height: 550px;
+  }
+
+  #editor-container {
+    max-height: 100%;
+    width: 80%;
+  }
+
+  #form-and-editor-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #stage-zero-container{
+    height: 300px;
+  }
+
+  #stage-one-container{
+    margin-top: -5em;
+    margin-bottom: 2em;
+    height: 250px;
+  }
+
+  #stage-two-container{
+    margin-top: -5em;
+    margin-bottom: 2.5em;
+    height: 325px;
+  }
+
+  #stage-two-input{
+    font-size: 12px;
+  }
+
+  #stage-three-container{
+    margin-top: 1.5em;
+    height: 350px;
+  }
+
+  #stage-three-actions {
+    padding: 1em;
+  }
+
+  #stage-three-actions input{
+    padding-left: 1em;
+    font-size: 15px;
+  }
+
+  #stage-four-container{
+    margin-bottom: 2.5em;
+    height: 350px;
+  }
+
+  #submit-left-button{
+    margin-top: 5%;
+    height: 125px;
+    margin-left: auto;
+  }
+
+  #submit-page-left{
+    margin-top: 55vh;
+    display: block;
+    height: 85%;
+    width: 80%;
+    font-weight: 100;
+  }
+
+  #start-over-btn{
+    margin-top: 6vh;
+    margin-left: 27vw;
+    margin-right: auto;
+    margin-bottom: 6vh;
+    position: center;
+    width: 25vw;
+    height: 6vh;
+  }
+
+  /* Documentation page */
+
+  pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+   }
+
+  code #text{
+    overflow-wrap: break-word;
+  }
+
+  #docs-container{
+    width: 100%;
+    overflow-x: hidden;
+    align-items: center;
+  }
+
+  #documentation-container{
+    width: 70%;
+    overflow-wrap: break-word;
+  }
+
+  #d-editor-one{
+    height: 575px;
+    width: 285px;
+  }
+  
+  #d-editor-two{
+    height: 320px;
+    width: 285px;
+  }
+  
+  #d-editor-three{
+    height: 700px;
+    width: 285px;
+  }
+}
+
+@media(max-width: 900px){
+  #form-start-over-btn{
+    margin: 6vh;
+    height: 6vh;
+    width: 20vw;
+  }
+
+  .sidenav{
+    visibility: hidden;
+  }
+
+  #documentation-container{
+    width: 80%
+  }
+}
+
+@media (max-width: 800px){
+
+  .staged-form{
+    margin-bottom: 6vh;
+  }
+
+  #stage-zero-container{
+    height: 400px;
+  }
+
+  #stage-zero-text{
+    height: 60%;
+  }
+
+  #stage-one-container{
+    height: 200px;
+    margin-bottom: 0;
+    padding-bottom: 1em;
+  }
+
+  #stage-two-container{
+    height: 250px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 500px){
+
+  .staged-form{
+    margin-top: 16em;
+  }
+
+  #stage-zero-container{
+    /* margin-top: 4em; */
+    margin-bottom: 4em;
+    height: 450px;
+  }
+
+  #stage-zero-text{
+    height: 66%;
+  }
+  #stage-one-container{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #form-start-over-btn{
+    margin: 6vh;
+    height: 6vh;
+    width: 40vw;
+  }
+
+  #stage-two-container{
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+
+  #stage-three-container{
+    margin-top: 7.25em;
+    margin-bottom: 0;
+  }
+
+  #stage-four-container{
+    margin-top: 7em;
+    margin-bottom: 0;
+  }
+
+  #stage-four-input input{
+    font-size: 15px;
+  }
+
+
 }
 
 @keyframes fadein {

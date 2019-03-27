@@ -22,7 +22,7 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 0,
+      stage: 4,
       text: "",
       readyToSubmit: false
     };
@@ -34,14 +34,14 @@ export default class FormContainer extends Component {
     this.handleText = this.handleText.bind(this);
     this.handeLocalStorage = this.handleLocalStorage.bind(this);
     this.startOver = this.startOver.bind(this);
-    this.handleThunks = this.handleThunks.bind(this)
-    this.handleNewModel = this.handleNewModel.bind(this)
+    this.handleThunks = this.handleThunks.bind(this);
+    this.handleNewModel = this.handleNewModel.bind(this);
   }
 
   startOver() {
     ls.remove("form");
     this.setState({
-      fields: [`Models: \n \n`],
+      fields: [`Models: \n`],
       stage: 0,
       text: "",
       readyToSubmit: false
@@ -53,7 +53,7 @@ export default class FormContainer extends Component {
   }
 
   handleName(name) {
-    const newModel = ` - ${name}:\n\n`;
+    const newModel = `\n  - ${name}:\n\n    Slice:\n`;
     this.setState(
       {
         fields: [...this.state.fields, newModel]
@@ -78,40 +78,48 @@ export default class FormContainer extends Component {
     );
   }
 
-  handleThunks(name, route, action){
-    console.log("fields", this.state.fields)
-    let includes = this.state.fields.filter(index => index.startsWith("\n   - Thunks:\n"))
-    console.log("includes", includes)
-    if(!includes.length){
-      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] })
+  handleThunks(name, route, action) {
+    console.log("fields", this.state.fields);
+    let includes = this.state.fields.filter(index =>
+      index.startsWith(`\n      Thunks:\n`)
+    );
+    console.log("includes", includes);
+    if (!includes.length) {
+      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ fields: [...this.state.fields, thunk] }, () =>
+        ls.set("form", [this.state.stage, this.state.fields])
+      );
     } else {
-      let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ fields: [...this.state.fields, thunk] })
+      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ fields: [...this.state.fields, thunk] }, () =>
+        ls.set("form", [this.state.stage, this.state.fields])
+      );
     }
   }
 
-  handleNewModel(name, route, action){
-    let includes = this.state.fields.filter(index => index.startsWith(`\n    Thunks:\n`))
-    if(!includes.length){
-      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ stage: 1, fields: [...this.state.fields, thunk] })
+  handleNewModel(name, route, action) {
+    let includes = this.state.fields.filter(index =>
+      index.startsWith(`\n      Thunks:\n`)
+    );
+    if (!includes.length) {
+      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
     } else {
-      let thunk =`       - ${name}\n        - ${route}\n        - ${action}\n`
-      this.setState({ stage: 1, fields: [...this.state.fields, thunk] })
+      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
     }
   }
 
   handleExtras(crud, extraActions) {
-    !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
+    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
 
     let actions = ``;
     if (extraActions.length) {
-      let header = `\n    - Actions:\n`;
+      let header = `\n    Actions:\n`;
       let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });
-      fields.unshift(header)
+      fields.unshift(header);
       actions = fields.join("");
     }
 
@@ -144,8 +152,7 @@ export default class FormContainer extends Component {
   handleLocalStorage() {
     const [stage, fields] = ls.get("form");
     if (stage > this.state.stage) {
-      this.setState({ stage, fields }
-      );
+      this.setState({ stage, fields });
     }
   }
 
@@ -165,10 +172,12 @@ export default class FormContainer extends Component {
         handleStage={this.handleStage}
         handleProperties={this.handleProperties}
       />,
-      <StageThree
-        handleExtras={this.handleExtras}
-      />,
-      <StageFour handleThunks={this.handleThunks} handleStage={this.handleStage} handleNewModel={this.handleNewModel} />
+      <StageThree handleExtras={this.handleExtras} />,
+      <StageFour
+        handleThunks={this.handleThunks}
+        handleStage={this.handleStage}
+        handleNewModel={this.handleNewModel}
+      />
     ];
 
     let { stage } = this.state;
@@ -180,6 +189,7 @@ export default class FormContainer extends Component {
         <div id="form-and-editor-container">
           {stage > 4 ? (
             <SubmitPage
+              startOver={this.startOver}
               ready={this.state.readyToSubmit}
               data={this.state.fields}
               handleStructure={this.handleStructure}
@@ -187,23 +197,29 @@ export default class FormContainer extends Component {
           ) : (
             <form className="staged-form" autoComplete="off">
               {toRender[stage]}
+              <button
+                className="btn"
+                id="form-start-over-btn"
+                onClick={this.startOver}
+              >
+                START OVER
+              </button>
             </form>
           )}
-          <AceEditor
-            mode="yaml"
-            theme="solarized_light"
-            style={style}
-            value={text}
-            width={"25%"}
-            height={"100%"}
-            editorProps={{ $blockScrolling: true }}
-            readOnly={true}
-            fontSize={17}
-          />
+          <div id="editor-container">
+            <AceEditor
+              mode="yaml"
+              theme="solarized_light"
+              style={style}
+              value={text}
+              width={"100%"}
+              height={"100%"}
+              editorProps={{ $blockScrolling: true }}
+              readOnly={true}
+              fontSize={17}
+            />
+          </div>
         </div>
-        <button className="btn" id="start-over-btn" onClick={this.startOver}>
-          START OVER
-        </button>
       </div>
     );
   }

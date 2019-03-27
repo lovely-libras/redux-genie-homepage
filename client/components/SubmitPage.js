@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FileSaver from "file-saver";
-import ls from 'local-storage';
+import ls from "local-storage";
 import Joyride from "react-joyride";
 
 const yamlComments = `
@@ -45,11 +45,10 @@ export default class SubmitPage extends Component {
         },
         {
           target: "#lamp-button",
-          content:
-            "Click here to get your yaml file.",
+          content: "Click here to get your yaml file.",
           disableBeacon: true,
-          placement: 'top'
-        },
+          placement: "top"
+        }
       ]
     };
 
@@ -59,21 +58,21 @@ export default class SubmitPage extends Component {
 
   checkValidity() {
     if (!this.props.ready) {
-      console.log("first condition")
+      console.log("first condition");
       this.setState({
         errors: true,
         errorMessage: "Please select a folder structure."
       });
     } else {
-      console.log("second condition")
+      console.log("second condition");
       this.handleCreateFile();
-      ls.remove('form')
+      ls.remove("form");
     }
   }
 
   handleCreateFile() {
-    event.preventDefault()
-    console.log('trying to create the file')
+    event.preventDefault();
+    console.log("trying to create the file");
     let modelFields = this.props.data.map(ele => [ele]);
     modelFields.push([yamlComments]);
     let file = new File(modelFields, "lamp.config.yml", {
@@ -133,7 +132,19 @@ export default class SubmitPage extends Component {
             />
           </button>
         </div>
-        <Joyride steps={steps} showProgress={true} continuous={true} showSkipButton={true} />
+        <Joyride
+          steps={steps}
+          showProgress={true}
+          continuous={true}
+          showSkipButton={true}
+        />
+        <button
+          className="btn"
+          id="start-over-btn"
+          onClick={this.props.startOver}
+        >
+          START OVER
+        </button>
       </div>
     );
   }
