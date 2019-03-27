@@ -22,7 +22,7 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 0,
+      stage: 4,
       text: "",
       readyToSubmit: false
     };
@@ -41,7 +41,7 @@ export default class FormContainer extends Component {
   startOver() {
     ls.remove("form");
     this.setState({
-      fields: [`Models: \n \n`],
+      fields: [`Models: \n`],
       stage: 0,
       text: "",
       readyToSubmit: false
@@ -53,7 +53,7 @@ export default class FormContainer extends Component {
   }
 
   handleName(name) {
-    const newModel = `  - ${name}:\n\n`;
+    const newModel = `\n  - ${name}:\n\n    Slice:\n`;
     this.setState(
       {
         fields: [...this.state.fields, newModel]
@@ -81,16 +81,16 @@ export default class FormContainer extends Component {
   handleThunks(name, route, action) {
     console.log("fields", this.state.fields);
     let includes = this.state.fields.filter(index =>
-      index.startsWith("\n   - Thunks:\n")
+      index.startsWith(`\n      Thunks:\n`)
     );
     console.log("includes", includes);
     if (!includes.length) {
-      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`;
+      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
       this.setState({ fields: [...this.state.fields, thunk] }, () =>
         ls.set("form", [this.state.stage, this.state.fields])
       );
     } else {
-      let thunk = `       - ${name}\n        - ${route}\n        - ${action}\n`;
+      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
       this.setState({ fields: [...this.state.fields, thunk] }, () =>
         ls.set("form", [this.state.stage, this.state.fields])
       );
@@ -99,23 +99,23 @@ export default class FormContainer extends Component {
 
   handleNewModel(name, route, action) {
     let includes = this.state.fields.filter(index =>
-      index.startsWith(`\n    Thunks:\n`)
+      index.startsWith(`\n      Thunks:\n`)
     );
     if (!includes.length) {
-      let thunk = `\n   - Thunks:\n      - ${name}\n        - ${route}\n        - ${action}\n`;
+      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
       this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
     } else {
-      let thunk = `       - ${name}\n        - ${route}\n        - ${action}\n`;
+      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
       this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
     }
   }
 
   handleExtras(crud, extraActions) {
-    !crud ? (crud = `\n   - CRUD: false\n`) : (crud = ``);
+    !crud ? (crud = `\n    CRUD: false\n`) : (crud = ``);
 
     let actions = ``;
     if (extraActions.length) {
-      let header = `\n    - Actions:\n`;
+      let header = `\n    Actions:\n`;
       let fields = extraActions.split(" ").map(action => {
         return `      - ${action}\n`;
       });

@@ -417,7 +417,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormContainer).call(this));
     _this.state = {
       fields: ["Models: \n \n"],
-      stage: 0,
+      stage: 4,
       text: "",
       readyToSubmit: false
     };
@@ -439,7 +439,7 @@ function (_Component) {
     value: function startOver() {
       local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.remove("form");
       this.setState({
-        fields: ["Models: \n \n"],
+        fields: ["Models: \n"],
         stage: 0,
         text: "",
         readyToSubmit: false
@@ -458,7 +458,7 @@ function (_Component) {
     value: function handleName(name) {
       var _this2 = this;
 
-      var newModel = "  - ".concat(name, ":\n\n");
+      var newModel = "\n  - ".concat(name, ":\n\n    Slice:\n");
       this.setState({
         fields: [].concat(_toConsumableArray(this.state.fields), [newModel])
       }, function () {
@@ -495,19 +495,19 @@ function (_Component) {
 
       console.log("fields", this.state.fields);
       var includes = this.state.fields.filter(function (index) {
-        return index.startsWith("\n   - Thunks:\n");
+        return index.startsWith("\n      Thunks:\n");
       });
       console.log("includes", includes);
 
       if (!includes.length) {
-        var thunk = "\n   - Thunks:\n      - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var thunk = "\n      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
         this.setState({
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
         }, function () {
           return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
         });
       } else {
-        var _thunk = "       - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var _thunk = "       - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
 
         this.setState({
           fields: [].concat(_toConsumableArray(this.state.fields), [_thunk])
@@ -520,17 +520,17 @@ function (_Component) {
     key: "handleNewModel",
     value: function handleNewModel(name, route, action) {
       var includes = this.state.fields.filter(function (index) {
-        return index.startsWith("\n    Thunks:\n");
+        return index.startsWith("\n      Thunks:\n");
       });
 
       if (!includes.length) {
-        var thunk = "\n   - Thunks:\n      - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var thunk = "\n      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
         this.setState({
           stage: 1,
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
         });
       } else {
-        var _thunk2 = "       - ".concat(name, "\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var _thunk2 = "       - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
 
         this.setState({
           stage: 1,
@@ -543,11 +543,11 @@ function (_Component) {
     value: function handleExtras(crud, extraActions) {
       var _this6 = this;
 
-      !crud ? crud = "\n   - CRUD: false\n" : crud = "";
+      !crud ? crud = "\n    CRUD: false\n" : crud = "";
       var actions = "";
 
       if (extraActions.length) {
-        var header = "\n    - Actions:\n";
+        var header = "\n    Actions:\n";
         var fields = extraActions.split(" ").map(function (action) {
           return "      - ".concat(action, "\n");
         });
@@ -60408,7 +60408,7 @@ Object.defineProperty(exports,'__esModule',{value:!0});var VALIDATOR_ARG_ERROR_M
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

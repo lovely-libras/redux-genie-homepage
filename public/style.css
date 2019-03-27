@@ -241,6 +241,7 @@ input:valid {
   height: 90%;
   width: 100%;
   margin: 4em;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -263,7 +264,6 @@ input:valid {
 #form-start-over-btn {
   align-self: center;
   width: 30%;
-  height: 5vh;
   margin-top: 12vh;
 }
 
@@ -384,7 +384,7 @@ input:valid {
 }
 
 #stage-three-crud {
-  margin-top: 10%;
+  margin-top: 2em;
 }
 
 #stage-three-crud label {
@@ -392,7 +392,7 @@ input:valid {
 }
 
 #stage-three-actions {
-  margin-top: 15%;
+  margin-top: 2em;
 }
 
 #stage-three-actions input {
@@ -402,8 +402,8 @@ input:valid {
 }
 
 #stage-three-buttons {
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin-top: 2em;
+  margin-bottom: 4em;
   width: 80%;
   display: flex;
   justify-content: space-around;
@@ -556,10 +556,6 @@ input:valid {
     height: 60%;
   }
 
-  #stage-three-container {
-    height: 100%;
-  }
-
   #submit-page-left {
     height: 100%;
   }
@@ -571,22 +567,13 @@ input:valid {
   #submit-left-inputs-container {
     height: 30%;
   }
-}
 
-
-/* mobile */
-
-@media(max-width: 900px){
-  .sidenav{
-    visibility: hidden;
-  }
-
-  #documentation-container{
-    width: 80%
+  #start-over-btn{
+    height: 7vh;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1150px) {
 
   /* landing */
 
@@ -647,13 +634,19 @@ input:valid {
     height: 100%;
     width: 100%;
     margin-top: 6em;
-    margin-bottom: 3em;
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+
+  #form-start-over-btn{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 6vh;
+    width: 12vw;
   }
 
   .staged-form {
@@ -674,16 +667,20 @@ input:valid {
     align-items: center;
   }
 
+  #stage-zero-container{
+    height: 300px;
+  }
+
   #stage-one-container{
-    margin-top: -10em;
+    margin-top: -5em;
     margin-bottom: 2em;
-    height: 350px;
+    height: 250px;
   }
 
   #stage-two-container{
-    margin-top: -12em;
+    margin-top: -5em;
     margin-bottom: 2.5em;
-    height: 275px;
+    height: 325px;
   }
 
   #stage-two-input{
@@ -691,8 +688,7 @@ input:valid {
   }
 
   #stage-three-container{
-    margin-top: -7.5em;
-    margin-bottom: 2.5em;
+    margin-top: 1.5em;
     height: 350px;
   }
 
@@ -706,7 +702,6 @@ input:valid {
   }
 
   #stage-four-container{
-    margin-top: -6em;
     margin-bottom: 2.5em;
     height: 350px;
   }
@@ -725,16 +720,17 @@ input:valid {
     font-weight: 100;
   }
 
-  #start-over-btn {
-    margin-top: 10%;
-    width: 25%;
-    margin-left: 37.5%;
-    height: 8vh;
+  #start-over-btn{
+    margin-top: 6vh;
+    margin-left: 27vw;
+    margin-right: auto;
+    margin-bottom: 6vh;
+    position: center;
+    width: 25vw;
+    height: 6vh;
   }
 
-
   /* Documentation page */
-
 
   pre {
     white-space: pre-wrap;       /* css-3 */
@@ -773,6 +769,96 @@ input:valid {
     height: 700px;
     width: 285px;
   }
+}
+
+@media(max-width: 900px){
+  #form-start-over-btn{
+    margin: 6vh;
+    height: 6vh;
+    width: 20vw;
+  }
+
+  .sidenav{
+    visibility: hidden;
+  }
+
+  #documentation-container{
+    width: 80%
+  }
+}
+
+@media (max-width: 800px){
+
+  .staged-form{
+    margin-bottom: 6vh;
+  }
+
+  #stage-zero-container{
+    height: 400px;
+  }
+
+  #stage-zero-text{
+    height: 60%;
+  }
+
+  #stage-one-container{
+    height: 200px;
+    margin-bottom: 0;
+    padding-bottom: 1em;
+  }
+
+  #stage-two-container{
+    height: 250px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 500px){
+
+  .staged-form{
+    margin-top: 16em;
+  }
+
+  #stage-zero-container{
+    /* margin-top: 4em; */
+    margin-bottom: 4em;
+    height: 450px;
+  }
+
+  #stage-zero-text{
+    height: 66%;
+  }
+  #stage-one-container{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #form-start-over-btn{
+    margin: 6vh;
+    height: 6vh;
+    width: 40vw;
+  }
+
+  #stage-two-container{
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+
+  #stage-three-container{
+    margin-top: 7.25em;
+    margin-bottom: 0;
+  }
+
+  #stage-four-container{
+    margin-top: 7em;
+    margin-bottom: 0;
+  }
+
+  #stage-four-input input{
+    font-size: 15px;
+  }
+
+
 }
 
 @keyframes fadein {
