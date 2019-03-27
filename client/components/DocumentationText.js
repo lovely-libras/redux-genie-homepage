@@ -1,139 +1,141 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import brace from "brace";
-import AceEditor from "react-ace";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import brace from 'brace';
+import AceEditor from 'react-ace';
 
-import "brace/mode/yaml";
-import "brace/theme/solarized_light";
+import 'brace/mode/yaml';
+import 'brace/theme/solarized_light';
 
 const DocumentationText = () => {
-  const text1 =
-`Structure: Ducks # Two options: Rails || Ducks 
+  const text1 = `Structure: Ducks # Two options: Rails || Ducks
 
-        Models: 
-          - Dux: 
+        Models:
+          - Dux:
 
             Slice:
-              - Name: string 
-              - Quacking: Boolean 
-              - Ducklings: Object 
-              - Fly2Gether: Boolean 
+              - Name: string
+              - Quacking: Boolean
+              - Ducklings: Object
+              - Fly2Gether: Boolean
 
-            CRUD: false 
+            CRUD: false
 
-            Actions: 
-              - countDux 
-              - migrateDux 
+            Actions:
+              - countDux
+              - migrateDux
               - quackOne
 
-            Thunks: 
-              - getAll: "/api/Dux" 
-              - getOne: "/api/Dux/:dux" 
+            Thunks:
+              - getAll: "/api/Dux"
+              - getOne: "/api/Dux/:dux"
               - Terminator:
 
-            Slice: 
-              - WillBeBack: Boolean 
-              - OneLiners: Array 
+            Slice:
+              - WillBeBack: Boolean
+              - OneLiners: Array
               - Sequels: Number
 
-            Actions: 
-              - killJohnConnor 
-              - backInTime 
-            Thunks: 
-              - getAll: "api/terminator" 
-              - getOne: "api/terminator/:terminator"`
+            Actions:
+              - killJohnConnor
+              - backInTime
+            Thunks:
+              - getAll: "api/terminator"
+              - getOne: "api/terminator/:terminator"`;
 
-  const text2 =`
-// lamp.config.yml 
+  const text2 = `
+// lamp.config.yml
 
-... 
-
-Models: 
-  
-  - Dux: 
-    
-    Slice: 
-
-      - Name: string 
-      - Quacking: Boolean 
-      - Ducklings: Object 
-      - Fly2Gether: Boolean 
-    CRUD: false 
-  
 ...
-  `
-  const text3 =`
-  Structure: Ducks # Rails || Ducks 
-  Thunks: included # thunks in the same file as the actions 
-  Logging: false # configures logging middleware 
-  
-  Models: 
-  
-    - Dux: 
-  
-      Slice: 
-  
-        - Name: string 
-        - Quacking: Boolean 
-        - Ducklings: Object 
-        - Fly2Gether: Boolean 
-        
-      CRUD: false 
-  
+
+Models:
+
+  - Dux:
+
+    Slice:
+
+      - Name: string
+      - Quacking: Boolean
+      - Ducklings: Object
+      - Fly2Gether: Boolean
+    CRUD: false
+
+...
+  `;
+  const text3 = `
+  Structure: Ducks # Rails || Ducks
+  Thunks: included # thunks in the same file as the actions
+  Logging: false # configures logging middleware
+
+  Models:
+
+    - Dux:
+
+      Slice:
+
+        - Name: string
+        - Quacking: Boolean
+        - Ducklings: Object
+        - Fly2Gether: Boolean
+
+      CRUD: false
+
       Actions:
-        - countDux 
-        - migrateDux 
-        - quackOne 
-        
-      Thunks: 
-        - getAll: "/api/Dux" 
+        - countDux
+        - migrateDux
+        - quackOne
+
+      Thunks:
+        - getAll: "/api/Dux"
         - getOne: "/api/Dux/:dux"
-  
-    - Terminator: 
-    
-      Slice: 
-  
-        - WillBeBack: Boolean 
-        - OneLiners: Array 
-        - Sequels: Number 
-        
-      Actions: 
-        - killJohnConnor 
-        -backInTime 
-        
-      Thunks: 
-        - getAll: "api/terminator" 
-        - getOne: "api/terminator/:terminator"`
-  
-                
+
+    - Terminator:
+
+      Slice:
+
+        - WillBeBack: Boolean
+        - OneLiners: Array
+        - Sequels: Number
+
+      Actions:
+        - killJohnConnor
+        -backInTime
+
+      Thunks:
+        - getAll: "api/terminator"
+        - getOne: "api/terminator/:terminator"`;
+
   return (
     <div id="documentation-container" className="form-style">
       <h1 id="reduxgenie">Redux Genie</h1>
 
-      <h3 id="cheatcodesforredux">cheat codes for redux</h3>
+      <h3 id="cheatcodesforredux">Summon the Genie!</h3>
 
       <p>
-        Redux Genie isn't a "starter kit" or a library of helper methods. It
-        actually writes your Redux boilerplate code, either creating new files
-        or injecting code into existing store files. This makes the writing
-        process easier to start, easier to manage as you progress, and less
-        error-prone, without abstracting over any functionality of Redux itself.
+        Redux Genie is a development tool that writes the boilerplate code for your Redux components. You can create a store from scratch, and then inject new files and their corresponding code into your project through the command line interface. Now you can spend less time managing your Redux store without abstracting its functionality, while all the while avoiding common errors.
       </p>
 
       <p>
-        The genie can be comprehensive- generating the whole Redux store from
-        the outset of a project- or granular- creating or operating on a
-        specific slice of state for an existing project.
+        Utilizing our companion website, you can easily set the parameters that will construct your Redux store. Create your very own YML file, place it within your project's root directory, and then summon the genie to automatically create your front-end boilerplate.
+      </p>
+
+      <p>
+        Your wish is our command!
+      </p>
+
+
+      <p>
+        Redux Genie makes starting a new project quick and simple, allowing you to get straight to writing your own code.
       </p>
 
       <h2 id="store-declaration">
-        Store Declaration at the beginning of a project
+        Getting Started
       </h2>
 
       <p>
-        To generate a store, Redux Genie's configuration file- lamp.config.yml -
-        will need define the total store structure.{" "}
+        To begin, go to your project's root directory in your terminal and write:
       </p>
+
+      <code>$ npm install redux-genie</code>
 
       <p>
         Define your slices of state. We refer to them as "Models", but they can
@@ -158,7 +160,7 @@ Models:
       <blockquote>
         <p>
           Rails-style: separate folders for “actions”, “constants”, “reducers”,
-          “containers”, and “components”{" "}
+          “containers”, and “components”{' '}
         </p>
       </blockquote>
 
@@ -175,8 +177,8 @@ Models:
           theme="solarized_light"
           id="submit-page-right"
           value={text1}
-          height={"100%"}
-          width={"100"}
+          height={'100%'}
+          width={'100'}
           editorProps={{ $blockScrolling: true }}
           readOnly={true}
           fontSize={16}
@@ -196,17 +198,16 @@ Models:
       <pre>
         <div className="code-background">
           <code>
-            {
-` └─┬ store 
-   ├─store.js 
+            {` └─┬ store
+   ├─store.js
    ├─┬ actions
    │ ├── action_types_for_Terminator.js
-   │ └── action_types_for_Dux.js 
-   ├─┬ constants 
+   │ └── action_types_for_Dux.js
+   ├─┬ constants
    │ └── action_constants.js
-   └─┬ reducers 
-     ├── combine_reducers.js 
-     ├── Dux_reducer.js 
+   └─┬ reducers
+     ├── combine_reducers.js
+     ├── Dux_reducer.js
      └──Terminator_reducer.js`}
           </code>
         </div>
@@ -229,17 +230,17 @@ Models:
         excluded from the generate call as follows:
       </p>
       <div id="d-editor-two">
-      <AceEditor
-        mode="yaml"
-        theme="solarized_light"
-        id="submit-page-right"
-        value={text2}
-        height={"100%"}
-        width={"100%"}
-        editorProps={{ $blockScrolling: true }}
-        readOnly={true}
-        fontSize={16}
-      />
+        <AceEditor
+          mode="yaml"
+          theme="solarized_light"
+          id="submit-page-right"
+          value={text2}
+          height={'100%'}
+          width={'100%'}
+          editorProps={{ $blockScrolling: true }}
+          readOnly={true}
+          fontSize={16}
+        />
       </div>
       <h3 id="thunks">Thunks</h3>
 
@@ -265,21 +266,19 @@ Models:
         <code>Logging: false</code>
       </pre>
 
-      <h4>
-        Example of Full Configuration File:
-      </h4>
+      <h4>Example of Full Configuration File:</h4>
       <div id="d-editor-three">
-      <AceEditor
-        mode="yaml"
-        theme="solarized_light"
-        id="submit-page-right"
-        value={text3}
-        height={"100%"}
-        width={"100%"}
-        editorProps={{ $blockScrolling: true }}
-        readOnly={true}
-        fontSize={16}
-      />
+        <AceEditor
+          mode="yaml"
+          theme="solarized_light"
+          id="submit-page-right"
+          value={text3}
+          height={'100%'}
+          width={'100%'}
+          editorProps={{ $blockScrolling: true }}
+          readOnly={true}
+          fontSize={16}
+        />
       </div>
       <h2 id="cli-interface">CLI interface</h2>
 
@@ -330,20 +329,20 @@ Models:
       <pre>
         <div className="code-background">
           <code>
-{`genie generate model <model name> // generates a model with crud methods 
+            {`genie generate model <model name> // generates a model with crud methods
 
         eg: genie generate model Terminator // one model
         eg: genie generate model Terminator Dux // two models
 
 Note: will prompt if the root combiner isn't defined in the yaml file.
 
-options: 
+options:
 
 --crudless // create store code without defining any crud methods
 
         eg: genie generate model Dux --crudless
 
-genie generate model <model name> action <action name> 
+genie generate model <model name> action <action name>
 
         eg: genie generate model Terminator action getIsBack
 
@@ -353,7 +352,7 @@ genie generate thunk <thunk name> <thunk endpoints>
 
 genie generate domain <feature name>
 
-        eg: genie generate domain 
+        eg: genie generate domain
 
 genie generate thunk <thunk name> <thunk endpoint>
 
@@ -371,7 +370,7 @@ genie generate action <action name> <model assignment> `}
       <pre>
         <div className="code-background">
           <code>
-{`e.g. (Rails-Style)
+            {`e.g. (Rails-Style)
 
 ├─┬ store
 │ ├─┬ actions
@@ -397,7 +396,7 @@ genie generate action <action name> <model assignment> `}
       <pre>
         <div className="code-background">
           <code>
-{`
+            {`
 genie locate <model name> <file type>
 
         eg: genie locate Dux action types // $ ./store/actions
@@ -417,7 +416,7 @@ genie locate <domain name> <file type>
       <pre>
         <div className="code-background">
           <code>
-{`
+            {`
 genie edit <File Structure> <file type>
 
 genie edit ducks actions
