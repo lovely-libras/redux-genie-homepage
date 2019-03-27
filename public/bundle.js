@@ -140,21 +140,7 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! brace */ "./node_modules/brace/index.js");
-/* harmony import */ var brace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(brace__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-ace */ "./node_modules/react-ace/lib/index.js");
-/* harmony import */ var react_ace__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_ace__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _DocumentationText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DocumentationText */ "./client/components/DocumentationText.js");
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! brace/mode/yaml */ "./node_modules/brace/mode/yaml.js");
-/* harmony import */ var brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(brace_mode_yaml__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! brace/theme/solarized_light */ "./node_modules/brace/theme/solarized_light.js");
-/* harmony import */ var brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(brace_theme_solarized_light__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
+/* harmony import */ var _DocumentationText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocumentationText */ "./client/components/DocumentationText.js");
 
 
 
@@ -193,7 +179,7 @@ var Documentation = function Documentation() {
     href: "#locate"
   }, "Locate"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#edit"
-  }, "Edit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocumentationText__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }, "Edit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocumentationText__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Documentation);
@@ -1616,13 +1602,11 @@ function (_Component) {
     key: "checkValidity",
     value: function checkValidity() {
       if (!this.props.ready) {
-        console.log("first condition");
         this.setState({
           errors: true,
           errorMessage: "Please select a folder structure."
         });
       } else {
-        console.log("second condition");
         this.handleCreateFile();
         local_storage__WEBPACK_IMPORTED_MODULE_2___default.a.remove("form");
       }
@@ -1631,7 +1615,6 @@ function (_Component) {
     key: "handleCreateFile",
     value: function handleCreateFile() {
       event.preventDefault();
-      console.log("trying to create the file");
       var modelFields = this.props.data.map(function (ele) {
         return [ele];
       });
@@ -60362,7 +60345,7 @@ Object.defineProperty(exports,'__esModule',{value:!0});var VALIDATOR_ARG_ERROR_M
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
