@@ -111,11 +111,11 @@ Models:
       <h3 id="cheatcodesforredux">Summon the Genie!</h3>
 
       <p>
-        Redux Genie is a development tool that writes the boilerplate code for your Redux components. You can create a store from scratch, and then inject new files and their corresponding code into your project through the command line interface. Now you can spend less time managing your Redux store without abstracting its functionality, while all the while avoiding common errors.
+        Redux Genie is a development tool that writes the boilerplate code for your Redux components. You can create a store from scratch, and then inject new files and their corresponding code into your project through the command line interface. Now you can spend less time managing your Redux store without abstracting its functionality, while avoiding some common errors.
       </p>
 
       <p>
-        Utilizing our companion website, you can easily set the parameters that will construct your Redux store. Create your very own YML file, place it within your project's root directory, and then summon the genie to automatically create your front-end boilerplate.
+        Further, by utilizing our companion website, you can easily generate a YML file that contains the parameters you need to construct your Redux store. Place the YML file within your project's root directory, and then summon the genie to automatically create your front-end boilerplate.
       </p>
 
       <p>
@@ -142,6 +142,10 @@ Models:
         With Redux Genie now installed, all you need to get started is a YML file.
       </p>
 
+      <p>
+        "What's a YML file?", you may ask. It's a human-readable text file that allows you to define the parameters of your project's state. Redux Genie seeks out the lamp.config.yml file in your root directory, and like magic constructs the store according to the parameters it contains!
+      </p>
+
       <div id="d-editor-one">
         <AceEditor
           mode="yaml"
@@ -161,11 +165,7 @@ Models:
       </blockquote>
 
       <p>
-        "What's a YML file?", you may ask. It's a human-readable text file that allows you to define the parameters of your project's state. Redux Genie seeks out the lamp.config.yml file in your root directory, and like magic constructs the store according to the parameters it contains!
-      </p>
-
-      <p>
-        If this is your first time using a YML file, it is recommended you use our online tool to build a YML file. The YML is a very sensitive file, where one tab off or a misplaced space can prevent the program from rendering the store properly or at all. You should exercise caution when creating your own YML file from scratch. If you wish to see a sample of a fully functional YML file simply enter:
+        If this is your first time using a YML file, it is recommended you use our online tool to build a YML file. The YML is a very sensitive file, where one tab off or a misplaced space can prevent the program from rendering the store properly. You should always exercise caution when creating your own YML file from scratch. If you wish to see a sample of a fully functional YML file simply enter:
       </p>
 
       <pre>
@@ -175,7 +175,7 @@ Models:
       </pre>
 
       <p>
-        This will generate a sample YML file that you can use as a template to write your own in your editor of choice.
+        This will generate a sample lamp.config.yml file that you can use as a template to write your own YML.
       </p>
 
       <pre>
