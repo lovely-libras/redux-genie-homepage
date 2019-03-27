@@ -178,6 +178,12 @@ Models:
         This will generate a sample lamp.config.yml file that you can use as a template to write your own YML.
       </p>
 
+      <p>
+        Want to get started building your first YML file using our online tool? Just click here!
+      </p>
+
+<hr />
+
       <pre>
         <code>File Structure: Rails || Ducks</code>
       </pre>
