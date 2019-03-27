@@ -83,12 +83,12 @@ export default class FormContainer extends Component {
   handleThunks(name, route, action) {
     let {thunksToggle} = this.state
     if (!thunksToggle) {
-      let thunk = `      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      let thunk = `    Thunks:\n    - ${name}:\n      - ${route}\n      - ${action}\n`;
       this.setState({ thunksToggle: true, fields: [...this.state.fields, thunk] }, () =>
         ls.set("form", [this.state.stage, this.state.fields])
       );
     } else {
-      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
+      let thunk = `     - ${name}:\n      - ${route}\n      - ${action}\n`;
       this.setState({ fields: [...this.state.fields, thunk] }, () =>
         ls.set("form", [this.state.stage, this.state.fields])
       );
@@ -98,10 +98,10 @@ export default class FormContainer extends Component {
   handleNewModel(name, route, action) {
     let {thunksToggle} = this.state
     if (!thunksToggle) {
-      let thunk = `      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      let thunk = `    Thunks:\n    - ${name}:\n      - ${route}\n      - ${action}\n`;
       this.setState({ stage: 1, numModels: 1, fields: [...this.state.fields, thunk] });
     } else {
-      let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
+      let thunk = `     - ${name}:\n      - ${route}\n      - ${action}\n`;
       this.setState({ stage: 1, thunksToggle: false, numModels: 1, fields: [...this.state.fields, thunk] });
     }
   }

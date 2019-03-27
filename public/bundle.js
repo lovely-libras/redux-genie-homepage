@@ -452,7 +452,7 @@ function (_Component) {
       var thunksToggle = this.state.thunksToggle;
 
       if (!thunksToggle) {
-        var thunk = "      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var thunk = "    Thunks:\n    - ".concat(name, ":\n      - ").concat(route, "\n      - ").concat(action, "\n");
         this.setState({
           thunksToggle: true,
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
@@ -460,7 +460,7 @@ function (_Component) {
           return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
         });
       } else {
-        var _thunk = "       - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var _thunk = "     - ".concat(name, ":\n      - ").concat(route, "\n      - ").concat(action, "\n");
 
         this.setState({
           fields: [].concat(_toConsumableArray(this.state.fields), [_thunk])
@@ -475,14 +475,14 @@ function (_Component) {
       var thunksToggle = this.state.thunksToggle;
 
       if (!thunksToggle) {
-        var thunk = "      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var thunk = "    Thunks:\n    - ".concat(name, ":\n      - ").concat(route, "\n      - ").concat(action, "\n");
         this.setState({
           stage: 1,
           numModels: 1,
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
         });
       } else {
-        var _thunk2 = "       - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+        var _thunk2 = "     - ".concat(name, ":\n      - ").concat(route, "\n      - ").concat(action, "\n");
 
         this.setState({
           stage: 1,
