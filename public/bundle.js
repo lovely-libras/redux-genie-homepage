@@ -419,7 +419,8 @@ function (_Component) {
       fields: ["Models: \n \n"],
       stage: 0,
       text: "",
-      readyToSubmit: false
+      readyToSubmit: false,
+      thunksToggle: false
     };
     _this.handleName = _this.handleName.bind(_assertThisInitialized(_this));
     _this.handleProperties = _this.handleProperties.bind(_assertThisInitialized(_this));
@@ -442,6 +443,7 @@ function (_Component) {
         fields: ["Models: \n"],
         stage: 0,
         text: "",
+        thunksToggle: false,
         readyToSubmit: false
       });
     }
@@ -493,15 +495,12 @@ function (_Component) {
     value: function handleThunks(name, route, action) {
       var _this5 = this;
 
-      console.log("fields", this.state.fields);
-      var includes = this.state.fields.filter(function (index) {
-        return index.startsWith("\n      Thunks:\n");
-      });
-      console.log("includes", includes);
+      var thunksToggle = this.state.thunksToggle;
 
-      if (!includes.length) {
-        var thunk = "\n      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+      if (!thunksToggle) {
+        var thunk = "      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
         this.setState({
+          thunksToggle: true,
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
         }, function () {
           return local_storage__WEBPACK_IMPORTED_MODULE_9___default.a.set("form", [_this5.state.stage, _this5.state.fields]);
@@ -519,14 +518,13 @@ function (_Component) {
   }, {
     key: "handleNewModel",
     value: function handleNewModel(name, route, action) {
-      var includes = this.state.fields.filter(function (index) {
-        return index.startsWith("\n      Thunks:\n");
-      });
+      var thunksToggle = this.state.thunksToggle;
 
-      if (!includes.length) {
-        var thunk = "\n      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
+      if (!thunksToggle) {
+        var thunk = "      Thunks:\n      - ".concat(name, ":\n        - ").concat(route, "\n        - ").concat(action, "\n");
         this.setState({
           stage: 1,
+          numModels: 1,
           fields: [].concat(_toConsumableArray(this.state.fields), [thunk])
         });
       } else {
@@ -534,6 +532,8 @@ function (_Component) {
 
         this.setState({
           stage: 1,
+          thunksToggle: false,
+          numModels: 1,
           fields: [].concat(_toConsumableArray(this.state.fields), [_thunk2])
         });
       }
