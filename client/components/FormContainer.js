@@ -24,7 +24,8 @@ export default class FormContainer extends Component {
       fields: [`Models: \n \n`],
       stage: 0,
       text: "",
-      readyToSubmit: false
+      readyToSubmit: false,
+      thunksToggle: false
     };
     this.handleName = this.handleName.bind(this);
     this.handleProperties = this.handleProperties.bind(this);
@@ -79,14 +80,10 @@ export default class FormContainer extends Component {
   }
 
   handleThunks(name, route, action) {
-    console.log("fields", this.state.fields);
-    let includes = this.state.fields.filter(index =>
-      index.startsWith(`\n      Thunks:\n`)
-    );
-    console.log("includes", includes);
-    if (!includes.length) {
-      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
-      this.setState({ fields: [...this.state.fields, thunk] }, () =>
+    let {thunksToggle} = this.state
+    if (!thunksToggle) {
+      let thunk = `      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ thunksToggle: true, fields: [...this.state.fields, thunk] }, () =>
         ls.set("form", [this.state.stage, this.state.fields])
       );
     } else {
@@ -98,15 +95,13 @@ export default class FormContainer extends Component {
   }
 
   handleNewModel(name, route, action) {
-    let includes = this.state.fields.filter(index =>
-      index.startsWith(`\n      Thunks:\n`)
-    );
-    if (!includes.length) {
-      let thunk = `\n      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
-      this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
+    let {thunksToggle} = this.state
+    if (!thunksToggle) {
+      let thunk = `      Thunks:\n      - ${name}:\n        - ${route}\n        - ${action}\n`;
+      this.setState({ stage: 1, numModels: 1, fields: [...this.state.fields, thunk] });
     } else {
       let thunk = `       - ${name}:\n        - ${route}\n        - ${action}\n`;
-      this.setState({ stage: 1, fields: [...this.state.fields, thunk] });
+      this.setState({ stage: 1, thunksToggle: false, numModels: 1, fields: [...this.state.fields, thunk] });
     }
   }
 
