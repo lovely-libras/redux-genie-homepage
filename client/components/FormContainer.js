@@ -45,6 +45,7 @@ export default class FormContainer extends Component {
       fields: [`Models: \n`],
       stage: 0,
       text: "",
+      thunksToggle: false,
       readyToSubmit: false
     });
   }
