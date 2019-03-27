@@ -58,13 +58,11 @@ export default class SubmitPage extends Component {
 
   checkValidity() {
     if (!this.props.ready) {
-      console.log("first condition");
       this.setState({
         errors: true,
         errorMessage: "Please select a folder structure."
       });
     } else {
-      console.log("second condition");
       this.handleCreateFile();
       ls.remove("form");
     }
@@ -72,7 +70,6 @@ export default class SubmitPage extends Component {
 
   handleCreateFile() {
     event.preventDefault();
-    console.log("trying to create the file");
     let modelFields = this.props.data.map(ele => [ele]);
     modelFields.push([yamlComments]);
     let file = new File(modelFields, "lamp.config.yml", {
