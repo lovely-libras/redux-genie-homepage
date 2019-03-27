@@ -22,7 +22,7 @@ export default class FormContainer extends Component {
     super();
     this.state = {
       fields: [`Models: \n \n`],
-      stage: 4,
+      stage: 0,
       text: "",
       readyToSubmit: false
     };
