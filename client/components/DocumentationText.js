@@ -146,38 +146,8 @@ Models:
       </pre>
       <p>
         With Redux Genie now installed, all you need to get started is a YML
-        file.
-      </p>
-      <h2 id="store-declaration">What's a YML file?</h2>
-      <p>
-        A YML file (*.yml) is a human-readable text file that allows you to
-        define the parameters of your project's state. Redux Genie seeks out the
-        <b>lamp.config.yml</b> file in your root directory, and like magic
-        constructs the store according to the parameters it contains!
-      </p>
-      <blockquote>
-        <p>
-          <i>A sample lamp.config.yml file.</i>
-        </p>
-      </blockquote>
-      <p>
-        If this is your first time using a YML file, it is recommended you use
-        our online tool to assist you in building your first one. The YML is a
-        very sensitive file, where a tab off or a misplaced space can prevent
-        the program from rendering the store properly. You should always
-        exercise caution when creating your own YML file from scratch. If you
-        wish to see a sample of a fully functional YML file simply enter:
-      </p>
-      <pre>
-        <code>$ genie sample</code>
-      </pre>
-      <p>
-        This will generate a sample lamp.config.yml file that you can use as a
-        template to write your own YML.
-      </p>
-      <p>
-        Want to get started building your first YML file using our online tool?
-        Just click here!
+        file. It is recommended you use our online tool to assist you in
+        building one - just click here.
       </p>
       <p>
         Otherwise, you can skip to the section below about using the command
@@ -225,8 +195,7 @@ Models:
       </p>
       <h2 id="store-declaration">C.R.U.D.</h2>
       <p>
-        Redux Genie provides basic C.R.U.D. (Create, Read, Update, Delete)
-        routes when it builds your models.
+        Redux Genie provides basic C.R.U.D. routes when it builds your models.
       </p>
       <p>
         If you do not need these routes for a particular model, you can set CRUD
