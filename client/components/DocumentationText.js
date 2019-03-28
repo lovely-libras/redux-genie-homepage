@@ -151,23 +151,10 @@ Models:
       <h2 id="store-declaration">What's a YML file?</h2>
       <p>
         A YML file (*.yml) is a human-readable text file that allows you to
-        define the parameters of your project's state. Redux Genie seeks out the{' '}
+        define the parameters of your project's state. Redux Genie seeks out the
         <b>lamp.config.yml</b> file in your root directory, and like magic
         constructs the store according to the parameters it contains!
       </p>
-      <div id="d-editor-one">
-        <AceEditor
-          mode="yaml"
-          theme="solarized_light"
-          id="submit-page-right"
-          value={text1}
-          height={'100%'}
-          width={'100'}
-          editorProps={{ $blockScrolling: true }}
-          readOnly={true}
-          fontSize={16}
-        />
-      </div>
       <blockquote>
         <p>
           <i>A sample lamp.config.yml file.</i>
@@ -309,220 +296,42 @@ Models:
       </p>
 
       <h2 id="store-declaration">Genie Update</h2>
+
       <p>
         <code>$ genie update</code>
       </p>
 
       <p>
-        Should you need to make changes to your models once you've already run{' '}
-        <code>genie generate</code>, you can edit the lamp.config.yml and then
-        run the update command.
+        Should you need to make changes to your models once you've already run
+        genie generate, you can edit the lamp.config.yml and then run the update
+        command.
       </p>
 
       <h2 id="store-declaration">Genie Add</h2>
+
       <p>
         <code>$ genie add -m </code>
       </p>
 
-      <hr />
-      <p>Output file structure:</p>
-      <pre>
-        <div className="code-background">
-          <code>
-            {`
-  └─┬ store
-    ├─store.js
-    ├─┬ actions
-    │ ├── action_types_for_Terminator.js
-    │ └── action_types_for_Dux.js
-    ├─┬ constants
-    │ └── action_constants.js
-    └─┬ reducers
-      ├── combine_reducers.js
-      ├── Dux_reducer.js
-      └──Terminator_reducer.js`}
-          </code>
-        </div>
-      </pre>
-      <h3 id="ducks-style">Ducks Style</h3>
-      <blockquote>
-        <p>“Ducks”: separate folders per feature or domain</p>
-      </blockquote>
-      <h3>Options</h3>
-      <p>Options to customize the generate call.</p>
-      <h4>CRUD = false</h4>
       <p>
-        Each model is automatically generated with CRUD methods. These can be
-        excluded from the generate call as follows:
+        The add command allows you to add specific properties or thunks to an
+        existing model, or add an entirely new model with defined properties to
+        an existing store.
       </p>
-      <div id="d-editor-two">
-        <AceEditor
-          mode="yaml"
-          theme="solarized_light"
-          id="submit-page-right"
-          value={text2}
-          height={'100%'}
-          width={'100%'}
-          editorProps={{ $blockScrolling: true }}
-          readOnly={true}
-          fontSize={16}
-        />
-      </div>
-      <h3 id="thunks">Thunks</h3>
-      <p>Thunks can optionally be included in the same file as the actions: </p>
-      <br />
-      <pre>
-        <code className="code-background">Thunks: included</code>
-      </pre>
-      <br />
+
+      <p>To create a new model, use -M flag followed by the model name.</p>
+
       <p>
-        If "Thunks" are excluded in the model definition, they will be omitted
-        from the generate call. These can be added later via "genie update" (see
-        below).
+        Additionally, if you'd like to create an action or thunk with that new
+        model, use the -a or -t flag respectively along with a name.
       </p>
-      <h3 id="logging">Logging</h3>
+
       <p>
-        Redux logger is wired into the store by default, but can be excluded.
+        To create a new model without CRUD routes, append the --noCRUD argument
+        to the command.
       </p>
-      <pre>
-        <code>Logging: false</code>
-      </pre>
-      <h4>Example of Full Configuration File:</h4>
-      <div id="d-editor-three">
-        <AceEditor
-          mode="yaml"
-          theme="solarized_light"
-          id="submit-page-right"
-          value={text3}
-          height={'100%'}
-          width={'100%'}
-          editorProps={{ $blockScrolling: true }}
-          readOnly={true}
-          fontSize={16}
-        />
-      </div>
-      <h2 id="cli-interface">CLI interface</h2>
-      <h4>genie generate</h4>
-      <p>
-        To initialize a project, write the yaml configuration file and call:
-      </p>
-      <pre>
-        <br />
-        <code className="code-background">genie generate</code>
-        <br />
-        <br />
-      </pre>
-      <h4 id="generate">genie update</h4>
-      <p>
-        After the store is initialized, the genie can add to the store in two
-        ways: from the yml configuration file via "genie update," or from the
-        command line via "genie add".
-      </p>
-      <p>To perform a yml update, add or alter the yaml file and then call: </p>
-      <pre>
-        <br />
-        <code className="code-background">genie update store</code>
-        <br />
-        <br />
-      </pre>
-      <p>
-        The genie will diff the new yml config to previous version and generate
-        any required updates.
-      </p>
-      <p>
-        Note: Logging, CRUD, and thunk separation choices cannot be changed
-        after initial generate.
-      </p>
-      <h4 id="add">genie add</h4>
-      <p>Add directly from the command line, declaring the same information:</p>
-      <pre>
-        <div className="code-background">
-          <code>
-            {`genie generate model <model name> // generates a model with crud methods
 
-        eg: genie generate model Terminator // one model
-        eg: genie generate model Terminator Dux // two models
-
-Note: will prompt if the root combiner isn't defined in the yaml file.
-
-options:
-
---crudless // create store code without defining any crud methods
-
-        eg: genie generate model Dux --crudless
-
-genie generate model <model name> action <action name>
-
-        eg: genie generate model Terminator action getIsBack
-
-genie generate thunk <thunk name> <thunk endpoints>
-
-        eg: genie generate model Lolz
-
-genie generate domain <feature name>
-
-        eg: genie generate domain
-
-genie generate thunk <thunk name> <thunk endpoint>
-
-genie generate action <action name> <model assignment> `}
-          </code>
-        </div>
-      </pre>
-      <h4 id="list">genie list ( genie ls )</h4>
-      <p>genie list store</p>
-      <p>Returns the total file structure of the store:</p>
-      <pre>
-        <div className="code-background">
-          <code>
-            {`e.g. (Rails-Style)
-
-├─┬ store
-│ ├─┬ actions
-│ │ ├── action_types_for_Terminator.js
-│ │ └── action_types_for_Dux.js
-│ ├─┬ constants
-│ │ └── action_constants.js
-│ └─┬ reducers
-│   ├── combine_reducers.js
-│   ├── Dux_reducer.js
-│   └── Terminator_reducer.js
-└── store.js`}
-          </code>
-        </div>
-      </pre>
-      <p>genie list models genie list actions mine genie list thunks</p>
-      <h4 id="genielocategenieloc">genie locate ( genie loc )</h4>
-      <p>Returns the file path of a store sub-directory to the command line.</p>
-      <pre>
-        <div className="code-background">
-          <code>
-            {`
-genie locate <model name> <file type>
-
-        eg: genie locate Dux action types // $ ./store/actions
-
-genie locate <domain name> <file type>
-
-        eg: genie locate navbar reducer // $ ./store/navbar/reducers
-`}
-          </code>
-        </div>
-      </pre>
-      <h4 id="edit">genie edit</h4>
-      <p>Edit the template files.</p>
-      <pre>
-        <div className="code-background">
-          <code>
-            {`
-genie edit <File Structure> <file type>
-
-genie edit ducks actions
-`}
-          </code>
-        </div>
-      </pre>
-      {/* *************** */}
+      <p>To update an existing, use -m.</p>
     </div>
   );
 };
