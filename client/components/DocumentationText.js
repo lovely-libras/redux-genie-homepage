@@ -301,6 +301,15 @@ Models:
       </p>
 
       <p>To update an existing, use -m.</p>
+
+      <h2 id="store-declaration">Genie List</h2>
+      <pre>
+        <code>$ genie ls</code>
+      </pre>
+      <p>
+        You can use the list command to see a print out of your store
+        directory's file structure in the command line.
+      </p>
     </div>
   );
 };
