@@ -301,7 +301,6 @@ Models:
       </p>
       <pre>
         <code>$ genie help</code>
-        <code>$ genie h</code>
       </pre>
       <p>
         This brings up a prompt that displays the commands available while using
@@ -310,8 +309,6 @@ Models:
       <h2 id="store-declaration">Genie Generate</h2>
       <pre>
         <code>$ genie generate</code>
-        <code>$ genie gen</code>
-        <code>$ genie g</code>
       </pre>
       <p>
         Genie generate instructs Redux Genie to look at the lamp.config.yml in
@@ -321,7 +318,6 @@ Models:
       <h2 id="store-declaration">Genie Sample</h2>
       <pre>
         <code>$ genie sample</code>
-        <code>$ genie s</code>
       </pre>
       <p>
         Creates a sample lamp.config.yml file in your current directory. You can
