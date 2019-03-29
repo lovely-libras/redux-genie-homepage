@@ -137,21 +137,51 @@ Models:
       </p>
       <p>Your wish is our command!</p>
       <h2 id="store-declaration">Getting Started</h2>
-      <p>
-        To begin, go to your project's root directory in your terminal and
-        write:
-      </p>
+      <p>To begin, install Redux Genie globally from the NPM registry:</p>
       <pre>
-        <code>$ npm install redux-genie</code>
+        <code>$ npm install -g redux-genie</code>
       </pre>
       <p>
-        With Redux Genie now installed, all you need to get started is a YML
-        file. It is recommended you use our online tool to assist you in
-        building one - just click here.
+        Now navigate to your project's root directory. With Redux Genie
+        installed, all you need to get started is a YML file.
+      </p>
+      <h2 id="store-declaration">What's a YML file?</h2>
+      <p>
+        A YML configuration file {'(*.yml)'} is a human-readable text file that
+        allows you to define the parameters of your project's state. It written
+        in the YAML Ain't Markup Language {'(YAML)'} language; you can learn
+        more about YAML here.
       </p>
       <p>
-        Otherwise, you can skip to the section below about using the command
-        line interface.
+        Redux Genie seeks out the lamp.config.yml file in your root directory,
+        and - like magic - constructs the store according to the parameters it
+        contains!
+      </p>
+      <h1>SAMPLE HERE</h1>
+      <blockquote>
+        <p>
+          <i>A sample lamp.config.yml file.</i>
+        </p>
+      </blockquote>
+      <p>
+        The YML is a very sensitive file, where a tab off or a misplaced space
+        can prevent the program from rendering the store properly. You should
+        always exercise caution when creating your own YML file from scratch.
+      </p>
+      <p>
+        If this is your first time using a YML file, it is recommended you use
+        our online tool to assist you in building your first one by clicking
+        here.
+      </p>
+      <p>
+        If you wish to see a sample of a fully functional YML file simply enter:
+      </p>
+      <pre>
+        <code>$ genie sample</code>
+      </pre>
+      <p>
+        This will generate a sample lamp.config.yml file that you can use as a
+        template to write your own YML.
       </p>
       <h2 id="store-declaration">Structure</h2>
       <p>
@@ -235,7 +265,7 @@ Models:
       <p>
         If you wish, you can disable this option when creating your YML file.
       </p>
-      <h2 id="store-declaration">Using the Command Line Interface</h2>
+      <h2 id="store-declaration">Starting your project</h2>
       <p>
         With your YML file prepared or downloaded, it is time to set up your
         project!
@@ -248,60 +278,55 @@ Models:
         Once placed, open up your preferred terminal and change directories to
         your project's root.
       </p>
-      <p>Now we can begin executing commands to generate your Redux store.</p>
-      <h2 id="store-declaration">Genie Generate</h2>
       <p>
-        <code>$ genie generate</code>
+        Now we can begin executing commands to generate your Redux store! To
+        generate store simply call the generate command:
       </p>
+      <pre>
+        <code>$ genie generate</code>
+      </pre>
+      <p>
+        Once the compliler done - that's it! A store directory containing your
+        boilerplate should appear in your current directory.
+      </p>
+      <p>Happy coding!</p>
+      <h2 id="store-declaration">Using the Command Line Interface</h2>
+      <p>
+        Redux Genie provides several commands to aid you in the development of
+        your Redux boilerplate.
+      </p>
+      <p>
+        At any time you can get a brief summary of Redux Genie's commands by
+        typing:
+      </p>
+      <pre>
+        <code>$ genie help</code>
+        <code>$ genie h</code>
+      </pre>
+      <p>
+        This brings up a prompt that displays the commands available while using
+        Redux Genie.
+      </p>
+      <h2 id="store-declaration">Genie Generate</h2>
+      <pre>
+        <code>$ genie generate</code>
+        <code>$ genie gen</code>
+        <code>$ genie g</code>
+      </pre>
       <p>
         Genie generate instructs Redux Genie to look at the lamp.config.yml in
         your current directory, and then proceeds with constructing the store's
         boilerplate according to the YML's parameters.
       </p>
-
+      <h2 id="store-declaration">Genie Sample</h2>
+      <pre>
+        <code>$ genie sample</code>
+        <code>$ genie s</code>
+      </pre>
       <p>
-        Once invoked, you're done! You can begin editing the boilerplate to fit
-        your project's needs.
+        Creates a sample lamp.config.yml file in your current directory. You can
+        use this as template for writing your own YML configuration file.
       </p>
-
-      <h2 id="store-declaration">Genie Update</h2>
-
-      <p>
-        <code>$ genie update</code>
-      </p>
-
-      <p>
-        Should you need to make changes to your models once you've already run
-        genie generate, you can edit the lamp.config.yml and then run the update
-        command.
-      </p>
-
-      <h2 id="store-declaration">Genie Add</h2>
-
-      <p>
-        <code>$ genie add -m </code>
-      </p>
-
-      <p>
-        The add command allows you to add specific properties or thunks to an
-        existing model, or add an entirely new model with defined properties to
-        an existing store.
-      </p>
-
-      <p>To create a new model, use -M flag followed by the model name.</p>
-
-      <p>
-        Additionally, if you'd like to create an action or thunk with that new
-        model, use the -a or -t flag respectively along with a name.
-      </p>
-
-      <p>
-        To create a new model without CRUD routes, append the --noCRUD argument
-        to the command.
-      </p>
-
-      <p>To update an existing, use -m.</p>
-
       <h2 id="store-declaration">Genie List</h2>
       <pre>
         <code>$ genie ls</code>
@@ -309,6 +334,39 @@ Models:
       <p>
         You can use the list command to see a print out of your store
         directory's file structure in the command line.
+      </p>
+      <h2 id="store-declaration">Genie Update</h2>
+      <pre>
+        <code>$ genie update</code>
+      </pre>
+      <p>
+        Should you need to make changes to your models once you've already run
+        genie generate, you can edit the lamp.config.yml and then run the update
+        command.
+      </p>
+      <h2 id="store-declaration">Genie Add</h2>
+      <p>
+        <code>
+          $ genie add {'[-m]'} {'<model_name>'} {'[-a]'} {'<action_name>'}{' '}
+          {'[-t]'} {'<thunk_name>'}
+        </code>
+      </p>
+      <p>
+        The add command allows you to add specific properties or thunks to an
+        existing model, or add an entirely new model with defined properties to
+        an existing store.
+      </p>
+      <p>
+        To create a new model, use {'[-M]'} flag followed by the model name.
+        Altenratively, to update an existing model, use {'[-m]'}.
+      </p>
+      <p>
+        Additionally, if you'd like to create an action or thunk with that new
+        model, use the {'[-a]'} or {'[-t]'} flag respectively along with a name.
+      </p>
+      <p>
+        To create a new model without CRUD routes, append the --noCRUD argument
+        to the command.
       </p>
     </div>
   );
