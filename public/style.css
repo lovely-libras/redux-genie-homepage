@@ -970,6 +970,12 @@ input:valid {
   }
 }
 
+@media (min-height: 700px){
+  #submit-left-button{
+    height: 150px;
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

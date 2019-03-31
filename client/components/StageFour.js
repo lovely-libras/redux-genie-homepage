@@ -13,27 +13,11 @@ export default class StageFour extends Component {
       errorMessage: "",
       steps: [
         {
-          target: "#step-one",
+          target: "#stage-four-input",
           content:
-            "What's a property on your model? If it's a user do will they have an email address? First name? Favorite CLI tools? Name it here.",
+            "If you know you want thunks and you know what your backend will look like, provide that information here.",
           disableBeacon: true
         },
-        {
-          target: "#step-two",
-          content:
-            "What kind of data type will this property be? Let us know so state can be initialized for that type",
-          disableBeacon: true
-        },
-        {
-          target: "#step-three",
-          content: "Click here if you want to add another property, or...",
-          disableBeacon: true
-        },
-        {
-          target: "#step-four",
-          content: "Click here to proceed on.",
-          disableBeacon: true
-        }
       ]
     };
 
@@ -178,12 +162,12 @@ export default class StageFour extends Component {
             ADD ANOTHER MODEL
           </button>
         </div>
-        {/* <Joyride
+        <Joyride
           steps={steps}
           showProgress={true}
           continuous={true}
           showSkipButton={true}
-        /> */}
+        />
       </div>
     );
   }

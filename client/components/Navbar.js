@@ -17,8 +17,8 @@ export default class Navbar extends Component {
         <div id="nav-right">
           <Link className="nav-link" to="/docs" style={{ textDecoration: 'none' }}>Reference</Link>          
           <Link className="nav-link" to="/wish" style={{ textDecoration: 'none' }}>Configure</Link>
-          <a href="https://www.npmjs.com/package/redux-genie"><i id="npm-logo" className="fab fa-npm fa-2x" /></a>
-          <a href="https://github.com/lovely-libras/redux-genie"><i id="github-logo" className="fab fa-github fa-2x" /></a>
+          <a href="https://www.npmjs.com/package/redux-genie" target="_blank" ><i id="npm-logo" className="fab fa-npm fa-2x" /></a>
+          <a href="https://github.com/lovely-libras/redux-genie" target="_blank" ><i id="github-logo" className="fab fa-github fa-2x" /></a>
         </div>
       </div>
     );

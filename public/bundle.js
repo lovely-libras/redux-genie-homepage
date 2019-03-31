@@ -357,7 +357,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormContainer).call(this));
     _this.state = {
       fields: ["Models: \n \n"],
-      stage: 0,
+      stage: 4,
       text: "",
       readyToSubmit: false,
       thunksToggle: false
@@ -717,11 +717,15 @@ function (_Component) {
         style: {
           textDecoration: 'none'
         }
-      }, "Configure"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, "Configure"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.npmjs.com/package/redux-genie",
+        target: "_blank"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         id: "npm-logo",
         className: "fab fa-npm fa-2x"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://github.com/lovely-libras/redux-genie"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/lovely-libras/redux-genie",
+        target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         id: "github-logo",
         className: "fab fa-github fa-2x"
@@ -793,20 +797,8 @@ function (_Component) {
       errors: false,
       errorMessage: "",
       steps: [{
-        target: "#step-one",
-        content: "What's a property on your model? If it's a user do will they have an email address? First name? Favorite CLI tools? Name it here.",
-        disableBeacon: true
-      }, {
-        target: "#step-two",
-        content: "What kind of data type will this property be? Let us know so state can be initialized for that type",
-        disableBeacon: true
-      }, {
-        target: "#step-three",
-        content: "Click here if you want to add another property, or...",
-        disableBeacon: true
-      }, {
-        target: "#step-four",
-        content: "Click here to proceed on.",
+        target: "#stage-four-input",
+        content: "If you know you want thunks and you know what your backend will look like, provide that information here.",
         disableBeacon: true
       }]
     };
@@ -961,7 +953,12 @@ function (_Component) {
         },
         className: "btn",
         id: "step-three"
-      }, "ADD ANOTHER MODEL")));
+      }, "ADD ANOTHER MODEL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_joyride__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        steps: steps,
+        showProgress: true,
+        continuous: true,
+        showSkipButton: true
+      }));
     }
   }]);
 
