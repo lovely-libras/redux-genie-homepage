@@ -157,7 +157,6 @@ Models:
         and - like magic - constructs the store according to the parameters it
         contains!
       </p>
-      <h1>SAMPLE HERE</h1>
       <blockquote>
         <p>
           <i>A sample lamp.config.yml file.</i>
