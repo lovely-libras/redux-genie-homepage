@@ -2,6 +2,7 @@ import React from "react";
 import DocumentationText from "./DocumentationText";
 
 const Documentation = () => {
+  
   return (
     <div id="docs-container">
       <div className="sidenav">

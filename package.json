@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "start-dev": "webpack -w & nodemon server"
+    "start-dev": "webpack -w & nodemon server",
+    "sh": "cd ~/.ssh && ssh -i $key ubuntu@$addy",
+    "dep-install": "chmod +x ./deploy/install && ./deploy/install ubuntu@$addy",
+    "dep-nginx": "chmod +x ./deploy/nginxConfig && ./deploy/nginxConfig",
+    "deploy": "addy=$addy key=$key pm2 deploy ecosystem.config.js production",
+    "site": "open http://$addy"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +21,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "pm2": "^3.5.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },

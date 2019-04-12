@@ -16,8 +16,8 @@ these are the package.json scripts:
 
 ```json
 "sh": "cd ~/.ssh & ssh -i $key ubuntu@$addy",
-"dep-install": "chmod +x ./deploy/install & ./deploy/install ubuntu@$addy",
-"dep-nginx": "chmod +x ./deploy/nginxConfig & ./deploy/nginxConfig",
+"dep-install": "chmod +x ./deploy/install && ./deploy/install ubuntu@$addy",
+"dep-nginx": "chmod +x ./deploy/nginxConfig && ./deploy/nginxConfig",
 "deploy": "addy=$addy key=$key pm2 deploy ecosystem.config.js production",
 "site":"open http://$addy",
 ```
