@@ -2,6 +2,7 @@ import React from 'react';
 import Gist from 'react-gist';
 
 const DocumentationText = () => {
+  
   const gistId = '6bab6ddad0f662366ff178850fe628d1'
 
   return (
