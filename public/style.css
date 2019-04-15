@@ -31,10 +31,7 @@ code {
   word-wrap: break-word;
 }
 
-iframe {
-  
-  pointer-events: none
-}
+
 
 
 input {
@@ -820,6 +817,11 @@ input:valid {
 }
 
 @media (max-width: 500px){
+  
+  iframe {
+
+    pointer-events: none
+  }
 
   #landing-header h1{
     font-size: 50px;
@@ -881,9 +883,16 @@ input:valid {
 }
 
 @media (max-width: 340px){
+
   /* #landing-container{
     margin-left: 2.75vw;
   } */
+
+  iframe {
+
+    pointer-events: none
+  }
+  
   .nav{
     width: 100vw;
   }
