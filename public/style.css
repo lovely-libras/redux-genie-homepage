@@ -214,7 +214,7 @@ input:valid {
   padding: 2em;
   line-height: 1.65;
   background-color: rgb(200, 195, 211);
-  animation: fadein 2s;
+  animation: fadein .5s;
 }
 
 .sidenav-indent {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import FormContainer from './components/FormContainer';
-import {Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Landing from './components/Landing'
 import Documentation from './components/Documentation'
 
