@@ -1,11 +1,13 @@
 import React from 'react';
 import Gist from 'react-gist';
+import Media from 'react-media'
 
 const DocumentationText = () => {
   
   const gistId = '6bab6ddad0f662366ff178850fe628d1'
 
   return (
+    
     <div id="documentation-container" className="form-style">
       
       <h1 >Redux Genie</h1>
@@ -39,7 +41,10 @@ Structure: Rails || Ducks
 Define the slices of state. We refer to them as "Models", but they can correspond to database models, domains (e.g. "landing page"), features (e.g. "checkout"), or any other way you want to organize state. The genie automatically generates and configures all CRUD methods with separate subreducers for each Model, with Thunks linked to the Redux-Thunk middleware calling your defined API endpoints.
 </p>
 
+
+
 <Gist id={gistId} file='sample_yaml.md'/>
+
 
 <p>
 Place the lamp.config.yml file in the project root directory, then run:
@@ -65,11 +70,17 @@ Generated file structure:
 
 <Gist id={gistId} file='ducksFileStr.md' />
 
-<h2 id="lamp"> <i> lamp.config.yml options </i> </h2>
 
-<h3> tldr : Example of Full Configuration File: </h3>
 
-<Gist id={gistId} file='fullconfig.md' />
+<div>
+  <h2 id="lamp"> <i> lamp.config.yml options </i> </h2>
+
+  <h3> tldr : Example of Full Configuration File: </h3>
+
+  <Gist id={gistId} file='fullconfig.md' />
+</div>
+
+
 
 <h3> <i> Options to customize the generate call. </i> </h3>
 

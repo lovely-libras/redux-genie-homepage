@@ -31,6 +31,12 @@ code {
   word-wrap: break-word;
 }
 
+iframe {
+  
+  pointer-events: none
+}
+
+
 input {
   border-top: none;
   border-left: none;
